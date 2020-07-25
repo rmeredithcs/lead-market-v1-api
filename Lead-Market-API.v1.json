@@ -28,7 +28,7 @@
   "paths": {
     "/application/single": {
       "post": {
-        "summary": "",
+        "summary": "Add a single lead",
         "operationId": "post-application-single",
         "responses": {
           "200": {
