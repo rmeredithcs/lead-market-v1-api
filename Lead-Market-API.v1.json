@@ -25,7 +25,23 @@
       }
     }
   ],
-  "paths": {},
+  "paths": {
+    "/application/single": {
+      "post": {
+        "summary": "",
+        "operationId": "post-application-single",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "tags": [
+          "Applications"
+        ],
+        "description": ""
+      }
+    }
+  },
   "components": {
     "schemas": {}
   },
