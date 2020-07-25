@@ -38,7 +38,43 @@
         "tags": [
           "Applications"
         ],
-        "description": ""
+        "description": "Something something something more",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Settings": {
+                    "type": "object",
+                    "properties": {
+                      "API_Token": {
+                        "type": "string"
+                      },
+                      "Test_Sale_Outcome": {
+                        "type": "integer"
+                      }
+                    }
+                  },
+                  "Payload": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "multipart/form-data"
+            },
+            "in": "header",
+            "description": "",
+            "name": "Content-Type"
+          }
+        ]
       }
     }
   },
@@ -62,8 +98,6 @@
       "name": "Bought lead outcomes",
       "description": "Provide progress updates and outcomes for purchased leads."
     },
-    null,
-    null,
     {
       "name": "Webhooks",
       "description": "Automatically receive reports as soon as they're generated.\n\nPlease refer to our [webhook help docs](https://docs.creditsense.com.au/display/CSI/Fully+integrated+webhook#space-menu-link-content)."
