@@ -40,24 +40,32 @@
                   "properties": {
                     "Warnings": {
                       "type": "array",
+                      "description": "A list of warnings. e.g. features that are soon to be deprecated or features that are not yet supported by the API.",
                       "items": {
                         "type": "string"
                       }
                     },
                     "Success": {
-                      "type": "boolean"
+                      "type": "boolean",
+                      "description": "Denotes whether the lead was successfully created.",
+                      "default": "True"
                     },
                     "Data": {
                       "type": [
                         "integer",
                         "object"
                       ],
+                      "description": "The Lead ID as an integer or an object containing the Lead ID and Lead Token.",
                       "properties": {
                         "Lead_ID": {
-                          "type": "integer"
+                          "type": "integer",
+                          "example": 6605347,
+                          "description": "Uniquely identifies the lead across Lead Market."
                         },
                         "Lead_Token": {
-                          "type": "string"
+                          "type": "string",
+                          "example": "zh9DSv",
+                          "description": "Uniquely identifies the lead across Lead Market for the Seller."
                         }
                       }
                     }
@@ -71,8 +79,55 @@
               }
             }
           },
-          "704": {
-            "description": "Error",
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Errors": {
+                      "type": "array",
+                      "description": "A list of errors.",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "error_type": {
+                            "type": "string",
+                            "default": "unauthorized",
+                            "description": "Denotes the type of error encountered."
+                          },
+                          "error_code": {
+                            "type": "string",
+                            "default": "401.1",
+                            "description": "The code that identifies the error."
+                          },
+                          "error_message": {
+                            "type": "string",
+                            "default": "Invalid API key.",
+                            "description": "Describes the error."
+                          }
+                        },
+                        "required": [
+                          "error_type",
+                          "error_code",
+                          "error_message"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "Errors"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "701": {
+            "description": "Authentication Error\n\nSchema validation errors indicate that the data you've provided is invalid XML or it doesn't conform to our Seller schema.\n\n### Example errors\n| Error message                                                                                                                        | Possible cause                                                                                                                           |\n|--------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|\n| Fatal Error 4: Start tag expected, '<' not found                                                                                     | Missing '<' at beginning of document.                                                                                                    |\n| Error 1872: The document has no document element.                                                                                    | Missing root element. This may also show in various other situations, including if you do not escape xml reserved characters (like \"&\"). |\n| Error 1826: Element 'Application_Date': '2016-08-10b' is not a valid value of the union type 'L_Empty_Date'.                         | Date supplied is in incorrect format.                                                                                                    |\n| Error 1843: Element 'Application': Character content other than whitespace is not allowed because the content type is 'element-only' | Some text is not properly contained in an element.                                                                                       |\n| Fatal Error 76: Opening and ending tag mismatch: Lead line 1 and Seller_Data                                                         | A tag has not been correctly opened or closed.                                                                                           |",
             "content": {
               "application/json": {
                 "schema": {
@@ -80,32 +135,109 @@
                   "properties": {
                     "Warnings": {
                       "type": "array",
+                      "description": "A list of warnings. e.g. features that are soon to be deprecated or features that are not yet supported by the API.",
                       "items": {
-                        "type": "string"
+                        "type": "string",
+                        "example": "ERROR(s) VERIFYING XML AGAINST SCHEMA:"
                       }
                     },
                     "Success": {
-                      "type": "boolean"
+                      "type": "boolean",
+                      "default": "false",
+                      "description": "Denotes whether the lead was successfully created."
                     },
-                    "Data": {
+                    "Error": {
                       "type": [
-                        "integer",
-                        "object"
+                        "string",
+                        "array"
                       ],
-                      "properties": {
-                        "Lead_ID": {
-                          "type": "integer"
-                        },
-                        "Lead_Token": {
-                          "type": "string"
-                        }
+                      "description": "A single error or a list of errors.",
+                      "items": {
+                        "type": "string"
                       }
                     }
                   },
                   "required": [
                     "Warnings",
                     "Success",
-                    "Data"
+                    "Error"
+                  ]
+                }
+              }
+            }
+          },
+          "702": {
+            "description": "Authentication Error\nAuthenciation errors \n\n### Example errors",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Warnings": {
+                      "type": "array",
+                      "description": "A list of warnings. e.g. features that are soon to be deprecated or features that are not yet supported by the API.",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "Success": {
+                      "type": "boolean",
+                      "default": "false",
+                      "description": "Denotes whether the lead was successfully created."
+                    },
+                    "Error": {
+                      "type": [
+                        "string",
+                        "array"
+                      ],
+                      "example": "Invalid API_Token",
+                      "description": "A single error or a list of errors.",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "Warnings",
+                    "Success",
+                    "Error"
+                  ]
+                }
+              }
+            }
+          },
+          "703": {
+            "description": "Data Error"
+          },
+          "704": {
+            "description": "Authentication Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Warnings": {
+                      "type": "array",
+                      "description": "A list of warnings. e.g. features that are soon to be deprecated or features that are not yet supported by the API.",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "Success": {
+                      "type": "boolean",
+                      "default": "false",
+                      "description": "Denotes whether the lead was successfully created."
+                    },
+                    "Error": {
+                      "type": "string",
+                      "example": "The API credentials you have provided are testing credentials and you haven't provided a valid Test_Sale_Outcome. When using test credentials you must include the Test_Sale_Outcome parameter",
+                      "description": "A single error."
+                    }
+                  },
+                  "required": [
+                    "Warnings",
+                    "Success",
+                    "Error"
                   ]
                 }
               }
@@ -130,21 +262,42 @@
                 "properties": {
                   "Settings": {
                     "type": "object",
+                    "required": [
+                      "API_Token"
+                    ],
                     "properties": {
                       "API_Token": {
                         "type": "string",
-                        "description": "The unique token that identifies your API access privileges."
+                        "description": "The unique token that identifies your API access privileges.",
+                        "example": "daf90138-569f-4488-9f3b-099a58ac4130"
                       },
                       "Test_Sale_Outcome": {
                         "type": "integer",
-                        "description": "The test sale outcome ID. This is used for testing purposes only."
+                        "description": "The test sale outcome code you specify will determine the sale outcome to be returned. This is used for testing purposes only.",
+                        "enum": [
+                          1,
+                          2,
+                          3,
+                          4
+                        ]
+                      },
+                      "Client_ID": {
+                        "type": "integer",
+                        "description": "When provided, overrides the default Lead Market org unit attached to the API profile and creates the lead against the specified org unit.",
+                        "example": 501
                       }
                     }
                   },
                   "Payload": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "<?xml version=\"1.0\" encoding=\"utf-8\"?> <Lead>     <Seller_Data>         <Client_Authority>true</Client_Authority>         <Customer_Authority>true</Customer_Authority>         <Customer_Authority_Type>Explicit</Customer_Authority_Type>         <CS_App_ID>1577794</CS_App_ID>         <Use_MLM_Flow>true</Use_MLM_Flow>         <Lead_Reference>MyExampleRef0001</Lead_Reference>     </Seller_Data>     <Application>         <Application_Date>2016-08-10</Application_Date>         <Amount>200</Amount>         <Reason>Other – Test</Reason>     </Application>     <Applicant>         <Applicant_Type>Primary</Applicant_Type>         <Person_Applicant>             <Title>Mr</Title>             <Date_Of_Birth>1980-01-01</Date_Of_Birth>             <Last_Name>Ward</Last_Name>             <First_Name>Fredrick</First_Name>             <Marital_Status></Marital_Status>             <Contact_Methods>                 <Contact_Method>                     <Contact_Other>                         <Contact_Type>MOB</Contact_Type>                         <Contact_Value>0412341234</Contact_Value>                     </Contact_Other>                 </Contact_Method>             </Contact_Methods>         </Person_Applicant>     </Applicant> </Lead>",
+                    "description": "Contains the details of the lead in XML format in accordance with our Seller schema."
                   }
-                }
+                },
+                "required": [
+                  "Settings",
+                  "Payload"
+                ]
               }
             }
           },
