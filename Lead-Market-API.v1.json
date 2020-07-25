@@ -28,11 +28,19 @@
   "paths": {
     "/application/single": {
       "post": {
-        "summary": "Add a single lead",
+        "summary": "Add a lead",
         "operationId": "post-application-single",
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
           }
         },
         "tags": [
@@ -64,17 +72,7 @@
             }
           }
         },
-        "parameters": [
-          {
-            "schema": {
-              "type": "string",
-              "default": "multipart/form-data"
-            },
-            "in": "header",
-            "description": "",
-            "name": "Content-Type"
-          }
-        ]
+        "parameters": []
       }
     }
   },
