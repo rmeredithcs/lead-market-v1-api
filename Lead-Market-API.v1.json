@@ -37,7 +37,76 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {}
+                  "properties": {
+                    "Warnings": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "Success": {
+                      "type": "boolean"
+                    },
+                    "Data": {
+                      "type": [
+                        "integer",
+                        "object"
+                      ],
+                      "properties": {
+                        "Lead_ID": {
+                          "type": "integer"
+                        },
+                        "Lead_Token": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "Warnings",
+                    "Success",
+                    "Data"
+                  ]
+                }
+              }
+            }
+          },
+          "704": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Warnings": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "Success": {
+                      "type": "boolean"
+                    },
+                    "Data": {
+                      "type": [
+                        "integer",
+                        "object"
+                      ],
+                      "properties": {
+                        "Lead_ID": {
+                          "type": "integer"
+                        },
+                        "Lead_Token": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "Warnings",
+                    "Success",
+                    "Data"
+                  ]
                 }
               }
             }
@@ -46,7 +115,7 @@
         "tags": [
           "Applications"
         ],
-        "description": "Something something something more",
+        "description": "Retrieve reports in the requested formats for a specified application.\n\nReasons to use this endpoint:\n- Create a disengaged lead and push it into the market for sale.\n- Pass in lead details for an engaged lead that will be retrieved when the lead is pushed into the market.",
         "x-codeSamples": [
           {
             "lang": "cURL",
@@ -63,10 +132,12 @@
                     "type": "object",
                     "properties": {
                       "API_Token": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The unique token that identifies your API access privileges."
                       },
                       "Test_Sale_Outcome": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "The test sale outcome ID. This is used for testing purposes only."
                       }
                     }
                   },
@@ -76,7 +147,8 @@
                 }
               }
             }
-          }
+          },
+          "description": "### Testing sale outcomes\nPass a test sale outcome from the below table into `$.Settings.Test_Sale_Outcome` to simulate having a lead sell or fail to sell.\nProviding a test sale outcome is required if using API credentials linked to a test environment and an error will be returned if it is omitted.\nProviding a test sale outcome is not permitted if using API credentials linked to a production environment and an error will be returned if it is included.\nAny errors encountered processing your request will override your specified test sale outcome - i.e. you must provide valid data in order to test sale outcomes.\n\n| Code | Name         | Description                                                                                                                                                                                                                                                                  |\n|------|--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| 1    | Make sale    | Results in the lead being sold and sold lead notifications will trigger. Use this outcome to how your system handles sold leads.                                                                                                                                             |\n| 2    | No Buyer     | Results in the lead being returned due to no buyer and unsold lead notifications will trigger. Use this outcome to how your system handles unsold leads.                                                                                                                     |\n| 3    | Already Sold | Results in the lead being returned due to the lead already existing on the market and unsold lead notifications will trigger. Use this outcome to how your system handles unsold leads.                                                                                      |\n| 4    | Use Test Bid | Results in the first active bid campaign on the same test environment buying the lead. If there is no active bid campaign, the lead will result in a _No Buyer_ outcome. Use this outcome to automate the Seller process while testing how your system handles buying leads. |"
         },
         "parameters": []
       }
