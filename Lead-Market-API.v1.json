@@ -148,6 +148,7 @@
                     "required": [
                       "API_Token"
                     ],
+                    "description": "A JSON-encoded object containing all the settings for your request.",
                     "properties": {
                       "API_Token": {
                         "type": "string",
