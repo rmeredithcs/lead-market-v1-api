@@ -516,8 +516,8 @@
                       "type": "object",
                       "description": "The Lead ID as an integer or an object containing the Lead ID and Lead Token.",
                       "properties": {
-                        "": {
-                          "$ref": "#/components/schemas/Lead"
+                        "Lead": {
+                          "$ref": "#/components/schemas/Lead-schema"
                         }
                       }
                     }
@@ -630,32 +630,397 @@
           }
         ]
       }
+    },
+    "/smart_campaigns/{id}/outcome_imports": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "post": {
+        "summary": "Import bought lead outcomes",
+        "operationId": "post-smart_campaigns-id-outcome_imports",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "application/json"
+            },
+            "in": "header",
+            "name": "Content-Type",
+            "required": true
+          }
+        ],
+        "description": "Provide application outcomes for leads you've bought.\n\nReasons to use this endpoint:\n- Feed funding outcomes into Smart Campaigns so further train and refine your Smart Campaigns algorithm.\n- Provide application outcomes in order to track conversion rates and cost per contract metrics via the Lead Market dashboard.",
+        "tags": [
+          "Bought lead outcomes"
+        ]
+      }
     }
   },
   "components": {
     "schemas": {
-      "Buyer-schema": {
-        "title": "Lead Market Buyer schema",
+      "Lead-schema": {
+        "title": "Lead schema",
         "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          }
-        },
         "x-tags": [
           "Schemas"
-        ]
-      },
-      "Seller-schema": {
-        "title": "Lead Market Seller schema",
-        "type": "object",
+        ],
+        "description": "The structure of lead details for both sellers and buyers. \n\nShared objects between Sellers and Buyers:\n- `$.Lead.Applicant`\n- `$.Lead.Application`\n\nSeller-only object:\n- `$.Lead.Seller_Data`\n\nBuyer-only objects:\n- `$.Lead.Buyer_Data`\n- `$.Lead.Decision_Points`",
         "properties": {
-          "id": {
-            "type": "string"
+          "Applicant": {
+            "type": "object",
+            "properties": {
+              "Applicant_Type": {
+                "type": "string",
+                "example": "Primary",
+                "description": "The type of applicant (e.g. Primary, Guarantor, Secondary, Business, etc.)"
+              },
+              "References": {
+                "type": "object",
+                "description": "Information about the relationship between the customer and any referees.",
+                "properties": {
+                  "Reference": {
+                    "type": "array",
+                    "description": "",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "Relationship_Type": {
+                          "type": "string",
+                          "example": "Previous employer",
+                          "description": "The referee's relationship to the applicant (e.g. friend, mother, employer, etc.)"
+                        },
+                        "Known_Applicant_Years": {
+                          "type": "integer",
+                          "description": "The number of years the referee has known the customer.",
+                          "example": 3
+                        },
+                        "Person_Other": {
+                          "type": "object",
+                          "properties": {
+                            "Title": {
+                              "type": "string",
+                              "description": "The person's title (e.g. Mr, Mrs, Ms, Dr, etc.)",
+                              "example": "Ms"
+                            },
+                            "Date_Of_Birth": {
+                              "type": "string",
+                              "description": "The person's date of birth.",
+                              "format": "date"
+                            },
+                            "Last_Name": {
+                              "type": "string",
+                              "description": "The person's last name.",
+                              "example": "Rhoades"
+                            },
+                            "First_Name": {
+                              "type": "string",
+                              "description": "The person's first name.",
+                              "example": "Wendy"
+                            },
+                            "Gender": {
+                              "type": "string",
+                              "description": "The person's gender (e.g. M, F).",
+                              "example": "F"
+                            },
+                            "Contact_Methods": {
+                              "type": "object",
+                              "properties": {
+                                "Contact_Method": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "Contact_Other": {
+                                        "type": "object",
+                                        "description": "Contact details (e.g. phone numbers, email addresses etc.)",
+                                        "properties": {
+                                          "Contact_Type": {
+                                            "type": "string",
+                                            "description": "The type of contact method (e.g. mobile, email, skype, work, home, fax, etc.)",
+                                            "example": "mobile"
+                                          },
+                                          "Contact_Value": {
+                                            "type": "string",
+                                            "description": "The contact (e.g. email address, mobile number, skype address, etc.) For phone numbers we recommend using international format (e.g. AU = +614..., CA = +1..., NZ = +642...).",
+                                            "example": "+61488853631"
+                                          }
+                                        }
+                                      },
+                                      "Address": {
+                                        "type": "object",
+                                        "description": "Information about the person's addresses.",
+                                        "properties": {
+                                          "Address_Line_1": {
+                                            "type": "string",
+                                            "description": "Building name, suite number, etc.",
+                                            "example": "Aurora Tower"
+                                          },
+                                          "Address_Line_2": {
+                                            "type": "string",
+                                            "description": "Street number, name and type.",
+                                            "example": "Level 69, 420 Queen Street"
+                                          },
+                                          "Suburb": {
+                                            "type": "string",
+                                            "description": "Suburb, Town, Municipality, etc.",
+                                            "example": "Brisbane"
+                                          },
+                                          "State": {
+                                            "type": "string",
+                                            "description": "AU = State or Territory, CA = Province or Territory, NZ = Town or City.",
+                                            "example": "QLD"
+                                          },
+                                          "Postcode": {
+                                            "type": "integer",
+                                            "description": "Postcode or Zip Code.",
+                                            "example": 4000
+                                          },
+                                          "Is_Current": {
+                                            "type": "boolean",
+                                            "description": "Denotes whether this is the person's current address.",
+                                            "example": "false"
+                                          },
+                                          "Residential_Type": {
+                                            "type": "string",
+                                            "description": "The type of residence (e.g. house, unit, rural, acreage, etc.)",
+                                            "example": "Apartment"
+                                          },
+                                          "Residential_Status": {
+                                            "type": "string",
+                                            "description": "The person's relationhsip to the address (e.g. renting, buying, boarding, etc.)",
+                                            "example": "Renting"
+                                          },
+                                          "Time_At_Address_Months": {
+                                            "type": "string",
+                                            "description": "The number of months the person has lived/did live at the address.",
+                                            "example": 36
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "Financials": {
+                "type": "object",
+                "description": "Information about the customer's income and liabilities.",
+                "properties": {
+                  "Financial": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "Detailed_Income": {
+                          "type": "object",
+                          "description": "Detailed information about the customer's current or previous income.",
+                          "properties": {
+                            "Source": {
+                              "type": "string",
+                              "description": "The name of the source of the customer's income (e.g. Coles, Municipality of Manitoba, Vodafone, etc.)",
+                              "example": "Axe Capital"
+                            },
+                            "Type": {
+                              "type": "string",
+                              "description": "The customer's income type (e.g. salary, benefits, rental, gift, etc.)",
+                              "example": "Full-time"
+                            },
+                            "Frequency": {
+                              "type": "string",
+                              "description": "The frequency with which the customer is paid (e.g. weekly, fortnightly, monthly, etc.)",
+                              "example": "weekly"
+                            },
+                            "Description": {
+                              "type": "string",
+                              "description": "Additional information about this income.",
+                              "example": "This is the customer's primary income"
+                            },
+                            "Net_Amount": {
+                              "type": "number",
+                              "description": "The net amount of the customer's pay per frequency.",
+                              "example": 2000
+                            },
+                            "Gross_Amount": {
+                              "type": "number",
+                              "description": "The gross amount of the customer's pay per frequency.",
+                              "example": 3000
+                            },
+                            "Is_Current": {
+                              "type": "boolean",
+                              "description": "Denotes whether the source of income is current.",
+                              "example": "false"
+                            },
+                            "Start_Date": {
+                              "type": "string",
+                              "format": "date",
+                              "description": "The date this income began.",
+                              "example": "2016-01-01"
+                            },
+                            "End_Date": {
+                              "type": "string",
+                              "format": "date",
+                              "description": "The date this income ended.",
+                              "example": "2020-08-26"
+                            }
+                          }
+                        },
+                        "Detailed_Liability": {
+                          "type": "object",
+                          "description": "Detailed information about the customer's current liabilities.",
+                          "properties": {
+                            "Type": {
+                              "type": "string",
+                              "description": "The type of liability (e.g. ongoing, once-off).",
+                              "example": "once-off"
+                            },
+                            "Frequency": {
+                              "type": "string",
+                              "description": "The frequency with which the liability is paid (e.g. weekly, fortnightly, monthly, etc.)",
+                              "example": "monthly"
+                            },
+                            "Frequency_Amount": {
+                              "type": "number",
+                              "description": "The amount paid towards the liability per frequency.",
+                              "example": 100
+                            },
+                            "Balance": {
+                              "type": "number",
+                              "description": "The amount currently owing on the liability.",
+                              "example": 1000
+                            },
+                            "Start_Date": {
+                              "type": "string",
+                              "format": "date",
+                              "description": "The date that the customer assumed the liability."
+                            },
+                            "Estimated_End_Date": {
+                              "type": "string",
+                              "format": "date",
+                              "description": "The estimated date that the customer will finalise the liability."
+                            },
+                            "Description": {
+                              "type": "string",
+                              "description": "Description of the liability (e.g. rent, loan, living expenses, education, etc.)",
+                              "example": "Personal Loan"
+                            }
+                          }
+                        },
+                        "Summary_Income": {
+                          "type": "object",
+                          "description": "Summary information about the customer's current income.",
+                          "properties": {
+                            "Net_Amount": {
+                              "type": "number",
+                              "example": "2000",
+                              "description": "The net amount of the customer's pay per frequency."
+                            },
+                            "Gross_Amount": {
+                              "type": "number",
+                              "example": "3000",
+                              "description": "The gross amount of the customer's pay per frequency."
+                            },
+                            "Frequency": {
+                              "type": "string",
+                              "example": "weekly",
+                              "description": "The frequency with which the customer is paid (e.g. weekly, fortnightly, monthly, etc.)"
+                            }
+                          }
+                        },
+                        "Summary_Liability": {
+                          "type": "object",
+                          "description": "Summary information about the customer's current liabilities.",
+                          "properties": {
+                            "Amount": {
+                              "type": "number",
+                              "example": "100",
+                              "description": "The amount paid towards the liability per frequency."
+                            },
+                            "Frequency": {
+                              "type": "string",
+                              "example": "monthly",
+                              "description": "The frequency with which the liability is paid (e.g. weekly, fortnightly, monthly, etc.)"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "Bank_Accounts": {
+                "type": "object",
+                "description": "Information about the customer's bank accounts.",
+                "properties": {
+                  "Bank_Account": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "Account_Number": {
+                          "type": "string",
+                          "description": "The customer's account number.",
+                          "example": "17012016"
+                        },
+                        "Account_Name": {
+                          "type": "string",
+                          "description": "The customer's account name.",
+                          "example": "Super Saver"
+                        },
+                        "Bank_Name": {
+                          "type": "string",
+                          "description": "The name of the customer's bank.",
+                          "example": "Mason Capital Savings and Loan"
+                        },
+                        "Account_Type": {
+                          "type": "string",
+                          "description": "The type of account (e.g. savings, cheque, etc.)",
+                          "example": "Savings"
+                        },
+                        "BSB": {
+                          "type": "string",
+                          "description": "The customer's BSB or routing (transit) number.",
+                          "example": "440003"
+                        },
+                        "Balance": {
+                          "type": "string",
+                          "description": "The customer's current account balance.",
+                          "example": "10000"
+                        },
+                        "Age_Of_Account": {
+                          "type": "string",
+                          "description": "The age of the customer's account in years.",
+                          "example": "4"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         },
-        "x-tags": [
-          "Schemas"
+        "required": [
+          "Applicant"
         ]
       }
     }
