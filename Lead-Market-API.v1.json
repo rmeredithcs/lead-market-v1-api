@@ -952,7 +952,7 @@
         "x-tags": [
           "Schemas"
         ],
-        "description": "The structure of lead details for both sellers and buyers. \n\nShared objects between Sellers and Buyers:\n- `$.Lead.Applicant`\n- `$.Lead.Application`\n\nSeller-only object:\n- `$.Lead.Seller_Data`\n\nBuyer-only objects:\n- `$.Lead.Buyer_Data`\n- `$.Lead.Decision_Points`",
+        "description": "The structure of lead details for both sellers and buyers. \n\nShared objects between Sellers and Buyers:\n- `$.Lead.Applicant`\n- `$.Lead.Application`\n\nSeller-only object:\n- `$.Lead.Seller_Data`\n\nBuyer-only objects:\n- `$.Lead.Buyer_Data`\n- `$.Lead.Decision_Points`\n\n### Seller data validation\nWe take what may be thought of as a lax approach to validation on most data passed in by Sellers. This is not done to make Buyers integrations difficult; when a Seller is passing in details via the API it’s generally due to the lead not being engaged at the time. The stance we take on this is _it’s better to have some data that **may** be invalid, than no data_. A good example is when a customer provides a valid mobile number, but in the email address field of a Leadgen’s website. We’ll provide the raw values as the Seller has pushed them into Lead Market, and we’ll also provided validated contact details in the `$..V_Contact_Type` and `$..V_Contact_Value` fields.",
         "properties": {
           "Applicant": {
             "type": "object",
