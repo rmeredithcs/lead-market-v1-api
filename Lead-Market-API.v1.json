@@ -720,7 +720,7 @@
             }
           }
         },
-        "description": "Returns a collection of blacklist lists.\n \nReasons to use this endpoint:\n- Retrieve all blacklist ",
+        "description": "Returns a collection of blacklist lists.\n\nReasons to use this endpoint:\n- Retrieve all blacklist ",
         "parameters": [
           {
             "schema": {
