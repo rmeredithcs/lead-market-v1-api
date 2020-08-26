@@ -952,7 +952,7 @@
         "x-tags": [
           "Schemas"
         ],
-        "description": "The structure of lead details for both sellers and buyers. \n\nShared objects between Sellers and Buyers:\n- `$.Lead.Applicant`\n- `$.Lead.Application`\n\nSeller-only object:\n- `$.Lead.Seller_Data`\n\nBuyer-only objects:\n- `$.Lead.Buyer_Data`\n- `$.Lead.Decision_Points`\n\n### Seller data validation\nWe take what may be thought of as a lax approach to validation on most data passed in by Sellers. This is not done to make Buyers integrations difficult; when a Seller is passing in details via the API it’s generally due to the lead not being engaged at the time. The stance we take on this is _it’s better to have some data that **may** be invalid, than no data_. A good example is when a customer provides a valid mobile number, but in the email address field of a Leadgen’s website. We’ll provide the raw values as the Seller has pushed them into Lead Market, and we’ll also provided validated contact details in the `$..V_Contact_Type` and `$..V_Contact_Value` fields.",
+        "description": "The structure of lead details for both sellers and buyers. \n\nShared objects between Sellers and Buyers:\n- `$.Lead.Applicant`\n- `$.Lead.Application`\n\nSeller-only object:\n- `$.Lead.Seller_Data`\n\nBuyer-only objects:\n- `$.Lead.Buyer_Data`\n- `$.Lead.Decision_Points`\n\n### Seller data validation\nWe take what may be thought of as a _laissez faire_ approach to validation on lead data passed in by Sellers. This is not done to make Buyer integrations difficult; when a Seller is passing in details via the API it’s generally due to the lead not being engaged at the time. The stance we take on this is _it’s better to have some data that **may** be invalid, than no data_. A good example is when a customer provides a valid mobile number, but they enter it in the email address field of a Seller’s website. If the Seller's form doesn't validate the data and passes it through to Lead Market, we'll accept it. We’ll provide the raw values to the buyer, and we’ll also provided validated contact details in the `$..V_Contact_Type` and `$..V_Contact_Value` fields. We've found this approach provides the best outcome and richer lead data sets for Buyers.",
         "properties": {
           "Applicant": {
             "type": "object",
@@ -978,7 +978,7 @@
                           "description": "The referee's relationship to the applicant (e.g. friend, mother, employer, etc.)"
                         },
                         "Known_Applicant_Years": {
-                          "type": "integer",
+                          "type": "string",
                           "description": "The number of years the referee has known the customer.",
                           "example": 3
                         },
@@ -1059,12 +1059,12 @@
                                             "example": "QLD"
                                           },
                                           "Postcode": {
-                                            "type": "integer",
+                                            "type": "string",
                                             "description": "Postcode or Zip Code.",
                                             "example": 4000
                                           },
                                           "Is_Current": {
-                                            "type": "boolean",
+                                            "type": "string",
                                             "description": "Denotes whether this is the person's current address.",
                                             "example": "false"
                                           },
@@ -1141,7 +1141,7 @@
                               "example": 3000
                             },
                             "Is_Current": {
-                              "type": "boolean",
+                              "type": "string",
                               "description": "Denotes whether the source of income is current.",
                               "example": "false"
                             },
@@ -1205,12 +1205,12 @@
                           "description": "Summary information about the customer's current income.",
                           "properties": {
                             "Net_Amount": {
-                              "type": "number",
+                              "type": "string",
                               "example": "2000",
                               "description": "The net amount of the customer's pay per frequency."
                             },
                             "Gross_Amount": {
-                              "type": "number",
+                              "type": "string",
                               "example": "3000",
                               "description": "The gross amount of the customer's pay per frequency."
                             },
@@ -1226,7 +1226,7 @@
                           "description": "Summary information about the customer's current liabilities.",
                           "properties": {
                             "Amount": {
-                              "type": "number",
+                              "type": "string",
                               "example": "100",
                               "description": "The amount paid towards the liability per frequency."
                             },
