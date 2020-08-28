@@ -294,8 +294,8 @@
                             },
                             "Lead_Price": {
                               "type": "number",
-                              "example": 21,
-                              "description": "The sale price for the lead."
+                              "example": 15,
+                              "description": "The base sale amount for the lead. This is a duplicate of `$.Data.Sale_Data.Sale_Base_Amount` provided for backwards compatibility."
                             },
                             "Lead_ID": {
                               "type": "integer",
@@ -607,7 +607,7 @@
                   "Extra_Info_Only": {
                     "type": "boolean",
                     "default": "false",
-                    "description": "Specify whether you'd like to only receive lead details added via the Lead Market buyer form."
+                    "description": "Specify whether you'd like to only receive lead details added via the Lead Market buyer form. When set to `true`, only the information we gather from the lead in the Buyer iframe will be returned in the response."
                   }
                 },
                 "required": [
@@ -963,6 +963,7 @@
         "properties": {
           "Applicant": {
             "type": "object",
+            "description": "Information about the applicant.",
             "properties": {
               "Applicant_Type": {
                 "type": "string",
@@ -1561,6 +1562,7 @@
               },
               "Employment_History": {
                 "type": "object",
+                "description": "Information about the customer's current and past employment.",
                 "properties": {
                   "Employment": {
                     "type": "array",
@@ -1974,64 +1976,74 @@
               "Application_Date": {
                 "type": "string",
                 "format": "date",
-                "description": "The date the customer completed the Seller's application form."
+                "description": "The date the customer completed the Seller's application form.",
+                "example": "2016-08-10"
               },
               "Interest_Rate": {
                 "type": "number",
-                "description": "The annual interest rate of the product or facility the customer applied for."
+                "description": "The annual interest rate of the product or facility the customer applied for.",
+                "example": 20
               },
               "Repayment_Amount": {
                 "type": "number",
-                "description": "The amount of each repayment due under the product or facility the customer applied for."
+                "description": "The amount of each repayment due under the product or facility the customer applied for.",
+                "example": 200
               },
               "Fees": {
                 "type": "number",
-                "description": "The total application fees associated with the product or facility the customer applied for."
+                "description": "The total application fees associated with the product or facility the customer applied for.",
+                "example": 100
               },
               "Type": {
                 "type": "string",
-                "description": "The type of product or facility the customer applied for (e.g. Personal Loan, Credit Card, SACC, etc.)"
+                "description": "The type of product or facility the customer applied for (e.g. Personal Loan, Credit Card, SACC, etc.)",
+                "example": "Personal Loan"
               },
               "Amount": {
                 "type": "number",
-                "description": "The amount of credit requested by the customer."
+                "description": "The amount of credit requested by the customer.",
+                "example": 1000
               },
               "Reason": {
                 "type": "string",
-                "description": "The reason the customer requires the loan."
+                "description": "The reason the customer requires the loan.",
+                "example": "Book purchase"
               },
               "Repayment_Cycle": {
                 "type": "string",
-                "description": "The regularity of repayments due under the product or facility the customer applied for (e.g. weekly, fortnightly, monthly)."
+                "description": "The regularity of repayments due under the product or facility the customer applied for (e.g. weekly, fortnightly, monthly).",
+                "example": "weekly"
               },
               "Repayment_Count": {
                 "type": "string",
-                "description": "The number of repayments due under the producat or facility the customer applied for."
+                "description": "The number of repayments due under the producat or facility the customer applied for.",
+                "example": "7"
               },
               "Description": {
                 "type": "string",
-                "description": "Any additional notes relating to the application."
+                "description": "Any additional notes relating to the application.",
+                "example": "Purchase of first-edition 'The Second World War' six-volume series by Winston Churchill"
               }
             }
           },
           "Buyer_Data": {
             "type": "object",
+            "description": "Information about the lead, specific to the Buyer. When provided, `$.Seller_Data` will be omitted.",
             "properties": {
               "LM_SaleDT": {
                 "type": "string",
-                "format": "date-time",
                 "example": "2017-01-06 17:22:48.4700000",
                 "description": "The date-time of the sale."
               },
               "Lead_Price": {
                 "type": "number",
-                "example": 25,
-                "description": "The sale price for the lead."
+                "example": 50,
+                "description": "The base sale amount for the lead. This is a duplicate of `$.Buyer_Data.Sale_Base_Amount` provided for backwards compatibility."
               },
               "CS_AppCompleted_DT": {
                 "type": "string",
-                "format": "date-time",
-                "example": "2017-01-06 17:21:54.2600000"
+                "example": "2017-01-06 17:21:54.2600000",
+                "description": "The date and time when the Credit Sense report was completed."
               },
               "Lead_ID": {
                 "type": "integer",
@@ -2087,6 +2099,105 @@
                 "type": "string",
                 "description": "A string that uniquely identifies this Lead for the Buyer. This token can be used as an alternative to `Lead_ID` in the `/application/detail` API call.\nThis field will not appear until some time after the Lead is purchased, so it will not be available on the `buyerNotifyWithData` URI notification.",
                 "example": "pC81HjJmiTKJ3stwVu7a"
+              }
+            }
+          },
+          "Decision_Points": {
+            "type": "object",
+            "description": "Information about the decision points/bid criteria related to the purchase of the lead, specific to the Buyer. When provided, `$.Seller_Data` will be omitted.",
+            "properties": {
+              "Decision_Point": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "ID": {
+                      "type": "integer",
+                      "description": "Uniquely identifies the decision point/bid criteria.",
+                      "example": 101
+                    },
+                    "Name": {
+                      "type": "string",
+                      "description": "A description for the decision point/bid criteria.",
+                      "example": "customerAge"
+                    },
+                    "Score_DT": {
+                      "type": "string",
+                      "description": "The calculated result for this decision point as a date-time. This will only be present in the absence of `$.Decision_Points.Decision_Point.Score`.",
+                      "example": "1980-01-01 00:00:00.0000000"
+                    },
+                    "Score": {
+                      "type": "number",
+                      "description": "The calculated result for this decision point. This will only be present in the absence of `$.Decision_Points.Decision_Point.Score_DT`.",
+                      "example": 50
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "Seller_Data": {
+            "type": "object",
+            "description": "Information about the lead, specific to the Seller. When provided, `$.Buyer_Data` and `$.Decision_Points` will be omitted.",
+            "properties": {
+              "Client_Authority": {
+                "type": "boolean",
+                "example": true,
+                "description": "The Seller's authority to sell the lead."
+              },
+              "Customer_Authority": {
+                "type": "boolean",
+                "example": true,
+                "description": "The Seller's confirmation that they have obtained the customer's authority to trade their information on Lead Market."
+              },
+              "Customer_Authority_Type": {
+                "type": "string",
+                "enum": [
+                  "Implicit",
+                  "Explicit"
+                ],
+                "description": "**Implicit** - The customer has implicitly provided authority in the form of agreement to T&C's. **Explicit** - The customer has explicitly provided authority in the form of an opt-in."
+              },
+              "CS_App_ID": {
+                "type": "integer",
+                "description": "The App ID of the Credit Sense report completed by the customer.",
+                "example": 18200557
+              },
+              "Use_MLM_Flow": {
+                "type": "boolean",
+                "example": true,
+                "description": "Denotes whether the customer will be engaged when the lead is pushed to Lead Market."
+              },
+              "Lead_ID": {
+                "type": "integer",
+                "example": 5824,
+                "description": "Uniquely identifies the lead across Lead Market."
+              },
+              "Lead_Token": {
+                "type": "string",
+                "description": "A string that uniquely identifies this Lead for the Seller.",
+                "example": "F16WeC"
+              },
+              "Lead_Reference": {
+                "type": "string",
+                "example": "NYCAG2018",
+                "description": "Your unique reference for the lead."
+              },
+              "Credit_Authority_Enquiry_Number": {
+                "type": "integer",
+                "description": "If your Lead Market environment is configured to sell leads with credit scores, this field allows you to pass in a previously generated credit report enquiry number.",
+                "example": 7671338561
+              }
+            }
+          },
+          "Custom_Data": {
+            "type": "object",
+            "description": "Additional information (not catered for by our schema) gathered from an engaged lead by use of the Lead Market dynamic form.",
+            "properties": {
+              "Your_Question_Here": {
+                "type": "string",
+                "example": "An example answer",
+                "description": "Custom formatted data as configured on your Lead Market environment. [Contact us](mailto:support@creditsense.com.au) for more information."
               }
             }
           }
