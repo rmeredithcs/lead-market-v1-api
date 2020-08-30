@@ -48,7 +48,7 @@
                     "Success": {
                       "type": "boolean",
                       "description": "Denotes whether the lead was successfully created.",
-                      "default": "True"
+                      "default": "true"
                     },
                     "Data": {
                       "type": [
@@ -130,7 +130,7 @@
         "tags": [
           "Applications"
         ],
-        "description": "Retrieve reports in the requested formats for a specified application.\n\nReasons to use this endpoint:\n- Create a disengaged lead and push it into the market for sale.\n- Pass in lead details for an engaged lead that will be retrieved when the lead is pushed into the market.\n\n### Non-compliant HTTP status codes\nWe have some non-compliant status codes that are returned in place of recognised HTTP status codes when specific errors occur.\n\n#### 701: Schema Validation Error\nSchema validation errors indicate that the data you've provided is invalid XML or it doesn't conform to our Seller schema.\n\n##### Example errors\n| Error message                                                                                                                        | Possible cause                                                                                                                           |\n|--------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|\n| Fatal Error 4: Start tag expected, '<' not found                                                                                     | Missing '<' at beginning of document.                                                                                                    |\n| Error 1872: The document has no document element.                                                                                    | Missing root element. This may also show in various other situations, including if you do not escape xml reserved characters (like \"&\"). |\n| Error 1826: Element 'Application_Date': '2016-08-10b' is not a valid value of the union type 'L_Empty_Date'.                         | Date supplied is in incorrect format.                                                                                                    |\n| Error 1843: Element 'Application': Character content other than whitespace is not allowed because the content type is 'element-only' | Some text is not properly contained in an element.                                                                                       |\n| Fatal Error 76: Opening and ending tag mismatch: Lead line 1 and Seller_Data                                                         | A tag has not been correctly opened or closed.                                                                                           |\n\n#### 702: Authentication Error\nAuthentication errors errors indicate that you're not authorised to perform the requested actions.\n\n##### Example errors\n| Error message                                                                       | Possible cause                                                                                                        |\n|-------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|\n| Invalid API_Token                                                                   | The API_Token you passed in doesn't match the API_Key you used in the url.                                            |\n| Invalid CS_App_ID for API_Token                                                     | CS_App_ID doesn't exist or doesn't belong to you.                                                                     |\n| Invalid Lead_ID for API_Token                                                       | Lead_ID doesn't exist or doesn't belong to you.                                                                       |\n| Invalid Buyer_Token for API_Token                                                   | The Buyer_Token provided does not correspond to any leads you have purchased.                                         |\n| Invalid CS_App_ID for Client_ID                                                     | If you use the optional Client_ID parameter in settings. CS_App_ID doesn't exist or doesn't belong to this Client_ID. |\n| Client_ID not valid for API_Token                                                   | The Client_ID supplied doesn't exist or doesn't belong to you.                                                        |\n| Your API Key has not been activated yet, please contact us to activate your API key | The API profile your provided credentials link to is inactive. Contact us to activate it.                             |\n\n#### 703: Data Error\nData errors indicate that there's a mismatch between multiple bits of data you've provided.\n\n##### Example errors\n| Error message                                                                                                                              | Possible cause                                                                                                                                                                             |\n|--------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| Lead_ID and CS_App_ID don't match                                                                                                          | If you have provided both Lead_ID and CS_App_ID, these two numbers don't match on our database.                                                                                            |\n| The Credit Sense application was completed more then 24 hours ago. For a lead to be sold the application must be completed within 24 hours | The CS_App_ID you have provided references a Credit Sense application that was completed more than 24 hours ago. For a lead to be sold, the application must be completed within 24 hours. |\n| The fields 'Lead_ID' and 'Buyer_Token' were both missing, please include one in your API call                                              | You have not provided either Lead_ID or Buyer_Token; one must be provided.                                                                                                                 |\n| The fields 'Lead_ID' and 'Buyer_Token' were both present, please include only one in your API call                                         | You have provided both Lead_ID and Buyer_Token; only one may be provided.                                                                                                                  |\n| Settings object key: 'App_Reference' has not been provided                                                                                 | The App_Reference parameter is missing from the API call.                                                                                                                                  |\n\n#### 704: Other Error\nOther errors indicate that there's a generic problem, not described above.\n\n| Error message                                                                                                                                                                                  | Possible cause                                                                              |\n|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|\n| The API credentials you have provided are testing credentials and you haven't provided a valid Test_Sale_Outcome. When using test credentials you must include the Test_Sale_Outcome parameter | You're testing against a dev/test org unit and failed to pass in a valid test sale outcome. |",
+        "description": "Add a lead to Lead Market.\n\nReasons to use this endpoint:\n- Create a disengaged lead and push it into the market for sale.\n- Pass in lead details for an engaged lead that will be retrieved when the lead is pushed into the market.\n\n### Non-compliant HTTP status codes\nWe have some non-compliant status codes that are returned in place of recognised HTTP status codes when specific errors occur.\n\n#### 701: Schema Validation Error\nSchema validation errors indicate that the data you've provided is invalid XML or it doesn't conform to our Seller schema.\n\n##### Example errors\n| Error message                                                                                                                        | Possible cause                                                                                                                           |\n|--------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|\n| Fatal Error 4: Start tag expected, '<' not found                                                                                     | Missing '<' at beginning of document.                                                                                                    |\n| Error 1872: The document has no document element.                                                                                    | Missing root element. This may also show in various other situations, including if you do not escape xml reserved characters (like \"&\"). |\n| Error 1826: Element 'Application_Date': '2016-08-10b' is not a valid value of the union type 'L_Empty_Date'.                         | Date supplied is in incorrect format.                                                                                                    |\n| Error 1843: Element 'Application': Character content other than whitespace is not allowed because the content type is 'element-only' | Some text is not properly contained in an element.                                                                                       |\n| Fatal Error 76: Opening and ending tag mismatch: Lead line 1 and Seller_Data                                                         | A tag has not been correctly opened or closed.                                                                                           |\n\n#### 702: Authentication Error\nAuthentication errors errors indicate that you're not authorised to perform the requested actions.\n\n##### Example errors\n| Error message                                                                       | Possible cause                                                                                                        |\n|-------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|\n| Invalid API_Token                                                                   | The API_Token you passed in doesn't match the API_Key you used in the url.                                            |\n| Invalid CS_App_ID for API_Token                                                     | CS_App_ID doesn't exist or doesn't belong to you.                                                                     |\n| Invalid Lead_ID for API_Token                                                       | Lead_ID doesn't exist or doesn't belong to you.                                                                       |\n| Invalid Buyer_Token for API_Token                                                   | The Buyer_Token provided does not correspond to any leads you have purchased.                                         |\n| Invalid CS_App_ID for Client_ID                                                     | If you use the optional Client_ID parameter in settings. CS_App_ID doesn't exist or doesn't belong to this Client_ID. |\n| Client_ID not valid for API_Token                                                   | The Client_ID supplied doesn't exist or doesn't belong to you.                                                        |\n| Your API Key has not been activated yet, please contact us to activate your API key | The API profile your provided credentials link to is inactive. Contact us to activate it.                             |\n\n#### 703: Data Error\nData errors indicate that there's a mismatch between multiple bits of data you've provided.\n\n##### Example errors\n| Error message                                                                                                                              | Possible cause                                                                                                                                                                             |\n|--------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| Lead_ID and CS_App_ID don't match                                                                                                          | If you have provided both Lead_ID and CS_App_ID, these two numbers don't match on our database.                                                                                            |\n| The Credit Sense application was completed more then 24 hours ago. For a lead to be sold the application must be completed within 24 hours | The CS_App_ID you have provided references a Credit Sense application that was completed more than 24 hours ago. For a lead to be sold, the application must be completed within 24 hours. |\n| The fields 'Lead_ID' and 'Buyer_Token' were both missing, please include one in your API call                                              | You have not provided either Lead_ID or Buyer_Token; one must be provided.                                                                                                                 |\n| The fields 'Lead_ID' and 'Buyer_Token' were both present, please include only one in your API call                                         | You have provided both Lead_ID and Buyer_Token; only one may be provided.                                                                                                                  |\n| Settings object key: 'App_Reference' has not been provided                                                                                 | The App_Reference parameter is missing from the API call.                                                                                                                                  |\n\n#### 704: Other Error\nOther errors indicate that there's a generic problem, not described above.\n\n| Error message                                                                                                                                                                                  | Possible cause                                                                              |\n|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|\n| The API credentials you have provided are testing credentials and you haven't provided a valid Test_Sale_Outcome. When using test credentials you must include the Test_Sale_Outcome parameter | You're testing against a dev/test org unit and failed to pass in a valid test sale outcome. |",
         "requestBody": {
           "content": {
             "multipart/form-data": {
@@ -206,7 +206,7 @@
                     "Success": {
                       "type": "boolean",
                       "description": "Denotes whether the lead status was successfully returned.",
-                      "default": "True"
+                      "default": "true"
                     },
                     "Data": {
                       "type": "object",
@@ -510,11 +510,11 @@
                     "Success": {
                       "type": "boolean",
                       "description": "Denotes whether the lead was successfully created.",
-                      "default": "True"
+                      "default": "true"
                     },
                     "Data": {
                       "type": "object",
-                      "description": "The Lead ID as an integer or an object containing the Lead ID and Lead Token.",
+                      "description": "The lead details.",
                       "properties": {
                         "Lead": {
                           "$ref": "#/components/schemas/Lead-schema"
@@ -948,6 +948,153 @@
             "description": "The maximum create date in ISO format (YYYY-MM-DD)"
           }
         ]
+      }
+    },
+    "/application/updatecs": {
+      "post": {
+        "summary": "Update Credit Sense reference",
+        "operationId": "post-application-updatecs",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Warnings": {
+                      "type": "array",
+                      "description": "A list of warnings. e.g. features that are soon to be deprecated or features that are not yet supported by the API.",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "Success": {
+                      "type": "boolean",
+                      "description": "Denotes whether the lead was successfully created.",
+                      "default": "true"
+                    },
+                    "Data": {
+                      "type": "string",
+                      "description": "A description of the successfult actions.",
+                      "example": "Application reference updated successfully, Credit Sense report successfully requested."
+                    }
+                  },
+                  "required": [
+                    "Warnings",
+                    "Success",
+                    "Data"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Errors": {
+                      "type": "array",
+                      "description": "A list of errors.",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "error_type": {
+                            "type": "string",
+                            "default": "unauthorized",
+                            "description": "Denotes the type of error encountered."
+                          },
+                          "error_code": {
+                            "type": "string",
+                            "default": "401.1",
+                            "description": "The code that identifies the error."
+                          },
+                          "error_message": {
+                            "type": "string",
+                            "default": "Invalid API key.",
+                            "description": "Describes the error."
+                          }
+                        },
+                        "required": [
+                          "error_type",
+                          "error_code",
+                          "error_message"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "Errors"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "Applications"
+        ],
+        "description": "Update your reference for a Credit Sense report attached to a lead you bought.\n\nReasons to use this endpoint:\n- Add your unique identifier for a lead to the associated Credit Sense report.\n- Request delivery of the Credit Sense report for a purchased lead.\n\n### Non-compliant HTTP status codes\nWe have some non-compliant status codes that are returned in place of recognised HTTP status codes when specific errors occur.\n\n#### 701: Schema Validation Error\nSchema validation errors indicate that the data you've provided is invalid XML or it doesn't conform to our Seller schema.\n\n##### Example errors\n| Error message                                                                                                                        | Possible cause                                                                                                                           |\n|--------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|\n| Fatal Error 4: Start tag expected, '<' not found                                                                                     | Missing '<' at beginning of document.                                                                                                    |\n| Error 1872: The document has no document element.                                                                                    | Missing root element. This may also show in various other situations, including if you do not escape xml reserved characters (like \"&\"). |\n| Error 1826: Element 'Application_Date': '2016-08-10b' is not a valid value of the union type 'L_Empty_Date'.                         | Date supplied is in incorrect format.                                                                                                    |\n| Error 1843: Element 'Application': Character content other than whitespace is not allowed because the content type is 'element-only' | Some text is not properly contained in an element.                                                                                       |\n| Fatal Error 76: Opening and ending tag mismatch: Lead line 1 and Seller_Data                                                         | A tag has not been correctly opened or closed.                                                                                           |\n\n#### 702: Authentication Error\nAuthentication errors errors indicate that you're not authorised to perform the requested actions.\n\n##### Example errors\n| Error message                                                                       | Possible cause                                                                                                        |\n|-------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|\n| Invalid API_Token                                                                   | The API_Token you passed in doesn't match the API_Key you used in the url.                                            |\n| Invalid CS_App_ID for API_Token                                                     | CS_App_ID doesn't exist or doesn't belong to you.                                                                     |\n| Invalid Lead_ID for API_Token                                                       | Lead_ID doesn't exist or doesn't belong to you.                                                                       |\n| Invalid Buyer_Token for API_Token                                                   | The Buyer_Token provided does not correspond to any leads you have purchased.                                         |\n| Invalid CS_App_ID for Client_ID                                                     | If you use the optional Client_ID parameter in settings. CS_App_ID doesn't exist or doesn't belong to this Client_ID. |\n| Client_ID not valid for API_Token                                                   | The Client_ID supplied doesn't exist or doesn't belong to you.                                                        |\n| Your API Key has not been activated yet, please contact us to activate your API key | The API profile your provided credentials link to is inactive. Contact us to activate it.                             |\n\n#### 703: Data Error\nData errors indicate that there's a mismatch between multiple bits of data you've provided.\n\n##### Example errors\n| Error message                                                                                                                              | Possible cause                                                                                                                                                                             |\n|--------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| Lead_ID and CS_App_ID don't match                                                                                                          | If you have provided both Lead_ID and CS_App_ID, these two numbers don't match on our database.                                                                                            |\n| The Credit Sense application was completed more then 24 hours ago. For a lead to be sold the application must be completed within 24 hours | The CS_App_ID you have provided references a Credit Sense application that was completed more than 24 hours ago. For a lead to be sold, the application must be completed within 24 hours. |\n| The fields 'Lead_ID' and 'Buyer_Token' were both missing, please include one in your API call                                              | You have not provided either Lead_ID or Buyer_Token; one must be provided.                                                                                                                 |\n| The fields 'Lead_ID' and 'Buyer_Token' were both present, please include only one in your API call                                         | You have provided both Lead_ID and Buyer_Token; only one may be provided.                                                                                                                  |\n| Settings object key: 'App_Reference' has not been provided                                                                                 | The App_Reference parameter is missing from the API call.                                                                                                                                  |\n\n#### 704: Other Error\nOther errors indicate that there's a generic problem, not described above.\n\n| Error message                                                                                                                                                                                  | Possible cause                                                                              |\n|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|\n| The API credentials you have provided are testing credentials and you haven't provided a valid Test_Sale_Outcome. When using test credentials you must include the Test_Sale_Outcome parameter | You're testing against a dev/test org unit and failed to pass in a valid test sale outcome. |",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "application/json"
+            },
+            "in": "header",
+            "name": "Content-Type",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "API_Token": {
+                    "type": "string",
+                    "example": "daf90138-569f-4488-9f3b-099a58ac4130",
+                    "description": "The unique token that identifies your API access privileges."
+                  },
+                  "Lead_ID": {
+                    "type": "integer",
+                    "example": 6605347,
+                    "description": "Uniquely identifies the lead across Lead Market. This ID can be used as an alternative to `Buyer_Token`."
+                  },
+                  "Buyer_Token": {
+                    "type": "string",
+                    "example": "mmhLg4DxbtA5cL4nMrUv",
+                    "description": "A string that uniquely identifies this Lead for the Buyer. This token can be used as an alternative to `Lead_ID`."
+                  },
+                  "App_Reference": {
+                    "type": "string",
+                    "example": "Spiro_18557",
+                    "description": "Your unique reference that we'll add to the Credit Sense report associated with the lead you bought."
+                  },
+                  "Deliver_CS_Report": {
+                    "type": "integer",
+                    "enum": [
+                      0,
+                      1
+                    ],
+                    "description": "Denotes whether you want the Credit Sense report associated with this lead delivered to you. When set to true, the CS report will be delivered based on the CS environment configuration rules (e.g. deliver via email and/or webhook)."
+                  }
+                },
+                "required": [
+                  "API_Token"
+                ]
+              }
+            }
+          },
+          "description": ""
+        }
       }
     }
   },
