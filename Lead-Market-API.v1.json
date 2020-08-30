@@ -648,7 +648,380 @@
         "operationId": "post-smart_campaigns-id-outcome_imports",
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "total_records": {
+                      "type": "integer",
+                      "description": "The total number of records received.",
+                      "example": 52
+                    },
+                    "errors": {
+                      "type": "array",
+                      "description": "Details any errors encountered during the import.",
+                      "items": {
+                        "type": "null"
+                      }
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "outcome_import_id": {
+                          "type": "integer",
+                          "example": 36,
+                          "description": "Uniquely identifies this import of lead outcomes."
+                        }
+                      },
+                      "required": [
+                        "outcome_import_id"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "total_records": {
+                      "type": "integer",
+                      "description": "The total number of records received.",
+                      "example": 52
+                    },
+                    "errors": {
+                      "type": "array",
+                      "description": "Details any errors encountered during the import.",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "error_type": {
+                            "type": "string",
+                            "description": "The category of this error.",
+                            "enum": [
+                              "bad_request"
+                            ]
+                          },
+                          "error_code": {
+                            "type": "string",
+                            "description": "The code for this error.",
+                            "enum": [
+                              "400.1",
+                              "400.2",
+                              "400.3",
+                              "400.4"
+                            ]
+                          },
+                          "error_message": {
+                            "type": "string",
+                            "description": "A human-readable message for this error",
+                            "enum": [
+                              "Request could not be json decoded.",
+                              "The request is missing parameters.",
+                              "The request was empty.",
+                              "The request has malformed data.",
+                              "The request has attempted to create an already existing item."
+                            ]
+                          },
+                          "error_description": {
+                            "type": "string",
+                            "description": "The details of the error, which may include details of the entry that had the error."
+                          }
+                        },
+                        "required": [
+                          "error_type",
+                          "error_code",
+                          "error_message"
+                        ]
+                      }
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "outcome_import_id": {
+                          "type": "integer",
+                          "example": 36,
+                          "description": "Uniquely identifies this import of lead outcomes. Although an import was created, it will be in an error status and no outcomes will be used in your Smart Campaign."
+                        }
+                      },
+                      "required": [
+                        "outcome_import_id"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "description": "Details any errors encountered during the import.",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "error_type": {
+                            "type": "string",
+                            "description": "The category of this error.",
+                            "enum": [
+                              "unauthorized"
+                            ]
+                          },
+                          "error_code": {
+                            "type": "string",
+                            "description": "The code for this error.",
+                            "enum": [
+                              "401.1",
+                              "401.2",
+                              "401.3"
+                            ]
+                          },
+                          "error_message": {
+                            "type": "string",
+                            "description": "A human-readable message for this error",
+                            "enum": [
+                              "Invalid API key.",
+                              "Invalid API token.",
+                              "Invalid API key/token."
+                            ]
+                          },
+                          "error_description": {
+                            "type": "string",
+                            "description": "The details of the error, which may include details of the entry that had the error."
+                          }
+                        },
+                        "required": [
+                          "error_type",
+                          "error_code",
+                          "error_message"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "description": "Details any errors encountered during the import.",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "error_type": {
+                            "type": "string",
+                            "description": "The category of this error.",
+                            "enum": [
+                              "not_found"
+                            ]
+                          },
+                          "error_code": {
+                            "type": "string",
+                            "description": "The code for this error.",
+                            "enum": [
+                              "404.1",
+                              "404.2",
+                              "404.3"
+                            ]
+                          },
+                          "error_message": {
+                            "type": "string",
+                            "description": "A human-readable message for this error",
+                            "enum": [
+                              "No endpoint exists for this URL",
+                              "No resource at this URL.",
+                              "No resource yielded by this URL and parameters."
+                            ]
+                          },
+                          "error_description": {
+                            "type": "string",
+                            "description": "The details of the error, which may include details of the entry that had the error."
+                          }
+                        },
+                        "required": [
+                          "error_type",
+                          "error_code",
+                          "error_message"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "description": "Details any errors encountered during the import.",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "error_type": {
+                            "type": "string",
+                            "description": "The category of this error.",
+                            "enum": [
+                              "unprocessable_entity"
+                            ]
+                          },
+                          "error_code": {
+                            "type": "string",
+                            "description": "The code for this error.",
+                            "enum": [
+                              "422.1"
+                            ]
+                          },
+                          "error_message": {
+                            "type": "string",
+                            "description": "A human-readable message for this error",
+                            "enum": [
+                              "No applications provided."
+                            ]
+                          },
+                          "error_description": {
+                            "type": "string",
+                            "description": "The details of the error, which may include details of the entry that had the error."
+                          }
+                        },
+                        "required": [
+                          "error_type",
+                          "error_code",
+                          "error_message"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "description": "Details any errors encountered during the import.",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "error_type": {
+                            "type": "string",
+                            "description": "The category of this error.",
+                            "enum": [
+                              "server_error"
+                            ]
+                          },
+                          "error_code": {
+                            "type": "string",
+                            "description": "The code for this error.",
+                            "enum": [
+                              "500.1"
+                            ]
+                          },
+                          "error_message": {
+                            "type": "string",
+                            "description": "A human-readable message for this error",
+                            "enum": [
+                              "The server has encountered an error."
+                            ]
+                          },
+                          "error_description": {
+                            "type": "string",
+                            "description": "The details of the error, which may include details of the entry that had the error."
+                          }
+                        },
+                        "required": [
+                          "error_type",
+                          "error_code",
+                          "error_message"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "description": "Details any errors encountered during the import.",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "error_type": {
+                            "type": "string",
+                            "description": "The category of this error.",
+                            "enum": [
+                              "service_unavailable"
+                            ]
+                          },
+                          "error_code": {
+                            "type": "string",
+                            "description": "The code for this error.",
+                            "enum": [
+                              "503.1"
+                            ]
+                          },
+                          "error_message": {
+                            "type": "string",
+                            "description": "A human-readable message for this error",
+                            "enum": [
+                              "Unable to service your request at this time. Please try again later."
+                            ]
+                          },
+                          "error_description": {
+                            "type": "string",
+                            "description": "The details of the error, which may include details of the entry that had the error."
+                          }
+                        },
+                        "required": [
+                          "error_type",
+                          "error_code",
+                          "error_message"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "parameters": [
@@ -662,10 +1035,63 @@
             "required": true
           }
         ],
-        "description": "Provide application outcomes for leads you've bought.\n\nReasons to use this endpoint:\n- Feed funding outcomes into Smart Campaigns so further train and refine your Smart Campaigns algorithm.\n- Provide application outcomes in order to track conversion rates and cost per contract metrics via the Lead Market dashboard.",
+        "description": "Provide application outcomes for leads you've bought.\n\nReasons to use this endpoint:\n- Feed funding outcomes into Smart Campaigns to further train and refine your Smart Campaigns algorithm.\n- Provide application outcomes in order to track conversion rates and cost-per-contract metrics via the Lead Market dashboard.\n\n### Smart Campaigns ID\nThe `{id}` in the request URL is the ID of your Smart Campaign. You can retrieve this by navigating to your Smart Campaign on the [Lead Market dashboard](https://admin.leadmarketonline.com/SmartCampaigns) and checking the page URL. e.g. `https://admin.leadmarketonline.com/SmartCampaigns/view/1234`.\n\n### Viewing outcomes\nAfter receiving a successful response to this call you can view the status of each import on the Smart Campaigns page on the [Lead Market dashboard](https://admin.leadmarketonline.com/SmartCampaigns).",
         "tags": [
           "Bought lead outcomes"
-        ]
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "reference": {
+                      "type": "string",
+                      "description": "Your unique reference you provided to us after purchasing the lead.",
+                      "example": "Spiro_18557"
+                    },
+                    "leadId": {
+                      "type": "integer",
+                      "example": 6605347,
+                      "description": "Uniquely identifies the lead across Lead Market."
+                    },
+                    "csAppId": {
+                      "type": "integer",
+                      "description": "Uniquely identifies the lead in Credit Sense.",
+                      "example": 18520023
+                    },
+                    "email": {
+                      "type": "string",
+                      "description": "The lead's email address.",
+                      "example": "support@creditsense.com.au"
+                    },
+                    "createDt": {
+                      "type": "string",
+                      "example": "2020-01-16 13:26:09.2400000",
+                      "description": "The date and time when the lead was added into your system in [ISO format](https://en.wikipedia.org/wiki/ISO_8601)."
+                    },
+                    "outcome": {
+                      "type": "string",
+                      "example": "Declined",
+                      "description": "The outcome for the lead according to your system."
+                    },
+                    "lostReason": {
+                      "type": "string",
+                      "example": "Failed consultation",
+                      "description": "The reason the lead is not being funded."
+                    }
+                  },
+                  "required": [
+                    "outcome"
+                  ]
+                }
+              }
+            }
+          },
+          "description": "You must provide **at least one** of these pieces of information in order for us to identify each lead:\n- `reference`\n- `leadId`\n- `csAppid`\n- `email` and `createDt`"
+        }
       }
     },
     "/lists": {
@@ -1095,6 +1521,357 @@
           },
           "description": ""
         }
+      }
+    },
+    "/": {
+      "post": {
+        "summary": "Buyer webhook",
+        "operationId": "post-buyer-webhook",
+        "responses": {},
+        "callbacks": {
+          "Buyer notify webhook": {
+            "https://your-webhook-endpoint.com": {
+              "post": {
+                "summary": "Lead Market bought lead webhook",
+                "description": "A callback is triggered every time a lead is purchased.",
+                "externalDocs": {
+                  "description": "Check out our help docs.",
+                  "url": "https://docs.creditsense.com.au/display/LMA/Webhook+Implementation"
+                },
+                "requestBody": {
+                  "content": {
+                    "application/x-www-form-urlencoded": {
+                      "schema": {
+                          "type": "object",
+                          "description": "The lead details.",
+                          "properties": {
+                            "Lead": {
+                              "$ref": "#/components/schemas/Lead-schema"
+                      }
+                    }
+                }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "OK"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "### Overview\nSubscribe to webhook notifications to know when you've bought a lead.\n\n### Configuring your endpoint\nYou'll need to create a webhook endpoint in your system and make it publicly available. Once it's ready, you can add it on the [Notification Profiles page](https://admin.leadmarketonline.com/NotificationProfiles) in the Lead Market dashboard, or [let us know](mailto:support@creditsense.com.au) and we can update it for you.\n\n### Retry logic\nWhen we post the payload to your callback URL, we expect a `200` response indicating the webhook has been received successfully. If we do not receive a `200` response, we will retry your callback URL for up to two hours.\n\nThe delay between attempts is increased exponentially following every failed attempt until five retries are exhausted.\n\n| Retry | Delay                       | Total time since first delivery attempt |\n|-------|-----------------------------|-----------------------------------------|\n| 1     | 10 seconds                  | 10 seconds                              |\n| 2     | 50 seconds                  | 1 minute (60s)                          |\n| 3     | ~4 minutes (250s)           | ~5 minutes (310s)                       |\n| 4     | ~21 minutes (1,250s)        | ~26 minutes (1,560s)                    |\n| 5     | ~1 hour 44 minutes (6,250s) | ~2 hours 10 minutes (7,810s)            |",
+        "tags": [
+          "Webhooks"
+        ]
+      }
+    },
+    "/": {
+      "post": {
+        "summary": "Seller webhooks",
+        "operationId": "post-seller-webhook-sold",
+        "responses": {},
+        "callbacks": {
+          "Seller sold webhook": {
+            "https://your-webhook-endpoint.com": {
+              "post": {
+                "summary": "Lead Market sold lead webhook",
+                "description": "A callback is triggered every time a lead is sold.",
+                "externalDocs": {
+                  "description": "Check out our help docs.",
+                  "url": "https://docs.creditsense.com.au/display/CSI/Fully+integrated+webhook"
+                },
+                "requestBody": {
+                  "content": {
+                    "application/x-www-form-urlencoded": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "Status": {
+                                    "type": "object",
+                                    "description": "An object containing status information about the lead.",
+                                    "required": [
+                                        "Status_Type_Code",
+                                        "Status_Type_Description",
+                                        "Status_Code",
+                                        "Status_Description",
+                                        "Sale_Data"
+                                    ],
+                                    "properties": {
+                                        "Status_Type_Code": {
+                                            "type": "integer",
+                                            "enum": [
+                                                1,
+                                                2,
+                                                3,
+                                                4,
+                                                5
+                                            ],
+                                            "description": "The code that identifies the status type."
+                                        },
+                                        "Status_Type_Description": {
+                                            "type": "string",
+                                            "enum": [
+                                                "Bought",
+                                                "On Market",
+                                                "Sold",
+                                                "Recalled",
+                                                "Preparing to Sell"
+                                            ],
+                                            "description": "Describes the status type."
+                                        },
+                                        "Status_Code": {
+                                            "type": "integer",
+                                            "enum": [
+                                                1,
+                                                2,
+                                                3,
+                                                4,
+                                                5,
+                                                10,
+                                                11,
+                                                12,
+                                                13,
+                                                14,
+                                                15,
+                                                16,
+                                                20,
+                                                21,
+                                                22
+                                            ],
+                                            "description": "The code that identifies the status."
+                                        },
+                                        "Status_Description": {
+                                            "type": "string",
+                                            "enum": [
+                                                "Bought",
+                                                "Bought - Cust Notified",
+                                                "Resell Pending",
+                                                "Pending CS App",
+                                                "Analysing Data",
+                                                "On Market",
+                                                "Waiting Sale",
+                                                "Sold",
+                                                "Sold - Cust Notified",
+                                                "Recalled",
+                                                "Recalled - Lead already on market",
+                                                "Recalled - No Buyer",
+                                                "Recalled - Lead already on market by same seller",
+                                                "Pending Client",
+                                                "Error - no active bid on client"
+                                            ],
+                                            "description": "Describes the status."
+                                        }
+                                    }
+                                },
+                                "LM_SaleDT": {
+                                    "type": "string",
+                                    "example": "2020-07-25 14:56:28.9966667",
+                                    "description": "The date-time of the sale."
+                                },
+                                "Lead_Price": {
+                                    "type": "number",
+                                    "example": 15,
+                                    "description": "The base sale amount for the lead. This is a duplicate of `$.Data.Sale_Data.Sale_Base_Amount` provided for backwards compatibility."
+                                },
+                                "Lead_ID": {
+                                    "type": "integer",
+                                    "example": 6605347,
+                                    "description": "Uniquely identifies the lead across Lead Market."
+                                },
+                                "CS_App_ID": {
+                                    "type": "integer",
+                                    "example": 1234567,
+                                    "description": "Our unique identifier for the Credit Sense application."
+                                },
+                                "Sale_Base_Amount": {
+                                    "type": "number",
+                                    "example": 15,
+                                    "description": "The base sale amount for the lead."
+                                },
+                                "Sale_Base_Amount_Tax": {
+                                    "type": "number",
+                                    "example": 1.5,
+                                    "description": "The tax amount for the base sale amount of the lead. This will be `0` if no tax is due for the sale."
+                                },
+                                "Sale_Trade_Comm_Amount": {
+                                    "type": "number",
+                                    "example": 3,
+                                    "description": "The trade commission amount for the lead."
+                                },
+                                "Sale_Trade_Comm_Amount_Tax": {
+                                    "type": "number",
+                                    "example": 0.3,
+                                    "description": "The tax amount for the trade comission on the lead. This will be `0` if no tax is due for the sale."
+                                },
+                                "Sale_Net_Amount": {
+                                    "type": "number",
+                                    "example": 22.25,
+                                    "description": "**Sellers:** The base sale amount less the trade comission.\n**Buyers:** The base sale amount plus the trade comission.\nAll amounts are tax-inclusive."
+                                },
+                                "Sale_Currency": {
+                                    "type": "string",
+                                    "enum": [
+                                        "AUD",
+                                        "CAD",
+                                        "GBP",
+                                        "NZD"
+                                    ],
+                                    "description": "Denotes the [currency](https://www.iban.com/currency-codes) that lead sale amounts are expressed in."
+                                }
+                            },
+                            "required": [
+                                "Status",
+                                "LM_SaleDT",
+                                "Lead_Price",
+                                "Lead_ID",
+                                "CS_App_ID",
+                                "Sale_Base_Amount",
+                                "Sale_Base_Amount_Tax",
+                                "Sale_Trade_Comm_Amount",
+                                "Sale_Trade_Comm_Amount_Tax",
+                                "Sale_Net_Amount",
+                                "Sale_Currency"
+                            ]
+                        }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "OK"
+                  }
+                }
+              }
+            }
+          },
+          "Seller unsold webhook": {
+            "https://your-webhook-endpoint.com": {
+              "post": {
+                "summary": "Lead Market unsold lead webhook",
+                "description": "A callback is triggered every time a lead fails to sell.",
+                "externalDocs": {
+                  "description": "Check out our help docs.",
+                  "url": "https://docs.creditsense.com.au/display/CSI/Fully+integrated+webhook"
+                },
+                "requestBody": {
+                  "content": {
+                    "application/x-www-form-urlencoded": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "Status": {
+                                    "type": "object",
+                                    "description": "An object containing status information about the lead.",
+                                    "required": [
+                                        "Status_Type_Code",
+                                        "Status_Type_Description",
+                                        "Status_Code",
+                                        "Status_Description",
+                                        "Sale_Data"
+                                    ],
+                                    "properties": {
+                                        "Status_Type_Code": {
+                                            "type": "integer",
+                                            "enum": [
+                                                1,
+                                                2,
+                                                3,
+                                                4,
+                                                5
+                                            ],
+                                            "description": "The code that identifies the status type."
+                                        },
+                                        "Status_Type_Description": {
+                                            "type": "string",
+                                            "enum": [
+                                                "Bought",
+                                                "On Market",
+                                                "Sold",
+                                                "Recalled",
+                                                "Preparing to Sell"
+                                            ],
+                                            "description": "Describes the status type."
+                                        },
+                                        "Status_Code": {
+                                            "type": "integer",
+                                            "enum": [
+                                                1,
+                                                2,
+                                                3,
+                                                4,
+                                                5,
+                                                10,
+                                                11,
+                                                12,
+                                                13,
+                                                14,
+                                                15,
+                                                16,
+                                                20,
+                                                21,
+                                                22
+                                            ],
+                                            "description": "The code that identifies the status."
+                                        },
+                                        "Status_Description": {
+                                            "type": "string",
+                                            "enum": [
+                                                "Bought",
+                                                "Bought - Cust Notified",
+                                                "Resell Pending",
+                                                "Pending CS App",
+                                                "Analysing Data",
+                                                "On Market",
+                                                "Waiting Sale",
+                                                "Sold",
+                                                "Sold - Cust Notified",
+                                                "Recalled",
+                                                "Recalled - Lead already on market",
+                                                "Recalled - No Buyer",
+                                                "Recalled - Lead already on market by same seller",
+                                                "Pending Client",
+                                                "Error - no active bid on client"
+                                            ],
+                                            "description": "Describes the status."
+                                        }
+                                    }
+                                },
+                                "Lead_ID": {
+                                    "type": "integer",
+                                    "example": 6605347,
+                                    "description": "Uniquely identifies the lead across Lead Market."
+                                },
+                                "CS_App_ID": {
+                                    "type": "integer",
+                                    "example": 1234567,
+                                    "description": "Our unique identifier for the Credit Sense application."
+                                }
+                            },
+                            "required": [
+                                "Status",
+                                "Lead_ID",
+                                "CS_App_ID"
+                            ]
+                        }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "OK"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "### Overview\nSubscribe to webhook notifications to know when you've sold a lead.\n\n### Configuring your endpoint\nYou'll need to create a webhook endpoint in your system and make it publicly available. Once it's ready, you can add it on the [Notification Profiles page](https://admin.leadmarketonline.com/NotificationProfiles) in the Lead Market dashboard, or [let us know](mailto:support@creditsense.com.au) and we can update it for you.\n\n### Retry logic\nWhen we post the payload to your callback URL, we expect a `200` response indicating the webhook has been received successfully. If we do not receive a `200` response, we will retry your callback URL for up to two hours.\n\nThe delay between attempts is increased exponentially following every failed attempt until five retries are exhausted.\n\n| Retry | Delay                       | Total time since first delivery attempt |\n|-------|-----------------------------|-----------------------------------------|\n| 1     | 10 seconds                  | 10 seconds                              |\n| 2     | 50 seconds                  | 1 minute (60s)                          |\n| 3     | ~4 minutes (250s)           | ~5 minutes (310s)                       |\n| 4     | ~21 minutes (1,250s)        | ~26 minutes (1,560s)                    |\n| 5     | ~1 hour 44 minutes (6,250s) | ~2 hours 10 minutes (7,810s)            |",
+        "tags": [
+          "Webhooks"
+        ]
       }
     }
   },
