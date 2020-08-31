@@ -48,7 +48,7 @@
                     "Success": {
                       "type": "boolean",
                       "description": "Denotes whether the lead was successfully created.",
-                      "default": "True"
+                      "default": "true"
                     },
                     "Data": {
                       "type": [
@@ -130,7 +130,7 @@
         "tags": [
           "Applications"
         ],
-        "description": "Retrieve reports in the requested formats for a specified application.\n\nReasons to use this endpoint:\n- Create a disengaged lead and push it into the market for sale.\n- Pass in lead details for an engaged lead that will be retrieved when the lead is pushed into the market.\n\n### Non-compliant HTTP status codes\nWe have some non-compliant status codes that are returned in place of recognised HTTP status codes when specific errors occur.\n\n#### 701: Schema Validation Error\nSchema validation errors indicate that the data you've provided is invalid XML or it doesn't conform to our Seller schema.\n\n##### Example errors\n| Error message                                                                                                                        | Possible cause                                                                                                                           |\n|--------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|\n| Fatal Error 4: Start tag expected, '<' not found                                                                                     | Missing '<' at beginning of document.                                                                                                    |\n| Error 1872: The document has no document element.                                                                                    | Missing root element. This may also show in various other situations, including if you do not escape xml reserved characters (like \"&\"). |\n| Error 1826: Element 'Application_Date': '2016-08-10b' is not a valid value of the union type 'L_Empty_Date'.                         | Date supplied is in incorrect format.                                                                                                    |\n| Error 1843: Element 'Application': Character content other than whitespace is not allowed because the content type is 'element-only' | Some text is not properly contained in an element.                                                                                       |\n| Fatal Error 76: Opening and ending tag mismatch: Lead line 1 and Seller_Data                                                         | A tag has not been correctly opened or closed.                                                                                           |\n\n#### 702: Authentication Error\nAuthentication errors errors indicate that you're not authorised to perform the requested actions.\n\n##### Example errors\n| Error message                                                                       | Possible cause                                                                                                        |\n|-------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|\n| Invalid API_Token                                                                   | The API_Token you passed in doesn't match the API_Key you used in the url.                                            |\n| Invalid CS_App_ID for API_Token                                                     | CS_App_ID doesn't exist or doesn't belong to you.                                                                     |\n| Invalid Lead_ID for API_Token                                                       | Lead_ID doesn't exist or doesn't belong to you.                                                                       |\n| Invalid Buyer_Token for API_Token                                                   | The Buyer_Token provided does not correspond to any leads you have purchased.                                         |\n| Invalid CS_App_ID for Client_ID                                                     | If you use the optional Client_ID parameter in settings. CS_App_ID doesn't exist or doesn't belong to this Client_ID. |\n| Client_ID not valid for API_Token                                                   | The Client_ID supplied doesn't exist or doesn't belong to you.                                                        |\n| Your API Key has not been activated yet, please contact us to activate your API key | The API profile your provided credentials link to is inactive. Contact us to activate it.                             |\n\n#### 703: Data Error\nData errors indicate that there's a mismatch between multiple bits of data you've provided.\n\n##### Example errors\n| Error message                                                                                                                              | Possible cause                                                                                                                                                                             |\n|--------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| Lead_ID and CS_App_ID don't match                                                                                                          | If you have provided both Lead_ID and CS_App_ID, these two numbers don't match on our database.                                                                                            |\n| The Credit Sense application was completed more then 24 hours ago. For a lead to be sold the application must be completed within 24 hours | The CS_App_ID you have provided references a Credit Sense application that was completed more than 24 hours ago. For a lead to be sold, the application must be completed within 24 hours. |\n| The fields 'Lead_ID' and 'Buyer_Token' were both missing, please include one in your API call                                              | You have not provided either Lead_ID or Buyer_Token; one must be provided.                                                                                                                 |\n| The fields 'Lead_ID' and 'Buyer_Token' were both present, please include only one in your API call                                         | You have provided both Lead_ID and Buyer_Token; only one may be provided.                                                                                                                  |\n| Settings object key: 'App_Reference' has not been provided                                                                                 | The App_Reference parameter is missing from the API call.                                                                                                                                  |\n\n#### 704: Other Error\nOther errors indicate that there's a generic problem, not described above.\n\n| Error message                                                                                                                                                                                  | Possible cause                                                                              |\n|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|\n| The API credentials you have provided are testing credentials and you haven't provided a valid Test_Sale_Outcome. When using test credentials you must include the Test_Sale_Outcome parameter | You're testing against a dev/test org unit and failed to pass in a valid test sale outcome. |",
+        "description": "Add a lead to Lead Market.\n\nReasons to use this endpoint:\n- Create a disengaged lead and push it into the market for sale.\n- Pass in lead details for an engaged lead that will be retrieved when the lead is pushed into the market.\n\n### Non-compliant HTTP status codes\nWe have some non-compliant status codes that are returned in place of recognised HTTP status codes when specific errors occur.\n\n#### 701: Schema Validation Error\nSchema validation errors indicate that the data you've provided is invalid XML or it doesn't conform to our Seller schema.\n\n##### Example errors\n| Error message                                                                                                                        | Possible cause                                                                                                                           |\n|--------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|\n| Fatal Error 4: Start tag expected, '<' not found                                                                                     | Missing '<' at beginning of document.                                                                                                    |\n| Error 1872: The document has no document element.                                                                                    | Missing root element. This may also show in various other situations, including if you do not escape xml reserved characters (like \"&\"). |\n| Error 1826: Element 'Application_Date': '2016-08-10b' is not a valid value of the union type 'L_Empty_Date'.                         | Date supplied is in incorrect format.                                                                                                    |\n| Error 1843: Element 'Application': Character content other than whitespace is not allowed because the content type is 'element-only' | Some text is not properly contained in an element.                                                                                       |\n| Fatal Error 76: Opening and ending tag mismatch: Lead line 1 and Seller_Data                                                         | A tag has not been correctly opened or closed.                                                                                           |\n\n#### 702: Authentication Error\nAuthentication errors errors indicate that you're not authorised to perform the requested actions.\n\n##### Example errors\n| Error message                                                                       | Possible cause                                                                                                        |\n|-------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|\n| Invalid API_Token                                                                   | The API_Token you passed in doesn't match the API_Key you used in the url.                                            |\n| Invalid CS_App_ID for API_Token                                                     | CS_App_ID doesn't exist or doesn't belong to you.                                                                     |\n| Invalid Lead_ID for API_Token                                                       | Lead_ID doesn't exist or doesn't belong to you.                                                                       |\n| Invalid Buyer_Token for API_Token                                                   | The Buyer_Token provided does not correspond to any leads you have purchased.                                         |\n| Invalid CS_App_ID for Client_ID                                                     | If you use the optional Client_ID parameter in settings. CS_App_ID doesn't exist or doesn't belong to this Client_ID. |\n| Client_ID not valid for API_Token                                                   | The Client_ID supplied doesn't exist or doesn't belong to you.                                                        |\n| Your API Key has not been activated yet, please contact us to activate your API key | The API profile your provided credentials link to is inactive. Contact us to activate it.                             |\n\n#### 703: Data Error\nData errors indicate that there's a mismatch between multiple bits of data you've provided.\n\n##### Example errors\n| Error message                                                                                                                              | Possible cause                                                                                                                                                                             |\n|--------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| Lead_ID and CS_App_ID don't match                                                                                                          | If you have provided both Lead_ID and CS_App_ID, these two numbers don't match on our database.                                                                                            |\n| The Credit Sense application was completed more then 24 hours ago. For a lead to be sold the application must be completed within 24 hours | The CS_App_ID you have provided references a Credit Sense application that was completed more than 24 hours ago. For a lead to be sold, the application must be completed within 24 hours. |\n| The fields 'Lead_ID' and 'Buyer_Token' were both missing, please include one in your API call                                              | You have not provided either Lead_ID or Buyer_Token; one must be provided.                                                                                                                 |\n| The fields 'Lead_ID' and 'Buyer_Token' were both present, please include only one in your API call                                         | You have provided both Lead_ID and Buyer_Token; only one may be provided.                                                                                                                  |\n| Settings object key: 'App_Reference' has not been provided                                                                                 | The App_Reference parameter is missing from the API call.                                                                                                                                  |\n\n#### 704: Other Error\nOther errors indicate that there's a generic problem, not described above.\n\n| Error message                                                                                                                                                                                  | Possible cause                                                                              |\n|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|\n| The API credentials you have provided are testing credentials and you haven't provided a valid Test_Sale_Outcome. When using test credentials you must include the Test_Sale_Outcome parameter | You're testing against a dev/test org unit and failed to pass in a valid test sale outcome. |",
         "requestBody": {
           "content": {
             "multipart/form-data": {
@@ -206,7 +206,7 @@
                     "Success": {
                       "type": "boolean",
                       "description": "Denotes whether the lead status was successfully returned.",
-                      "default": "True"
+                      "default": "true"
                     },
                     "Data": {
                       "type": "object",
@@ -294,8 +294,8 @@
                             },
                             "Lead_Price": {
                               "type": "number",
-                              "example": 21,
-                              "description": "The sale price for the lead."
+                              "example": 15,
+                              "description": "The base sale amount for the lead. This is a duplicate of `$.Data.Sale_Data.Sale_Base_Amount` provided for backwards compatibility."
                             },
                             "Lead_ID": {
                               "type": "integer",
@@ -510,11 +510,11 @@
                     "Success": {
                       "type": "boolean",
                       "description": "Denotes whether the lead was successfully created.",
-                      "default": "True"
+                      "default": "true"
                     },
                     "Data": {
                       "type": "object",
-                      "description": "The Lead ID as an integer or an object containing the Lead ID and Lead Token.",
+                      "description": "The lead details.",
                       "properties": {
                         "Lead": {
                           "$ref": "#/components/schemas/Lead-schema"
@@ -607,7 +607,7 @@
                   "Extra_Info_Only": {
                     "type": "boolean",
                     "default": "false",
-                    "description": "Specify whether you'd like to only receive lead details added via the Lead Market buyer form."
+                    "description": "Specify whether you'd like to only receive lead details added via the Lead Market buyer form. When set to `true`, only the information we gather from the lead in the Buyer iframe will be returned in the response."
                   }
                 },
                 "required": [
@@ -648,7 +648,380 @@
         "operationId": "post-smart_campaigns-id-outcome_imports",
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "total_records": {
+                      "type": "integer",
+                      "description": "The total number of records received.",
+                      "example": 52
+                    },
+                    "errors": {
+                      "type": "array",
+                      "description": "Details any errors encountered during the import.",
+                      "items": {
+                        "type": "null"
+                      }
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "outcome_import_id": {
+                          "type": "integer",
+                          "example": 36,
+                          "description": "Uniquely identifies this import of lead outcomes."
+                        }
+                      },
+                      "required": [
+                        "outcome_import_id"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "total_records": {
+                      "type": "integer",
+                      "description": "The total number of records received.",
+                      "example": 52
+                    },
+                    "errors": {
+                      "type": "array",
+                      "description": "Details any errors encountered during the import.",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "error_type": {
+                            "type": "string",
+                            "description": "The category of this error.",
+                            "enum": [
+                              "bad_request"
+                            ]
+                          },
+                          "error_code": {
+                            "type": "string",
+                            "description": "The code for this error.",
+                            "enum": [
+                              "400.1",
+                              "400.2",
+                              "400.3",
+                              "400.4"
+                            ]
+                          },
+                          "error_message": {
+                            "type": "string",
+                            "description": "A human-readable message for this error",
+                            "enum": [
+                              "Request could not be json decoded.",
+                              "The request is missing parameters.",
+                              "The request was empty.",
+                              "The request has malformed data.",
+                              "The request has attempted to create an already existing item."
+                            ]
+                          },
+                          "error_description": {
+                            "type": "string",
+                            "description": "The details of the error, which may include details of the entry that had the error."
+                          }
+                        },
+                        "required": [
+                          "error_type",
+                          "error_code",
+                          "error_message"
+                        ]
+                      }
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "outcome_import_id": {
+                          "type": "integer",
+                          "example": 36,
+                          "description": "Uniquely identifies this import of lead outcomes. Although an import was created, it will be in an error status and no outcomes will be used in your Smart Campaign."
+                        }
+                      },
+                      "required": [
+                        "outcome_import_id"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "description": "Details any errors encountered during the import.",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "error_type": {
+                            "type": "string",
+                            "description": "The category of this error.",
+                            "enum": [
+                              "unauthorized"
+                            ]
+                          },
+                          "error_code": {
+                            "type": "string",
+                            "description": "The code for this error.",
+                            "enum": [
+                              "401.1",
+                              "401.2",
+                              "401.3"
+                            ]
+                          },
+                          "error_message": {
+                            "type": "string",
+                            "description": "A human-readable message for this error",
+                            "enum": [
+                              "Invalid API key.",
+                              "Invalid API token.",
+                              "Invalid API key/token."
+                            ]
+                          },
+                          "error_description": {
+                            "type": "string",
+                            "description": "The details of the error, which may include details of the entry that had the error."
+                          }
+                        },
+                        "required": [
+                          "error_type",
+                          "error_code",
+                          "error_message"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "description": "Details any errors encountered during the import.",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "error_type": {
+                            "type": "string",
+                            "description": "The category of this error.",
+                            "enum": [
+                              "not_found"
+                            ]
+                          },
+                          "error_code": {
+                            "type": "string",
+                            "description": "The code for this error.",
+                            "enum": [
+                              "404.1",
+                              "404.2",
+                              "404.3"
+                            ]
+                          },
+                          "error_message": {
+                            "type": "string",
+                            "description": "A human-readable message for this error",
+                            "enum": [
+                              "No endpoint exists for this URL",
+                              "No resource at this URL.",
+                              "No resource yielded by this URL and parameters."
+                            ]
+                          },
+                          "error_description": {
+                            "type": "string",
+                            "description": "The details of the error, which may include details of the entry that had the error."
+                          }
+                        },
+                        "required": [
+                          "error_type",
+                          "error_code",
+                          "error_message"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "description": "Details any errors encountered during the import.",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "error_type": {
+                            "type": "string",
+                            "description": "The category of this error.",
+                            "enum": [
+                              "unprocessable_entity"
+                            ]
+                          },
+                          "error_code": {
+                            "type": "string",
+                            "description": "The code for this error.",
+                            "enum": [
+                              "422.1"
+                            ]
+                          },
+                          "error_message": {
+                            "type": "string",
+                            "description": "A human-readable message for this error",
+                            "enum": [
+                              "No applications provided."
+                            ]
+                          },
+                          "error_description": {
+                            "type": "string",
+                            "description": "The details of the error, which may include details of the entry that had the error."
+                          }
+                        },
+                        "required": [
+                          "error_type",
+                          "error_code",
+                          "error_message"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "description": "Details any errors encountered during the import.",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "error_type": {
+                            "type": "string",
+                            "description": "The category of this error.",
+                            "enum": [
+                              "server_error"
+                            ]
+                          },
+                          "error_code": {
+                            "type": "string",
+                            "description": "The code for this error.",
+                            "enum": [
+                              "500.1"
+                            ]
+                          },
+                          "error_message": {
+                            "type": "string",
+                            "description": "A human-readable message for this error",
+                            "enum": [
+                              "The server has encountered an error."
+                            ]
+                          },
+                          "error_description": {
+                            "type": "string",
+                            "description": "The details of the error, which may include details of the entry that had the error."
+                          }
+                        },
+                        "required": [
+                          "error_type",
+                          "error_code",
+                          "error_message"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "array",
+                      "description": "Details any errors encountered during the import.",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "error_type": {
+                            "type": "string",
+                            "description": "The category of this error.",
+                            "enum": [
+                              "service_unavailable"
+                            ]
+                          },
+                          "error_code": {
+                            "type": "string",
+                            "description": "The code for this error.",
+                            "enum": [
+                              "503.1"
+                            ]
+                          },
+                          "error_message": {
+                            "type": "string",
+                            "description": "A human-readable message for this error",
+                            "enum": [
+                              "Unable to service your request at this time. Please try again later."
+                            ]
+                          },
+                          "error_description": {
+                            "type": "string",
+                            "description": "The details of the error, which may include details of the entry that had the error."
+                          }
+                        },
+                        "required": [
+                          "error_type",
+                          "error_code",
+                          "error_message"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "parameters": [
@@ -662,10 +1035,63 @@
             "required": true
           }
         ],
-        "description": "Provide application outcomes for leads you've bought.\n\nReasons to use this endpoint:\n- Feed funding outcomes into Smart Campaigns so further train and refine your Smart Campaigns algorithm.\n- Provide application outcomes in order to track conversion rates and cost per contract metrics via the Lead Market dashboard.",
+        "description": "Provide application outcomes for leads you've bought.\n\nReasons to use this endpoint:\n- Feed funding outcomes into Smart Campaigns to further train and refine your Smart Campaigns algorithm.\n- Provide application outcomes in order to track conversion rates and cost-per-contract metrics via the Lead Market dashboard.\n\n### Smart Campaigns ID\nThe `{id}` in the request URL is the ID of your Smart Campaign. You can retrieve this by navigating to your Smart Campaign on the [Lead Market dashboard](https://admin.leadmarketonline.com/SmartCampaigns) and checking the page URL. e.g. `https://admin.leadmarketonline.com/SmartCampaigns/view/1234`.\n\n### Viewing outcomes\nAfter receiving a successful response to this call you can view the status of each import on the Smart Campaigns page on the [Lead Market dashboard](https://admin.leadmarketonline.com/SmartCampaigns).",
         "tags": [
           "Bought lead outcomes"
-        ]
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "reference": {
+                      "type": "string",
+                      "description": "Your unique reference you provided to us after purchasing the lead.",
+                      "example": "Spiro_18557"
+                    },
+                    "leadId": {
+                      "type": "integer",
+                      "example": 6605347,
+                      "description": "Uniquely identifies the lead across Lead Market."
+                    },
+                    "csAppId": {
+                      "type": "integer",
+                      "description": "Uniquely identifies the lead in Credit Sense.",
+                      "example": 18520023
+                    },
+                    "email": {
+                      "type": "string",
+                      "description": "The lead's email address.",
+                      "example": "support@creditsense.com.au"
+                    },
+                    "createDt": {
+                      "type": "string",
+                      "example": "2020-01-16 13:26:09.2400000",
+                      "description": "The date and time when the lead was added into your system in [ISO format](https://en.wikipedia.org/wiki/ISO_8601)."
+                    },
+                    "outcome": {
+                      "type": "string",
+                      "example": "Declined",
+                      "description": "The outcome for the lead according to your system."
+                    },
+                    "lostReason": {
+                      "type": "string",
+                      "example": "Failed consultation",
+                      "description": "The reason the lead is not being funded."
+                    }
+                  },
+                  "required": [
+                    "outcome"
+                  ]
+                }
+              }
+            }
+          },
+          "description": "You must provide **at least one** of these pieces of information in order for us to identify each lead:\n- `reference`\n- `leadId`\n- `csAppid`\n- `email` and `createDt`"
+        }
       }
     },
     "/lists": {
@@ -741,6 +1167,9 @@
             "name": "apiToken",
             "required": true
           }
+        ],
+        "tags": [
+          "Lists"
         ]
       }
     },
@@ -757,7 +1186,9 @@
       ],
       "get": {
         "summary": "Your GET endpoint",
-        "tags": [],
+        "tags": [
+          "Lists"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -843,7 +1274,9 @@
       ],
       "get": {
         "summary": "Your GET endpoint",
-        "tags": [],
+        "tags": [
+          "Lists"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -891,7 +1324,7 @@
             }
           }
         },
-        "operationId": "get-lists-id",
+        "operationId": "get-lists-id-records",
         "description": "Returns the individual items in the specified blacklist.\n\nReasons to use this endpoint:\n- To check the values that are blacklisted\n- To check if particular values are blacklisted by your organisation",
         "parameters": [
           {
@@ -942,6 +1375,459 @@
           }
         ]
       }
+    },
+    "/application/updatecs": {
+      "post": {
+        "summary": "Update Credit Sense reference",
+        "operationId": "post-application-updatecs",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Warnings": {
+                      "type": "array",
+                      "description": "A list of warnings. e.g. features that are soon to be deprecated or features that are not yet supported by the API.",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "Success": {
+                      "type": "boolean",
+                      "description": "Denotes whether the lead was successfully created.",
+                      "default": "true"
+                    },
+                    "Data": {
+                      "type": "string",
+                      "description": "A description of the successfult actions.",
+                      "example": "Application reference updated successfully, Credit Sense report successfully requested."
+                    }
+                  },
+                  "required": [
+                    "Warnings",
+                    "Success",
+                    "Data"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Errors": {
+                      "type": "array",
+                      "description": "A list of errors.",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "error_type": {
+                            "type": "string",
+                            "default": "unauthorized",
+                            "description": "Denotes the type of error encountered."
+                          },
+                          "error_code": {
+                            "type": "string",
+                            "default": "401.1",
+                            "description": "The code that identifies the error."
+                          },
+                          "error_message": {
+                            "type": "string",
+                            "default": "Invalid API key.",
+                            "description": "Describes the error."
+                          }
+                        },
+                        "required": [
+                          "error_type",
+                          "error_code",
+                          "error_message"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "Errors"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "Applications"
+        ],
+        "description": "Update your reference for a Credit Sense report attached to a lead you bought.\n\nReasons to use this endpoint:\n- Add your unique identifier for a lead to the associated Credit Sense report.\n- Request delivery of the Credit Sense report for a purchased lead.\n\n### Non-compliant HTTP status codes\nWe have some non-compliant status codes that are returned in place of recognised HTTP status codes when specific errors occur.\n\n#### 701: Schema Validation Error\nSchema validation errors indicate that the data you've provided is invalid XML or it doesn't conform to our Seller schema.\n\n##### Example errors\n| Error message                                                                                                                        | Possible cause                                                                                                                           |\n|--------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|\n| Fatal Error 4: Start tag expected, '<' not found                                                                                     | Missing '<' at beginning of document.                                                                                                    |\n| Error 1872: The document has no document element.                                                                                    | Missing root element. This may also show in various other situations, including if you do not escape xml reserved characters (like \"&\"). |\n| Error 1826: Element 'Application_Date': '2016-08-10b' is not a valid value of the union type 'L_Empty_Date'.                         | Date supplied is in incorrect format.                                                                                                    |\n| Error 1843: Element 'Application': Character content other than whitespace is not allowed because the content type is 'element-only' | Some text is not properly contained in an element.                                                                                       |\n| Fatal Error 76: Opening and ending tag mismatch: Lead line 1 and Seller_Data                                                         | A tag has not been correctly opened or closed.                                                                                           |\n\n#### 702: Authentication Error\nAuthentication errors errors indicate that you're not authorised to perform the requested actions.\n\n##### Example errors\n| Error message                                                                       | Possible cause                                                                                                        |\n|-------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|\n| Invalid API_Token                                                                   | The API_Token you passed in doesn't match the API_Key you used in the url.                                            |\n| Invalid CS_App_ID for API_Token                                                     | CS_App_ID doesn't exist or doesn't belong to you.                                                                     |\n| Invalid Lead_ID for API_Token                                                       | Lead_ID doesn't exist or doesn't belong to you.                                                                       |\n| Invalid Buyer_Token for API_Token                                                   | The Buyer_Token provided does not correspond to any leads you have purchased.                                         |\n| Invalid CS_App_ID for Client_ID                                                     | If you use the optional Client_ID parameter in settings. CS_App_ID doesn't exist or doesn't belong to this Client_ID. |\n| Client_ID not valid for API_Token                                                   | The Client_ID supplied doesn't exist or doesn't belong to you.                                                        |\n| Your API Key has not been activated yet, please contact us to activate your API key | The API profile your provided credentials link to is inactive. Contact us to activate it.                             |\n\n#### 703: Data Error\nData errors indicate that there's a mismatch between multiple bits of data you've provided.\n\n##### Example errors\n| Error message                                                                                                                              | Possible cause                                                                                                                                                                             |\n|--------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| Lead_ID and CS_App_ID don't match                                                                                                          | If you have provided both Lead_ID and CS_App_ID, these two numbers don't match on our database.                                                                                            |\n| The Credit Sense application was completed more then 24 hours ago. For a lead to be sold the application must be completed within 24 hours | The CS_App_ID you have provided references a Credit Sense application that was completed more than 24 hours ago. For a lead to be sold, the application must be completed within 24 hours. |\n| The fields 'Lead_ID' and 'Buyer_Token' were both missing, please include one in your API call                                              | You have not provided either Lead_ID or Buyer_Token; one must be provided.                                                                                                                 |\n| The fields 'Lead_ID' and 'Buyer_Token' were both present, please include only one in your API call                                         | You have provided both Lead_ID and Buyer_Token; only one may be provided.                                                                                                                  |\n| Settings object key: 'App_Reference' has not been provided                                                                                 | The App_Reference parameter is missing from the API call.                                                                                                                                  |\n\n#### 704: Other Error\nOther errors indicate that there's a generic problem, not described above.\n\n| Error message                                                                                                                                                                                  | Possible cause                                                                              |\n|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|\n| The API credentials you have provided are testing credentials and you haven't provided a valid Test_Sale_Outcome. When using test credentials you must include the Test_Sale_Outcome parameter | You're testing against a dev/test org unit and failed to pass in a valid test sale outcome. |",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "application/json"
+            },
+            "in": "header",
+            "name": "Content-Type",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "API_Token": {
+                    "type": "string",
+                    "example": "daf90138-569f-4488-9f3b-099a58ac4130",
+                    "description": "The unique token that identifies your API access privileges."
+                  },
+                  "Lead_ID": {
+                    "type": "integer",
+                    "example": 6605347,
+                    "description": "Uniquely identifies the lead across Lead Market. This ID can be used as an alternative to `Buyer_Token`."
+                  },
+                  "Buyer_Token": {
+                    "type": "string",
+                    "example": "mmhLg4DxbtA5cL4nMrUv",
+                    "description": "A string that uniquely identifies this Lead for the Buyer. This token can be used as an alternative to `Lead_ID`."
+                  },
+                  "App_Reference": {
+                    "type": "string",
+                    "example": "Spiro_18557",
+                    "description": "Your unique reference that we'll add to the Credit Sense report associated with the lead you bought."
+                  },
+                  "Deliver_CS_Report": {
+                    "type": "integer",
+                    "enum": [
+                      0,
+                      1
+                    ],
+                    "description": "Denotes whether you want the Credit Sense report associated with this lead delivered to you. When set to true, the CS report will be delivered based on the CS environment configuration rules (e.g. deliver via email and/or webhook)."
+                  }
+                },
+                "required": [
+                  "API_Token"
+                ]
+              }
+            }
+          },
+          "description": ""
+        }
+      }
+    },
+    "/": {
+      "post": {
+        "summary": "Seller webhooks",
+        "operationId": "post-seller-webhook-sold",
+        "responses": {},
+        "callbacks": {
+          "Seller sold webhook": {
+            "https://your-webhook-endpoint.com": {
+              "post": {
+                "summary": "Lead Market sold lead webhook",
+                "description": "A callback is triggered every time a lead is sold.",
+                "externalDocs": {
+                  "description": "Check out our help docs.",
+                  "url": "https://docs.creditsense.com.au/display/CSI/Fully+integrated+webhook"
+                },
+                "requestBody": {
+                  "content": {
+                    "application/x-www-form-urlencoded": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "Status": {
+                            "type": "object",
+                            "description": "An object containing status information about the lead.",
+                            "required": [
+                              "Status_Type_Code",
+                              "Status_Type_Description",
+                              "Status_Code",
+                              "Status_Description",
+                              "Sale_Data"
+                            ],
+                            "properties": {
+                              "Status_Type_Code": {
+                                "type": "integer",
+                                "enum": [
+                                  1,
+                                  2,
+                                  3,
+                                  4,
+                                  5
+                                ],
+                                "description": "The code that identifies the status type."
+                              },
+                              "Status_Type_Description": {
+                                "type": "string",
+                                "enum": [
+                                  "Bought",
+                                  "On Market",
+                                  "Sold",
+                                  "Recalled",
+                                  "Preparing to Sell"
+                                ],
+                                "description": "Describes the status type."
+                              },
+                              "Status_Code": {
+                                "type": "integer",
+                                "enum": [
+                                  1,
+                                  2,
+                                  3,
+                                  4,
+                                  5,
+                                  10,
+                                  11,
+                                  12,
+                                  13,
+                                  14,
+                                  15,
+                                  16,
+                                  20,
+                                  21,
+                                  22
+                                ],
+                                "description": "The code that identifies the status."
+                              },
+                              "Status_Description": {
+                                "type": "string",
+                                "enum": [
+                                  "Bought",
+                                  "Bought - Cust Notified",
+                                  "Resell Pending",
+                                  "Pending CS App",
+                                  "Analysing Data",
+                                  "On Market",
+                                  "Waiting Sale",
+                                  "Sold",
+                                  "Sold - Cust Notified",
+                                  "Recalled",
+                                  "Recalled - Lead already on market",
+                                  "Recalled - No Buyer",
+                                  "Recalled - Lead already on market by same seller",
+                                  "Pending Client",
+                                  "Error - no active bid on client"
+                                ],
+                                "description": "Describes the status."
+                              }
+                            }
+                          },
+                          "LM_SaleDT": {
+                            "type": "string",
+                            "example": "2020-07-25 14:56:28.9966667",
+                            "description": "The date-time of the sale."
+                          },
+                          "Lead_Price": {
+                            "type": "number",
+                            "example": 15,
+                            "description": "The base sale amount for the lead. This is a duplicate of `$.Data.Sale_Data.Sale_Base_Amount` provided for backwards compatibility."
+                          },
+                          "Lead_ID": {
+                            "type": "integer",
+                            "example": 6605347,
+                            "description": "Uniquely identifies the lead across Lead Market."
+                          },
+                          "CS_App_ID": {
+                            "type": "integer",
+                            "example": 1234567,
+                            "description": "Our unique identifier for the Credit Sense application."
+                          },
+                          "Sale_Base_Amount": {
+                            "type": "number",
+                            "example": 15,
+                            "description": "The base sale amount for the lead."
+                          },
+                          "Sale_Base_Amount_Tax": {
+                            "type": "number",
+                            "example": 1.5,
+                            "description": "The tax amount for the base sale amount of the lead. This will be `0` if no tax is due for the sale."
+                          },
+                          "Sale_Trade_Comm_Amount": {
+                            "type": "number",
+                            "example": 3,
+                            "description": "The trade commission amount for the lead."
+                          },
+                          "Sale_Trade_Comm_Amount_Tax": {
+                            "type": "number",
+                            "example": 0.3,
+                            "description": "The tax amount for the trade comission on the lead. This will be `0` if no tax is due for the sale."
+                          },
+                          "Sale_Net_Amount": {
+                            "type": "number",
+                            "example": 22.25,
+                            "description": "**Sellers:** The base sale amount less the trade comission.\n**Buyers:** The base sale amount plus the trade comission.\nAll amounts are tax-inclusive."
+                          },
+                          "Sale_Currency": {
+                            "type": "string",
+                            "enum": [
+                              "AUD",
+                              "CAD",
+                              "GBP",
+                              "NZD"
+                            ],
+                            "description": "Denotes the [currency](https://www.iban.com/currency-codes) that lead sale amounts are expressed in."
+                          }
+                        },
+                        "required": [
+                          "Status",
+                          "LM_SaleDT",
+                          "Lead_Price",
+                          "Lead_ID",
+                          "CS_App_ID",
+                          "Sale_Base_Amount",
+                          "Sale_Base_Amount_Tax",
+                          "Sale_Trade_Comm_Amount",
+                          "Sale_Trade_Comm_Amount_Tax",
+                          "Sale_Net_Amount",
+                          "Sale_Currency"
+                        ]
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "OK"
+                  }
+                }
+              }
+            }
+          },
+          "Seller unsold webhook": {
+            "https://your-webhook-endpoint.com": {
+              "post": {
+                "summary": "Lead Market unsold lead webhook",
+                "description": "A callback is triggered every time a lead fails to sell.",
+                "externalDocs": {
+                  "description": "Check out our help docs.",
+                  "url": "https://docs.creditsense.com.au/display/CSI/Fully+integrated+webhook"
+                },
+                "requestBody": {
+                  "content": {
+                    "application/x-www-form-urlencoded": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "Status": {
+                            "type": "object",
+                            "description": "An object containing status information about the lead.",
+                            "required": [
+                              "Status_Type_Code",
+                              "Status_Type_Description",
+                              "Status_Code",
+                              "Status_Description",
+                              "Sale_Data"
+                            ],
+                            "properties": {
+                              "Status_Type_Code": {
+                                "type": "integer",
+                                "enum": [
+                                  1,
+                                  2,
+                                  3,
+                                  4,
+                                  5
+                                ],
+                                "description": "The code that identifies the status type."
+                              },
+                              "Status_Type_Description": {
+                                "type": "string",
+                                "enum": [
+                                  "Bought",
+                                  "On Market",
+                                  "Sold",
+                                  "Recalled",
+                                  "Preparing to Sell"
+                                ],
+                                "description": "Describes the status type."
+                              },
+                              "Status_Code": {
+                                "type": "integer",
+                                "enum": [
+                                  1,
+                                  2,
+                                  3,
+                                  4,
+                                  5,
+                                  10,
+                                  11,
+                                  12,
+                                  13,
+                                  14,
+                                  15,
+                                  16,
+                                  20,
+                                  21,
+                                  22
+                                ],
+                                "description": "The code that identifies the status."
+                              },
+                              "Status_Description": {
+                                "type": "string",
+                                "enum": [
+                                  "Bought",
+                                  "Bought - Cust Notified",
+                                  "Resell Pending",
+                                  "Pending CS App",
+                                  "Analysing Data",
+                                  "On Market",
+                                  "Waiting Sale",
+                                  "Sold",
+                                  "Sold - Cust Notified",
+                                  "Recalled",
+                                  "Recalled - Lead already on market",
+                                  "Recalled - No Buyer",
+                                  "Recalled - Lead already on market by same seller",
+                                  "Pending Client",
+                                  "Error - no active bid on client"
+                                ],
+                                "description": "Describes the status."
+                              }
+                            }
+                          },
+                          "Lead_ID": {
+                            "type": "integer",
+                            "example": 6605347,
+                            "description": "Uniquely identifies the lead across Lead Market."
+                          },
+                          "CS_App_ID": {
+                            "type": "integer",
+                            "example": 1234567,
+                            "description": "Our unique identifier for the Credit Sense application."
+                          }
+                        },
+                        "required": [
+                          "Status",
+                          "Lead_ID",
+                          "CS_App_ID"
+                        ]
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "OK"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "### Overview\nSubscribe to webhook notifications to know when you've sold a lead.\n\n### Configuring your endpoint\nYou'll need to create a webhook endpoint in your system and make it publicly available. Once it's ready, you can add it on the [Notification Profiles page](https://admin.leadmarketonline.com/NotificationProfiles) in the Lead Market dashboard, or [let us know](mailto:support@creditsense.com.au) and we can update it for you.\n\n### Retry logic\nWhen we post the payload to your callback URL, we expect a `200` response indicating the webhook has been received successfully. If we do not receive a `200` response, we will retry your callback URL for a couple of minutes.\n\nThe delay between attempts is increased exponentially following every failed attempt until three retries are exhausted.\n\n| Retry | Delay                       | Total time since first delivery attempt |\n|-------|-----------------------------|-----------------------------------------|\n| 1     | 3 seconds                   | 3 seconds                               |\n| 2     | 15 seconds                  | 18 seconds                              |\n| 3     | 75 seconds                  | 93 seconds                              |",
+        "tags": [
+          "Webhooks"
+        ]
+      }
     }
   },
   "components": {
@@ -952,10 +1838,11 @@
         "x-tags": [
           "Schemas"
         ],
-        "description": "The structure of lead details for both sellers and buyers. \n\nShared objects between Sellers and Buyers:\n- `$.Lead.Applicant`\n- `$.Lead.Application`\n\nSeller-only object:\n- `$.Lead.Seller_Data`\n\nBuyer-only objects:\n- `$.Lead.Buyer_Data`\n- `$.Lead.Decision_Points`",
+        "description": "The structure of lead details for Sellers and Buyers. \n\nShared objects between Sellers and Buyers:\n- `$.Lead.Applicant`\n- `$.Lead.Application`\n\nSeller-only object:\n- `$.Lead.Seller_Data`\n\nBuyer-only objects:\n- `$.Lead.Buyer_Data`\n- `$.Lead.Decision_Points`\n\n### Seller data validation\nWe take what may be thought of as a _laissez faire_ approach to validation on lead data passed in by Sellers. This is not done to intentionally make Buyer integrations difficult. Rather, when a Seller is passing in details via the API it’s generally due to the lead not being engaged at the time. The stance we take on this is _it’s better to have some data that **may** be invalid, than no data_. A good example is when a lead provides a valid mobile number, but they enter it in the email address field of a Seller’s website. If the Seller's form doesn't validate the data and passes it through to Lead Market, we'll accept it. We’ll provide the raw values to the Buyer, and we’ll also provided validated contact details in the `$..V_Contact_Type` and `$..V_Contact_Value` fields. We've found this approach provides the best outcome and richer lead data sets for Buyers.",
         "properties": {
           "Applicant": {
             "type": "object",
+            "description": "Information about the applicant.",
             "properties": {
               "Applicant_Type": {
                 "type": "string",
@@ -978,9 +1865,9 @@
                           "description": "The referee's relationship to the applicant (e.g. friend, mother, employer, etc.)"
                         },
                         "Known_Applicant_Years": {
-                          "type": "integer",
+                          "type": "string",
                           "description": "The number of years the referee has known the customer.",
-                          "example": 3
+                          "example": "3"
                         },
                         "Person_Other": {
                           "type": "object",
@@ -988,27 +1875,33 @@
                             "Title": {
                               "type": "string",
                               "description": "The person's title (e.g. Mr, Mrs, Ms, Dr, etc.)",
-                              "example": "Ms"
+                              "example": "Mr"
                             },
                             "Date_Of_Birth": {
                               "type": "string",
                               "description": "The person's date of birth.",
-                              "format": "date"
+                              "format": "date",
+                              "example": "1975-07-17"
                             },
                             "Last_Name": {
                               "type": "string",
                               "description": "The person's last name.",
                               "example": "Rhoades"
                             },
+                            "Middle_Names": {
+                              "type": "string",
+                              "description": "The person's middle name.",
+                              "example": "Chuck"
+                            },
                             "First_Name": {
                               "type": "string",
                               "description": "The person's first name.",
-                              "example": "Wendy"
+                              "example": "Charles"
                             },
                             "Gender": {
                               "type": "string",
                               "description": "The person's gender (e.g. M, F).",
-                              "example": "F"
+                              "example": "M"
                             },
                             "Contact_Methods": {
                               "type": "object",
@@ -1031,6 +1924,28 @@
                                             "type": "string",
                                             "description": "The contact (e.g. email address, mobile number, skype address, etc.) For phone numbers we recommend using international format (e.g. AU = +614..., CA = +1..., NZ = +642...).",
                                             "example": "+61488853631"
+                                          },
+                                          "V_Contact_Vallue": {
+                                            "type": "string",
+                                            "example": "+61488853631",
+                                            "description": "The validated contact (e.g. email address, mobile number, skype address, etc.) Australian and New Zealand mobile and landline numbers are validated on their syntax and length, while Canadian phone numbers are only checked to be a phone number (the distinction between a cell and a landline cannot be made by looking at a Canadian phone number alone)."
+                                          },
+                                          "V_Contact_Type": {
+                                            "type": "string",
+                                            "description": "The validated type of contact method (e.g. mobile, email, skype, work, home, fax, etc.)",
+                                            "enum": [
+                                              "MOB",
+                                              "FIXED_LINE",
+                                              "PAGER",
+                                              "PERSONAL_NUMBER",
+                                              "PREMIUM_RATE",
+                                              "SHARED_COST",
+                                              "TOLL_FREE",
+                                              "UAN",
+                                              "UNKNOWN",
+                                              "VOICEMAIL",
+                                              "VOIP"
+                                            ]
                                           }
                                         }
                                       },
@@ -1059,14 +1974,14 @@
                                             "example": "QLD"
                                           },
                                           "Postcode": {
-                                            "type": "integer",
+                                            "type": "string",
                                             "description": "Postcode or Zip Code.",
-                                            "example": 4000
+                                            "example": "4000"
                                           },
                                           "Is_Current": {
-                                            "type": "boolean",
+                                            "type": "string",
                                             "description": "Denotes whether this is the person's current address.",
-                                            "example": "false"
+                                            "example": "true"
                                           },
                                           "Residential_Type": {
                                             "type": "string",
@@ -1081,7 +1996,47 @@
                                           "Time_At_Address_Months": {
                                             "type": "string",
                                             "description": "The number of months the person has lived/did live at the address.",
-                                            "example": 36
+                                            "example": "36"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "V_Unique_Contact_Methods": {
+                              "type": "object",
+                              "properties": {
+                                "V_Unique_Contact_Method": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "V_Unique_Contact_Other": {
+                                        "type": "object",
+                                        "properties": {
+                                          "V_Unique_Contact_Value": {
+                                            "type": "string",
+                                            "example": "+61488853631",
+                                            "description": "The validated contact (e.g. email address, mobile number, skype address, etc.) as a consolidation of two or more contacts where they are identical."
+                                          },
+                                          "V_Unique_Contact_Type": {
+                                            "type": "string",
+                                            "enum": [
+                                              "MOB",
+                                              "FIXED_LINE",
+                                              "PAGER",
+                                              "PERSONAL_NUMBER",
+                                              "PREMIUM_RATE",
+                                              "SHARED_COST",
+                                              "TOLL_FREE",
+                                              "UAN",
+                                              "UNKNOWN",
+                                              "VOICEMAIL",
+                                              "VOIP"
+                                            ],
+                                            "description": "The validated type of contact method (e.g. mobile, email, skype, work, home, fax, etc.)"
                                           }
                                         }
                                       }
@@ -1141,7 +2096,7 @@
                               "example": 3000
                             },
                             "Is_Current": {
-                              "type": "boolean",
+                              "type": "string",
                               "description": "Denotes whether the source of income is current.",
                               "example": "false"
                             },
@@ -1205,12 +2160,12 @@
                           "description": "Summary information about the customer's current income.",
                           "properties": {
                             "Net_Amount": {
-                              "type": "number",
+                              "type": "string",
                               "example": "2000",
                               "description": "The net amount of the customer's pay per frequency."
                             },
                             "Gross_Amount": {
-                              "type": "number",
+                              "type": "string",
                               "example": "3000",
                               "description": "The gross amount of the customer's pay per frequency."
                             },
@@ -1226,7 +2181,7 @@
                           "description": "Summary information about the customer's current liabilities.",
                           "properties": {
                             "Amount": {
-                              "type": "number",
+                              "type": "string",
                               "example": "100",
                               "description": "The amount paid towards the liability per frequency."
                             },
@@ -1290,6 +2245,838 @@
                     }
                   }
                 }
+              },
+              "Person_Applicant": {
+                "type": "object",
+                "description": "Information about the applicant.",
+                "properties": {
+                  "Title": {
+                    "type": "string",
+                    "example": "Ms",
+                    "description": "The customer's title (e.g. Mr, Mrs, Ms, Dr, etc.)"
+                  },
+                  "Date_Of_Birth": {
+                    "type": "string",
+                    "example": "1978-02-11"
+                  },
+                  "Last_Name": {
+                    "type": "string",
+                    "example": "Rhoades",
+                    "minLength": 1
+                  },
+                  "Middle_Names": {
+                    "type": "string",
+                    "description": "The person's middle name.",
+                    "example": "Chuck"
+                  },
+                  "First_Name": {
+                    "type": "string",
+                    "example": "Wendy",
+                    "description": "The customer's first name.",
+                    "minLength": 1
+                  },
+                  "Gender": {
+                    "type": "string",
+                    "example": "F"
+                  },
+                  "Dependents": {
+                    "type": "string",
+                    "example": "2"
+                  },
+                  "Marital_Status": {
+                    "type": "string",
+                    "example": "Separated"
+                  },
+                  "Can_Provide_Guarantor": {
+                    "type": "string",
+                    "example": "true"
+                  },
+                  "Contact_Methods": {
+                    "type": "object",
+                    "properties": {
+                      "Contact_Method": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "Contact_Other": {
+                              "type": "object",
+                              "description": "Contact details (e.g. phone numbers, email addresses etc.)",
+                              "properties": {
+                                "Contact_Type": {
+                                  "type": "string",
+                                  "description": "The type of contact method (e.g. mobile, email, skype, work, home, fax, etc.)",
+                                  "example": "mobile"
+                                },
+                                "Contact_Value": {
+                                  "type": "string",
+                                  "description": "The contact (e.g. email address, mobile number, skype address, etc.) For phone numbers we recommend using international format (e.g. AU = +614..., CA = +1..., NZ = +642...).",
+                                  "example": "+61488853631"
+                                },
+                                "V_Contact_Vallue": {
+                                  "type": "string",
+                                  "example": "+61488853631",
+                                  "description": "The validated contact (e.g. email address, mobile number, skype address, etc.) Australian and New Zealand mobile and landline numbers are validated on their syntax and length, while Canadian phone numbers are only checked to be a phone number (the distinction between a cell and a landline cannot be made by looking at a Canadian phone number alone)."
+                                },
+                                "V_Contact_Type": {
+                                  "type": "string",
+                                  "description": "The validated type of contact method (e.g. mobile, email, skype, work, home, fax, etc.)",
+                                  "enum": [
+                                    "MOB",
+                                    "FIXED_LINE",
+                                    "PAGER",
+                                    "PERSONAL_NUMBER",
+                                    "PREMIUM_RATE",
+                                    "SHARED_COST",
+                                    "TOLL_FREE",
+                                    "UAN",
+                                    "UNKNOWN",
+                                    "VOICEMAIL",
+                                    "VOIP"
+                                  ]
+                                }
+                              }
+                            },
+                            "Address": {
+                              "type": "object",
+                              "description": "Information about the person's addresses.",
+                              "properties": {
+                                "Address_Line_1": {
+                                  "type": "string",
+                                  "description": "Building name, suite number, etc.",
+                                  "example": "Aurora Tower"
+                                },
+                                "Address_Line_2": {
+                                  "type": "string",
+                                  "description": "Street number, name and type.",
+                                  "example": "Level 69, 420 Queen Street"
+                                },
+                                "Suburb": {
+                                  "type": "string",
+                                  "description": "Suburb, Town, Municipality, etc.",
+                                  "example": "Brisbane"
+                                },
+                                "State": {
+                                  "type": "string",
+                                  "description": "AU = State or Territory, CA = Province or Territory, NZ = Town or City.",
+                                  "example": "QLD"
+                                },
+                                "Postcode": {
+                                  "type": "string",
+                                  "description": "Postcode or Zip Code.",
+                                  "example": "4000"
+                                },
+                                "Is_Current": {
+                                  "type": "string",
+                                  "description": "Denotes whether this is the person's current address.",
+                                  "example": "false"
+                                },
+                                "Residential_Type": {
+                                  "type": "string",
+                                  "description": "The type of residence (e.g. house, unit, rural, acreage, etc.)",
+                                  "example": "Apartment"
+                                },
+                                "Residential_Status": {
+                                  "type": "string",
+                                  "description": "The person's relationhsip to the address (e.g. renting, buying, boarding, etc.)",
+                                  "example": "Renting"
+                                },
+                                "Time_At_Address_Months": {
+                                  "type": "string",
+                                  "description": "The number of months the person has lived/did live at the address.",
+                                  "example": "36"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "V_Unique_Contact_Methods": {
+                    "type": "object",
+                    "properties": {
+                      "V_Unique_Contact_Method": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "V_Unique_Contact_Other": {
+                              "type": "object",
+                              "properties": {
+                                "V_Unique_Contact_Value": {
+                                  "type": "string",
+                                  "example": "+61488853631",
+                                  "description": "The validated contact (e.g. email address, mobile number, skype address, etc.) as a consolidation of two or more contacts where they are identical."
+                                },
+                                "V_Unique_Contact_Type": {
+                                  "type": "string",
+                                  "enum": [
+                                    "MOB",
+                                    "FIXED_LINE",
+                                    "PAGER",
+                                    "PERSONAL_NUMBER",
+                                    "PREMIUM_RATE",
+                                    "SHARED_COST",
+                                    "TOLL_FREE",
+                                    "UAN",
+                                    "UNKNOWN",
+                                    "VOICEMAIL",
+                                    "VOIP"
+                                  ],
+                                  "description": "The validated type of contact method (e.g. mobile, email, skype, work, home, fax, etc.)"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "Last_Name",
+                  "First_Name"
+                ]
+              },
+              "Employment_History": {
+                "type": "object",
+                "description": "Information about the customer's current and past employment.",
+                "properties": {
+                  "Employment": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "Is_Current": {
+                          "type": "string",
+                          "example": "true",
+                          "description": "Denotes whether this is the customer's current employer."
+                        },
+                        "Employment_Type": {
+                          "type": "string",
+                          "example": "Contract",
+                          "description": "The customer's type of employment (e.g. full-time, part-time, casual, etc.)"
+                        },
+                        "Occupation": {
+                          "type": "string",
+                          "example": "Performance Coach",
+                          "description": "The customer's occupation (e.g. plumber, admin assistant, engineer, etc.)"
+                        },
+                        "Working_Hours_Weekly": {
+                          "type": "string",
+                          "example": "40",
+                          "description": "The average number of hours the customer works per week."
+                        },
+                        "Organisation_Name": {
+                          "type": "string",
+                          "example": "Axe Captial",
+                          "description": "The name of the customer's employer."
+                        },
+                        "Start_Date": {
+                          "type": "string",
+                          "example": "2015-02-14",
+                          "format": "date",
+                          "description": "The date the customer started this employment."
+                        },
+                        "End_Date": {
+                          "type": "string",
+                          "example": "2020-08-28",
+                          "format": "date",
+                          "description": "The date the customer started this employment."
+                        },
+                        "Employment_Contacts": {
+                          "type": "object",
+                          "properties": {
+                            "Person_Other": {
+                              "type": "object",
+                              "properties": {
+                                "Title": {
+                                  "type": "string",
+                                  "description": "The person's title (e.g. Mr, Mrs, Ms, Dr, etc.)",
+                                  "example": "Mr"
+                                },
+                                "Date_Of_Birth": {
+                                  "type": "string",
+                                  "description": "The person's date of birth.",
+                                  "format": "date",
+                                  "example": "1977-04-12"
+                                },
+                                "Last_Name": {
+                                  "type": "string",
+                                  "description": "The person's last name.",
+                                  "example": "Axelrod"
+                                },
+                                "First_Name": {
+                                  "type": "string",
+                                  "description": "The person's first name.",
+                                  "example": "Bobby"
+                                },
+                                "Gender": {
+                                  "type": "string",
+                                  "description": "The person's gender (e.g. M, F).",
+                                  "example": "M"
+                                },
+                                "Contact_Methods": {
+                                  "type": "object",
+                                  "properties": {
+                                    "Contact_Method": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "Contact_Other": {
+                                            "type": "object",
+                                            "description": "Contact details (e.g. phone numbers, email addresses etc.)",
+                                            "properties": {
+                                              "Contact_Type": {
+                                                "type": "string",
+                                                "description": "The type of contact method (e.g. mobile, email, skype, work, home, fax, etc.)",
+                                                "example": "mobile"
+                                              },
+                                              "Contact_Value": {
+                                                "type": "string",
+                                                "description": "The contact (e.g. email address, mobile number, skype address, etc.) For phone numbers we recommend using international format (e.g. AU = +614..., CA = +1..., NZ = +642...).",
+                                                "example": "+61488853631"
+                                              },
+                                              "V_Contact_Vallue": {
+                                                "type": "string",
+                                                "example": "+61488853631",
+                                                "description": "The validated contact (e.g. email address, mobile number, skype address, etc.) Australian and New Zealand mobile and landline numbers are validated on their syntax and length, while Canadian phone numbers are only checked to be a phone number (the distinction between a cell and a landline cannot be made by looking at a Canadian phone number alone)."
+                                              },
+                                              "V_Contact_Type": {
+                                                "type": "string",
+                                                "description": "The validated type of contact method (e.g. mobile, email, skype, work, home, fax, etc.)",
+                                                "enum": [
+                                                  "MOB",
+                                                  "FIXED_LINE",
+                                                  "PAGER",
+                                                  "PERSONAL_NUMBER",
+                                                  "PREMIUM_RATE",
+                                                  "SHARED_COST",
+                                                  "TOLL_FREE",
+                                                  "UAN",
+                                                  "UNKNOWN",
+                                                  "VOICEMAIL",
+                                                  "VOIP"
+                                                ]
+                                              }
+                                            }
+                                          },
+                                          "Address": {
+                                            "type": "object",
+                                            "description": "Information about the person's addresses.",
+                                            "properties": {
+                                              "Address_Line_1": {
+                                                "type": "string",
+                                                "description": "Building name, suite number, etc.",
+                                                "example": "Casino Towers"
+                                              },
+                                              "Address_Line_2": {
+                                                "type": "string",
+                                                "description": "Street number, name and type.",
+                                                "example": "Level 33, 151 George Street"
+                                              },
+                                              "Suburb": {
+                                                "type": "string",
+                                                "description": "Suburb, Town, Municipality, etc.",
+                                                "example": "Brisbane"
+                                              },
+                                              "State": {
+                                                "type": "string",
+                                                "description": "AU = State or Territory, CA = Province or Territory, NZ = Town or City.",
+                                                "example": "QLD"
+                                              },
+                                              "Postcode": {
+                                                "type": "string",
+                                                "description": "Postcode or Zip Code.",
+                                                "example": "4000"
+                                              },
+                                              "Is_Current": {
+                                                "type": "string",
+                                                "description": "Denotes whether this is the person's current address.",
+                                                "example": "true"
+                                              },
+                                              "Residential_Type": {
+                                                "type": "string",
+                                                "description": "The type of residence (e.g. house, unit, rural, acreage, etc.)",
+                                                "example": "Apartment"
+                                              },
+                                              "Residential_Status": {
+                                                "type": "string",
+                                                "description": "The person's relationhsip to the address (e.g. renting, buying, boarding, etc.)",
+                                                "example": "Owned"
+                                              },
+                                              "Time_At_Address_Months": {
+                                                "type": "string",
+                                                "description": "The number of months the person has lived/did live at the address.",
+                                                "example": "19"
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "V_Unique_Contact_Methods": {
+                                  "type": "object",
+                                  "properties": {
+                                    "V_Unique_Contact_Method": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "V_Unique_Contact_Other": {
+                                            "type": "object",
+                                            "properties": {
+                                              "V_Unique_Contact_Value": {
+                                                "type": "string",
+                                                "example": "+61488853631",
+                                                "description": "The validated contact (e.g. email address, mobile number, skype address, etc.) as a consolidation of two or more contacts where they are identical."
+                                              },
+                                              "V_Unique_Contact_Type": {
+                                                "type": "string",
+                                                "enum": [
+                                                  "MOB",
+                                                  "FIXED_LINE",
+                                                  "PAGER",
+                                                  "PERSONAL_NUMBER",
+                                                  "PREMIUM_RATE",
+                                                  "SHARED_COST",
+                                                  "TOLL_FREE",
+                                                  "UAN",
+                                                  "UNKNOWN",
+                                                  "VOICEMAIL",
+                                                  "VOIP"
+                                                ],
+                                                "description": "The validated type of contact method (e.g. mobile, email, skype, work, home, fax, etc.)"
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "Contact_Methods": {
+                          "type": "object",
+                          "properties": {
+                            "Contact_Method": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "Contact_Other": {
+                                    "type": "object",
+                                    "description": "Contact details (e.g. phone numbers, email addresses etc.)",
+                                    "properties": {
+                                      "Contact_Type": {
+                                        "type": "string",
+                                        "description": "The type of contact method (e.g. mobile, email, skype, work, home, fax, etc.)",
+                                        "example": "mobile"
+                                      },
+                                      "Contact_Value": {
+                                        "type": "string",
+                                        "description": "The contact (e.g. email address, mobile number, skype address, etc.) For phone numbers we recommend using international format (e.g. AU = +614..., CA = +1..., NZ = +642...).",
+                                        "example": "+61488853631"
+                                      },
+                                      "V_Contact_Vallue": {
+                                        "type": "string",
+                                        "example": "+61488853631",
+                                        "description": "The validated contact (e.g. email address, mobile number, skype address, etc.) Australian and New Zealand mobile and landline numbers are validated on their syntax and length, while Canadian phone numbers are only checked to be a phone number (the distinction between a cell and a landline cannot be made by looking at a Canadian phone number alone)."
+                                      },
+                                      "V_Contact_Type": {
+                                        "type": "string",
+                                        "description": "The validated type of contact method (e.g. mobile, email, skype, work, home, fax, etc.)",
+                                        "enum": [
+                                          "MOB",
+                                          "FIXED_LINE",
+                                          "PAGER",
+                                          "PERSONAL_NUMBER",
+                                          "PREMIUM_RATE",
+                                          "SHARED_COST",
+                                          "TOLL_FREE",
+                                          "UAN",
+                                          "UNKNOWN",
+                                          "VOICEMAIL",
+                                          "VOIP"
+                                        ]
+                                      }
+                                    }
+                                  },
+                                  "Address": {
+                                    "type": "object",
+                                    "description": "Information about the person's addresses.",
+                                    "properties": {
+                                      "Address_Line_1": {
+                                        "type": "string",
+                                        "description": "Building name, suite number, etc.",
+                                        "example": "Aurora Tower"
+                                      },
+                                      "Address_Line_2": {
+                                        "type": "string",
+                                        "description": "Street number, name and type.",
+                                        "example": "Level 69, 420 Queen Street"
+                                      },
+                                      "Suburb": {
+                                        "type": "string",
+                                        "description": "Suburb, Town, Municipality, etc.",
+                                        "example": "Brisbane"
+                                      },
+                                      "State": {
+                                        "type": "string",
+                                        "description": "AU = State or Territory, CA = Province or Territory, NZ = Town or City.",
+                                        "example": "QLD"
+                                      },
+                                      "Postcode": {
+                                        "type": "string",
+                                        "description": "Postcode or Zip Code.",
+                                        "example": "4000"
+                                      },
+                                      "Is_Current": {
+                                        "type": "string",
+                                        "description": "Denotes whether this is the person's current address.",
+                                        "example": "false"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "V_Unique_Contact_Methods": {
+                          "type": "object",
+                          "properties": {
+                            "V_Unique_Contact_Method": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "V_Unique_Contact_Other": {
+                                    "type": "object",
+                                    "properties": {
+                                      "V_Unique_Contact_Value": {
+                                        "type": "string",
+                                        "example": "+61488853631",
+                                        "description": "The validated contact (e.g. email address, mobile number, skype address, etc.) as a consolidation of two or more contacts where they are identical."
+                                      },
+                                      "V_Unique_Contact_Type": {
+                                        "type": "string",
+                                        "enum": [
+                                          "MOB",
+                                          "FIXED_LINE",
+                                          "PAGER",
+                                          "PERSONAL_NUMBER",
+                                          "PREMIUM_RATE",
+                                          "SHARED_COST",
+                                          "TOLL_FREE",
+                                          "UAN",
+                                          "UNKNOWN",
+                                          "VOICEMAIL",
+                                          "VOIP"
+                                        ],
+                                        "description": "The validated type of contact method (e.g. mobile, email, skype, work, home, fax, etc.)"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "Proof_Of_Identity": {
+                "type": "object",
+                "description": "The customer's identification information.",
+                "properties": {
+                  "Identification": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "Type": {
+                          "type": "string",
+                          "description": "The type of identity document (e.g. driver licence, Medicare card, etc.)",
+                          "example": "driver licence"
+                        },
+                        "Document_ID": {
+                          "type": "string",
+                          "description": "The identifier on the document (e.g. driver licence number, Medicare card number, etc.)",
+                          "example": "084859805"
+                        },
+                        "Issuer": {
+                          "type": "string",
+                          "description": "The entity that issued identity document (e.g. Transport & Main Roads QLD, Medicare, etc.)",
+                          "example": "Queensland Government"
+                        },
+                        "Date_Expiry": {
+                          "type": "string",
+                          "description": "The date the identity document expires.",
+                          "format": "date",
+                          "example": "2029-01-06"
+                        },
+                        "Date_Issue": {
+                          "type": "string",
+                          "description": "The date the identity document was issued.",
+                          "format": "date",
+                          "example": "2019-01-06"
+                        },
+                        "File_Name": {
+                          "type": "string",
+                          "description": "The name of the file that contains the identity document.",
+                          "example": "rhoades-driver-licence.pdf"
+                        },
+                        "Is_Current": {
+                          "type": "string",
+                          "description": "Denotes whether the identity document is current.",
+                          "example": "true"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "Application": {
+            "type": "object",
+            "description": "Information about the product or facility that the customer was applying for.",
+            "properties": {
+              "Application_Date": {
+                "type": "string",
+                "format": "date",
+                "description": "The date the customer completed the Seller's application form.",
+                "example": "2016-08-10"
+              },
+              "Interest_Rate": {
+                "type": "number",
+                "description": "The annual interest rate of the product or facility the customer applied for.",
+                "example": 20
+              },
+              "Repayment_Amount": {
+                "type": "number",
+                "description": "The amount of each repayment due under the product or facility the customer applied for.",
+                "example": 200
+              },
+              "Fees": {
+                "type": "number",
+                "description": "The total application fees associated with the product or facility the customer applied for.",
+                "example": 100
+              },
+              "Type": {
+                "type": "string",
+                "description": "The type of product or facility the customer applied for (e.g. Personal Loan, Credit Card, SACC, etc.)",
+                "example": "Personal Loan"
+              },
+              "Amount": {
+                "type": "number",
+                "description": "The amount of credit requested by the customer.",
+                "example": 1000
+              },
+              "Reason": {
+                "type": "string",
+                "description": "The reason the customer requires the loan.",
+                "example": "Book purchase"
+              },
+              "Repayment_Cycle": {
+                "type": "string",
+                "description": "The regularity of repayments due under the product or facility the customer applied for (e.g. weekly, fortnightly, monthly).",
+                "example": "weekly"
+              },
+              "Repayment_Count": {
+                "type": "string",
+                "description": "The number of repayments due under the producat or facility the customer applied for.",
+                "example": "7"
+              },
+              "Description": {
+                "type": "string",
+                "description": "Any additional notes relating to the application.",
+                "example": "Purchase of first-edition 'The Second World War' six-volume series by Winston Churchill"
+              }
+            }
+          },
+          "Buyer_Data": {
+            "type": "object",
+            "description": "Information about the lead, specific to the Buyer. When provided, `$.Seller_Data` will be omitted.",
+            "properties": {
+              "LM_SaleDT": {
+                "type": "string",
+                "example": "2017-01-06 17:22:48.4700000",
+                "description": "The date-time of the sale."
+              },
+              "Lead_Price": {
+                "type": "number",
+                "example": 50,
+                "description": "The base sale amount for the lead. This is a duplicate of `$.Buyer_Data.Sale_Base_Amount` provided for backwards compatibility."
+              },
+              "CS_AppCompleted_DT": {
+                "type": "string",
+                "example": "2017-01-06 17:21:54.2600000",
+                "description": "The date and time when the Credit Sense report was completed."
+              },
+              "Lead_ID": {
+                "type": "integer",
+                "example": 5824,
+                "description": "Uniquely identifies the lead across Lead Market."
+              },
+              "CS_App_ID": {
+                "type": "integer",
+                "example": 1577797,
+                "description": "Our unique identifier for the Credit Sense application."
+              },
+              "Winning_Bid_ID": {
+                "type": "integer",
+                "example": 312,
+                "description": "The ID of the Bid that won the lead."
+              },
+              "Sale_Base_Amount": {
+                "type": "number",
+                "example": 50,
+                "description": "The base sale amount for the lead."
+              },
+              "Sale_Base_Amount_Tax": {
+                "type": "number",
+                "example": 5,
+                "description": "The tax amount for the base sale amount of the lead. This will be `0` if no tax is due for the sale."
+              },
+              "Sale_Trade_Comm_Amount": {
+                "type": "number",
+                "example": 7.5,
+                "description": "The trade commission amount for the lead."
+              },
+              "Sale_Trade_Comm_Amount_Tax": {
+                "type": "number",
+                "example": 0.75,
+                "description": "The tax amount for the trade comission on the lead. This will be `0` if no tax is due for the sale."
+              },
+              "Sale_Net_Amount": {
+                "type": "number",
+                "example": 63.25,
+                "description": "**Sellers**: The base sale amount less the trade comission. **Buyers**: The base sale amount plus the trade comission. All amounts are tax-inclusive."
+              },
+              "Sale_Currency": {
+                "type": "string",
+                "description": "Denotes the [currency](https://www.iban.com/currency-codes) that lead sale amounts are expressed in.",
+                "enum": [
+                  "AUD",
+                  "CAD",
+                  "GBP",
+                  "NZD"
+                ]
+              },
+              "Buyer_Token": {
+                "type": "string",
+                "description": "A string that uniquely identifies this Lead for the Buyer. This token can be used as an alternative to `Lead_ID` in the `/application/detail` API call.\nThis field will not appear until some time after the Lead is purchased, so it will not be available on the `buyerNotifyWithData` URI notification.",
+                "example": "pC81HjJmiTKJ3stwVu7a"
+              }
+            }
+          },
+          "Decision_Points": {
+            "type": "object",
+            "description": "Information about the decision points/bid criteria related to the purchase of the lead, specific to the Buyer. When provided, `$.Seller_Data` will be omitted.",
+            "properties": {
+              "Decision_Point": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "ID": {
+                      "type": "integer",
+                      "description": "Uniquely identifies the decision point/bid criteria.",
+                      "example": 101
+                    },
+                    "Name": {
+                      "type": "string",
+                      "description": "A description for the decision point/bid criteria.",
+                      "example": "customerAge"
+                    },
+                    "Score_DT": {
+                      "type": "string",
+                      "description": "The calculated result for this decision point as a date-time. This will only be present in the absence of `$.Decision_Points.Decision_Point.Score`.",
+                      "example": "1980-01-01 00:00:00.0000000"
+                    },
+                    "Score": {
+                      "type": "number",
+                      "description": "The calculated result for this decision point. This will only be present in the absence of `$.Decision_Points.Decision_Point.Score_DT`.",
+                      "example": 50
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "Seller_Data": {
+            "type": "object",
+            "description": "Information about the lead, specific to the Seller. When provided, `$.Buyer_Data` and `$.Decision_Points` will be omitted.",
+            "properties": {
+              "Client_Authority": {
+                "type": "boolean",
+                "example": true,
+                "description": "The Seller's authority to sell the lead."
+              },
+              "Customer_Authority": {
+                "type": "boolean",
+                "example": true,
+                "description": "The Seller's confirmation that they have obtained the customer's authority to trade their information on Lead Market."
+              },
+              "Customer_Authority_Type": {
+                "type": "string",
+                "enum": [
+                  "Implicit",
+                  "Explicit"
+                ],
+                "description": "**Implicit** - The customer has implicitly provided authority in the form of agreement to T&C's. **Explicit** - The customer has explicitly provided authority in the form of an opt-in."
+              },
+              "CS_App_ID": {
+                "type": "integer",
+                "description": "The App ID of the Credit Sense report completed by the customer.",
+                "example": 18200557
+              },
+              "Use_MLM_Flow": {
+                "type": "boolean",
+                "example": true,
+                "description": "Denotes whether the customer will be engaged when the lead is pushed to Lead Market."
+              },
+              "Lead_ID": {
+                "type": "integer",
+                "example": 5824,
+                "description": "Uniquely identifies the lead across Lead Market."
+              },
+              "Lead_Token": {
+                "type": "string",
+                "description": "A string that uniquely identifies this Lead for the Seller.",
+                "example": "F16WeC"
+              },
+              "Lead_Reference": {
+                "type": "string",
+                "example": "NYCAG2018",
+                "description": "Your unique reference for the lead."
+              },
+              "Credit_Authority_Enquiry_Number": {
+                "type": "integer",
+                "description": "If your Lead Market environment is configured to sell leads with credit scores, this field allows you to pass in a previously generated credit report enquiry number.",
+                "example": 7671338561
+              }
+            }
+          },
+          "Custom_Data": {
+            "type": "object",
+            "description": "Additional information (not catered for by our schema) gathered from an engaged lead by use of the Lead Market dynamic form.",
+            "properties": {
+              "Your_Question_Here": {
+                "type": "string",
+                "example": "An example answer",
+                "description": "Custom formatted data as configured on your Lead Market environment. [Contact us](mailto:support@creditsense.com.au) for more information."
               }
             }
           }
