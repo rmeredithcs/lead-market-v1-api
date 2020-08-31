@@ -1523,7 +1523,7 @@
         }
       }
     },
-    "/": {
+    "/webhook-seller": {
       "post": {
         "summary": "Seller webhooks",
         "operationId": "post-seller-webhook-sold",
@@ -1824,6 +1824,52 @@
           }
         },
         "description": "### Overview\nSubscribe to webhook notifications to know when you've sold a lead.\n\n### Configuring your endpoint\nYou'll need to create a webhook endpoint in your system and make it publicly available. Once it's ready, you can add it on the [Notification Profiles page](https://admin.leadmarketonline.com/NotificationProfiles) in the Lead Market dashboard, or [let us know](mailto:support@creditsense.com.au) and we can update it for you.\n\n### Retry logic\nWhen we post the payload to your callback URL, we expect a `200` response indicating the webhook has been received successfully. If we do not receive a `200` response, we will retry your callback URL for a couple of minutes.\n\nThe delay between attempts is increased exponentially following every failed attempt until three retries are exhausted.\n\n| Retry | Delay                       | Total time since first delivery attempt |\n|-------|-----------------------------|-----------------------------------------|\n| 1     | 3 seconds                   | 3 seconds                               |\n| 2     | 15 seconds                  | 18 seconds                              |\n| 3     | 75 seconds                  | 93 seconds                              |",
+        "tags": [
+          "Webhooks"
+        ]
+      },
+      "parameters": []
+    },
+    "/webhook-buyer": {
+      "post": {
+        "summary": "Buyer webhook",
+        "operationId": "post-buyer-webhook",
+        "responses": {},
+        "callbacks": {
+          "Buyer notify webhook": {
+            "https://your-webhook-endpoint.com": {
+              "post": {
+                "summary": "Lead Market bought lead webhook",
+                "description": "A callback is triggered every time a lead is purchased.",
+                "externalDocs": {
+                  "description": "Check out our help docs.",
+                  "url": "https://docs.creditsense.com.au/display/LMA/Webhook+Implementation"
+                },
+                "requestBody": {
+                  "content": {
+                    "application/x-www-form-urlencoded": {
+                      "schema": {
+                        "type": "object",
+                        "description": "The lead details.",
+                        "properties": {
+                          "Lead": {
+                            "$ref": "#/components/schemas/Lead-schema"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "responses": {
+                  "200": {
+                    "description": "OK"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "### Overview\nSubscribe to webhook notifications to know when you've bought a lead.\n\n### Configuring your endpoint\nYou'll need to create a webhook endpoint in your system and make it publicly available. Once it's ready, you can add it on the [Notification Profiles page](https://admin.leadmarketonline.com/NotificationProfiles) in the Lead Market dashboard, or [let us know](mailto:support@creditsense.com.au) and we can update it for you.\n\n### Retry logic\nWhen we post the payload to your callback URL, we expect a `200` response indicating the webhook has been received successfully. If we do not receive a `200` response, we will retry your callback URL for a couple of minutes.\n\nThe delay between attempts is increased exponentially following every failed attempt until three retries are exhausted.\n\n| Retry | Delay                       | Total time since first delivery attempt |\n|-------|-----------------------------|-----------------------------------------|\n| 1     | 3 seconds                   | 3 seconds                               |\n| 2     | 15 seconds                  | 18 seconds                              |\n| 3     | 75 seconds                  | 93 seconds                              |",
         "tags": [
           "Webhooks"
         ]
