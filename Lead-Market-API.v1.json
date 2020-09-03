@@ -143,10 +143,10 @@
                 "properties": {
                   "Settings": {
                     "type": "object",
+                    "description": "A JSON-encoded object containing all the settings for your request.",
                     "required": [
                       "API_Token"
                     ],
-                    "description": "A JSON-encoded object containing all the settings for your request.",
                     "properties": {
                       "API_Token": {
                         "type": "string",
@@ -173,7 +173,7 @@
                   "Payload": {
                     "type": "string",
                     "example": "<?xml version=\"1.0\" encoding=\"utf-8\"?> <Lead>     <Seller_Data>         <Client_Authority>true</Client_Authority>         <Customer_Authority>true</Customer_Authority>         <Customer_Authority_Type>Explicit</Customer_Authority_Type>         <CS_App_ID>1577794</CS_App_ID>         <Use_MLM_Flow>true</Use_MLM_Flow>         <Lead_Reference>MyExampleRef0001</Lead_Reference>     </Seller_Data>     <Application>         <Application_Date>2016-08-10</Application_Date>         <Amount>200</Amount>         <Reason>Other – Test</Reason>     </Application>     <Applicant>         <Applicant_Type>Primary</Applicant_Type>         <Person_Applicant>             <Title>Mr</Title>             <Date_Of_Birth>1980-01-01</Date_Of_Birth>             <Last_Name>Ward</Last_Name>             <First_Name>Fredrick</First_Name>             <Marital_Status></Marital_Status>             <Contact_Methods>                 <Contact_Method>                     <Contact_Other>                         <Contact_Type>MOB</Contact_Type>                         <Contact_Value>0412341234</Contact_Value>                     </Contact_Other>                 </Contact_Method>             </Contact_Methods>         </Person_Applicant>     </Applicant> </Lead>",
-                    "description": "Contains the details of the lead in XML format in accordance with our Seller schema."
+                    "description": "Contains the details of the lead in XML format in accordance with our lead schema."
                   }
                 },
                 "required": [
@@ -1005,7 +1005,7 @@
     },
     "/application/updatecs": {
       "post": {
-        "summary": "Update Credit Sense reference",
+        "summary": "Update the Credit Sense reference for a lead",
         "operationId": "post-application-updatecs",
         "responses": {
           "200": {
@@ -1152,6 +1152,207 @@
         ]
       }
     },
+    "/set-bought-lead/{api-key}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "api-key",
+          "in": "path",
+          "required": true,
+          "description": "The unique key that identifies your account.",
+          "default": "your-api-key-goes-here"
+        }
+      ],
+      "post": {
+        "summary": "Update the status of a lead",
+        "operationId": "post-set-bought-lead-status",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "integer",
+                      "description": "The HTTP status code.",
+                      "default": 200
+                    },
+                    "success": {
+                      "type": "boolean",
+                      "description": "Denotes whether the lead was successfully changed to the requested status.",
+                      "default": "true"
+                    },
+                    "data": {
+                      "type": "null"
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "success",
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "integer",
+                      "description": "The HTTP status code.",
+                      "default": 400
+                    },
+                    "success": {
+                      "type": "boolean",
+                      "description": "Denotes whether the lead was successfully changed to the requested status.",
+                      "default": "false"
+                    },
+                    "data": {
+                      "type": "object",
+                      "description": "",
+                      "properties": {
+                        "error_code": {
+                          "type": "integer",
+                          "example": 2,
+                          "description": "The code for this error."
+                        },
+                        "error_message": {
+                          "type": "string",
+                          "description": "The details of the error, which should indicate what to do to resolve the error.",
+                          "example": "The following parameters were not recognised: tester"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "success",
+                    "data"
+                  ]
+                },
+                "examples": {}
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "integer",
+                      "description": "The HTTP status code.",
+                      "default": 200
+                    },
+                    "success": {
+                      "type": "boolean",
+                      "description": "Denotes whether the lead was successfully changed to the requested status.",
+                      "default": "true"
+                    },
+                    "data": {
+                      "type": "object",
+                      "description": "",
+                      "properties": {
+                        "error_code": {
+                          "type": "integer",
+                          "example": 1,
+                          "description": "The code for this error."
+                        },
+                        "error_message": {
+                          "type": "string",
+                          "description": "The details of the error, which should indicate what to do to resolve the error.",
+                          "example": "An error was encountered when contacting the database. Please try again later."
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "success",
+                    "data"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "application/json"
+            },
+            "in": "header",
+            "name": "Content-Type",
+            "description": "Indicates the type of data being sent.",
+            "required": true,
+            "default": "application/json"
+          }
+        ],
+        "description": "### Overview\nProvide status updates for leads you've bought.\n\nReasons to use this endpoint:\n- Tell us when a lead has completed your application and whether they were funded or declined to benefit from rich reporting in the [Lead Market dashboard](https://admin.leadmarketonline.com/Reports).\n\n### Error codes\n\n| Error code | Type                 | Description                                                         |\n|------------|----------------------|---------------------------------------------------------------------|\n| 2          | Input Error          | Either required fields were missing or invalid fields were provided |\n| 3          | Data Error           | There was an error caused by the value provided for a field         |\n| 4          | Authentication Error | The provided Lead Market API Key and Token are incorrect            |",
+        "tags": [
+          "Buyer"
+        ],
+        "servers": [
+          {
+            "url": "https://managed.leadmarketonline.com",
+            "description": "Managed Lead Market API"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "api-token": {
+                    "type": "string",
+                    "description": "Identifies your access to the API.",
+                    "example": "FC2FA9F9-57DF-4026-8F08-48845A5000F9"
+                  },
+                  "token": {
+                    "type": "string",
+                    "description": "A string that uniquely identifies this Lead for the Buyer. This token can be used as an alternative to `lead-id`.",
+                    "example": "pC81HjJmiTKJ3stwVu7a"
+                  },
+                  "lead-id": {
+                    "type": "integer",
+                    "description": "Uniquely identifies the lead across Lead Market. This ID can be used as an alternative to `token`.",
+                    "example": 6605347
+                  },
+                  "status-id": {
+                    "type": "integer",
+                    "enum": [
+                      "7",
+                      "8",
+                      "9",
+                      "10"
+                    ],
+                    "description": "Denotes the status to change the lead to."
+                  }
+                },
+                "required": [
+                  "api-token",
+                  "status-id"
+                ]
+              }
+            }
+          },
+          "description": "### Lead status\nThe lead status can be set as below.\n\n| ID | Status                |\n|----|-----------------------|\n| 7  | Application Started   |\n| 8  | Application Completed |\n| 9  | Application Approved  |\n| 10 | Application Declined  |"
+        }
+      }
+    },
     "/smart_campaigns/{id}/outcome_imports": {
       "parameters": [
         {
@@ -1165,7 +1366,7 @@
         }
       ],
       "post": {
-        "summary": "Import bought lead outcomes",
+        "summary": "Import outcomes for bought leads",
         "operationId": "post-smart_campaigns-id-outcome_imports",
         "responses": {
           "200": {
@@ -1178,29 +1379,36 @@
                     "total_records": {
                       "type": "integer",
                       "description": "The total number of records received.",
-                      "example": 52
+                      "default": 200
                     },
                     "errors": {
                       "type": "array",
                       "description": "Details any errors encountered during the import.",
+                      "default": "true",
                       "items": {
                         "type": "null"
                       }
                     },
                     "data": {
                       "type": "object",
+                      "description": "",
+                      "required": [
+                        "outcome_import_id"
+                      ],
                       "properties": {
                         "outcome_import_id": {
                           "type": "integer",
-                          "example": 36,
+                          "example": 2,
                           "description": "Uniquely identifies this import of lead outcomes."
                         }
-                      },
-                      "required": [
-                        "outcome_import_id"
-                      ]
+                      }
                     }
-                  }
+                  },
+                  "required": [
+                    "total_records",
+                    "errors",
+                    "data"
+                  ]
                 }
               }
             }
@@ -1556,6 +1764,16 @@
             "description": "Indicates the type of data being sent.",
             "required": true,
             "default": "application/json"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "FC2FA9F9-57DF-4026-8F08-48845A5000F9"
+            },
+            "in": "header",
+            "name": "apiToken",
+            "required": true,
+            "description": "Identifies your access to the API."
           }
         ],
         "description": "### Overview\nProvide application outcomes for leads you've bought.\n\nReasons to use this endpoint:\n- Feed funding outcomes into Smart Campaigns to further train and refine your Smart Campaigns algorithm.\n- Provide application outcomes in order to track conversion rates and cost-per-contract metrics via the Lead Market dashboard.\n\n### Smart Campaigns ID\nThe `{id}` in the request URL is the ID of your Smart Campaign. You can retrieve this by navigating to your Smart Campaign on the [Lead Market dashboard](https://admin.leadmarketonline.com/SmartCampaigns) and checking the page URL. e.g. `https://admin.leadmarketonline.com/SmartCampaigns/view/1234`.\n\n### Viewing outcomes\nAfter receiving a successful response to this call you can view the status of each import on the Smart Campaigns page on the [Lead Market dashboard](https://admin.leadmarketonline.com/SmartCampaigns).",
@@ -6060,19 +6278,19 @@
   "tags": [
     {
       "name": "Leads",
-      "description": "Create and update leads, retrieve the status or details of a lead, or update the reference for a lead's Credit Sense application."
+      "description": "Create and update leads, and retrieve the status or details of a lead."
     },
     {
       "name": "Seller",
-      "description": "Automatically receive reports as soon as they're generated.\n\nPlease refer to our [webhook help docs](https://docs.creditsense.com.au/display/CSI/Fully+integrated+webhook#space-menu-link-content)."
+      "description": "Add leads to be pushed to market and receive notifications with their sale outcomes."
     },
     {
       "name": "Buyer",
-      "description": "Provide progress updates and outcomes for purchased leads."
+      "description": "Receive notifications when you buy leads, update the reference for a lead's Credit Sense application, and provide progress updates and outcomes for purchased leads."
     },
     {
       "name": "Lists",
-      "description": "Create and manage lists of certain lead attributes."
+      "description": "Create and manage lists of locations and lead attributes."
     },
     {
       "name": "SchemaDefinitions",
