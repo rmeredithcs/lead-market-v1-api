@@ -952,6 +952,253 @@
       },
       "parameters": []
     },
+    "/set-application-details/{api-key}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "api-key",
+          "in": "path",
+          "required": true,
+          "description": "The unique key that identifies your account.",
+          "default": "your-api-key-goes-here"
+        }
+      ],
+      "post": {
+        "summary": "Add an engaged lead",
+        "operationId": "post-set-application-details",
+        "deprecated": true,
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "integer",
+                      "description": "The HTTP status code.",
+                      "default": 200
+                    },
+                    "success": {
+                      "type": "boolean",
+                      "description": "Denotes whether the lead was successfully changed to the requested status.",
+                      "default": "true"
+                    },
+                    "data": {
+                      "type": "null"
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "success",
+                    "data"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "integer",
+                      "description": "The HTTP status code.",
+                      "default": 400
+                    },
+                    "success": {
+                      "type": "boolean",
+                      "description": "Denotes whether the lead was successfully changed to the requested status.",
+                      "default": "false"
+                    },
+                    "data": {
+                      "type": "object",
+                      "description": "",
+                      "properties": {
+                        "error_code": {
+                          "type": "integer",
+                          "example": 2,
+                          "description": "The code for this error."
+                        },
+                        "error_message": {
+                          "type": "string",
+                          "description": "The details of the error, which should indicate what to do to resolve the error.",
+                          "example": "The following parameters were not recognised: tester"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "success",
+                    "data"
+                  ]
+                },
+                "examples": {}
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "integer",
+                      "description": "The HTTP status code.",
+                      "default": 200
+                    },
+                    "success": {
+                      "type": "boolean",
+                      "description": "Denotes whether the lead was successfully changed to the requested status.",
+                      "default": "true"
+                    },
+                    "data": {
+                      "type": "object",
+                      "description": "",
+                      "properties": {
+                        "error_code": {
+                          "type": "integer",
+                          "example": 1,
+                          "description": "The code for this error."
+                        },
+                        "error_message": {
+                          "type": "string",
+                          "description": "The details of the error, which should indicate what to do to resolve the error.",
+                          "example": "An error was encountered when contacting the database. Please try again later."
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "success",
+                    "data"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "default": "application/json"
+            },
+            "in": "header",
+            "name": "Content-Type",
+            "description": "Indicates the type of data being sent.",
+            "required": true,
+            "default": "application/json"
+          }
+        ],
+        "description": "**This endpoint is deprecated. Use `/application/single` instead.**\n\n### Overview\nAdd a lead to Lead Market.\n\nReasons to use this endpoint:\n- Create a disengaged lead and push it into the market for sale.\n- Pass in lead details for an engaged lead that will be retrieved when the lead is pushed into the market.\n\n### Error codes\n\n| Error code | Type                 | Description                                                         |\n|------------|----------------------|---------------------------------------------------------------------|\n| 2          | Input Error          | Either required fields were missing or invalid fields were provided |\n| 3          | Data Error           | There was an error caused by the value provided for a field         |\n| 4          | Authentication Error | The provided Lead Market API Key and Token are incorrect            |",
+        "servers": [
+          {
+            "url": "https://managed.leadmarketonline.com",
+            "description": "Managed Lead Market API"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "api-token": {
+                    "type": "string",
+                    "description": "Identifies your access to the API.",
+                    "example": "FC2FA9F9-57DF-4026-8F08-48845A5000F9"
+                  },
+                  "ref": {
+                    "type": "string",
+                    "example": "abc123"
+                  },
+                  "csid": {
+                    "type": "integer",
+                    "example": 18085549
+                  },
+                  "fn": {
+                    "type": "string",
+                    "example": "Lonnie"
+                  },
+                  "sn": {
+                    "type": "string",
+                    "example": "Watley"
+                  },
+                  "dob": {
+                    "type": "string",
+                    "description": "The lead's date of birth in [ISO format](https://en.wikipedia.org/wiki/ISO_8601).",
+                    "example": "1977-09-26"
+                  },
+                  "mob": {
+                    "type": "string",
+                    "example": "+61488853631"
+                  },
+                  "e": {
+                    "type": "string",
+                    "example": "support@leadexchange.ca"
+                  },
+                  "l": {
+                    "type": "string",
+                    "example": "+61731185233"
+                  },
+                  "a": {
+                    "type": "string",
+                    "example": "7/201 Charlotte Street, Brisbane QLD 4000"
+                  },
+                  "emp": {
+                    "type": "string",
+                    "example": "Dewey, Cheatem and Howe lawyers"
+                  },
+                  "la": {
+                    "type": "number",
+                    "example": 2500
+                  },
+                  "lr": {
+                    "type": "string",
+                    "example": "Home repairs"
+                  },
+                  "caen": {
+                    "type": "integer",
+                    "example": 549689725
+                  },
+                  "tok": {
+                    "type": "string",
+                    "example": "w3IxLC"
+                  },
+                  "public": {
+                    "type": "boolean",
+                    "default": "false"
+                  },
+                  "return-lead-id": {
+                    "type": "boolean",
+                    "default": "false"
+                  }
+                },
+                "required": [
+                  "api-token",
+                  "ref"
+                ]
+              }
+            }
+          },
+          "description": ""
+        },
+        "tags": [
+          "Seller"
+        ]
+      }
+    },
     "/webhook-buyer": {
       "post": {
         "summary": "Buyer webhook",
@@ -1167,7 +1414,7 @@
       ],
       "post": {
         "summary": "Update the status of a lead",
-        "operationId": "post-set-bought-lead-status",
+        "operationId": "post-set-bought-lead",
         "responses": {
           "200": {
             "description": "OK",
@@ -6029,6 +6276,9 @@
                     }
                   }
                 }
+              },
+              "": {
+                "type": "string"
               }
             }
           },
