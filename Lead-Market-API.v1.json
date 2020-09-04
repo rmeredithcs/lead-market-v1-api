@@ -132,7 +132,13 @@
         "x-codeSamples": [
           {
             "lang": "XML",
-            "source": "<!-- This is a payload for an example lead -->\n\n<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Lead>\n    <Seller_Data>\n        <Client_Authority>true</Client_Authority>\n        <Customer_Authority>true</Customer_Authority>\n        <Customer_Authority_Type>Explicit</Customer_Authority_Type>\n        <CS_App_ID>1577794</CS_App_ID>\n        <Use_MLM_Flow>true</Use_MLM_Flow>\n        <Lead_Reference>MyExampleRef0001</Lead_Reference>\n    </Seller_Data>\n    <Application>\n        <Application_Date>2016-08-10</Application_Date>\n        <Amount>200</Amount>\n        <Reason>Other – Test</Reason>\n    </Application>\n    <Applicant>\n        <Applicant_Type>Primary</Applicant_Type>\n        <Person_Applicant>\n            <Title>Mr</Title>\n            <Date_Of_Birth>1980-01-01</Date_Of_Birth>\n            <Last_Name>Ward</Last_Name>\n            <First_Name>Fredrick</First_Name>\n            <Marital_Status></Marital_Status>\n            <Contact_Methods>\n                <Contact_Method>\n                    <Contact_Other>\n                        <Contact_Type>MOB</Contact_Type>\n                        <Contact_Value>0412341234</Contact_Value>\n                    </Contact_Other>\n                </Contact_Method>\n            </Contact_Methods>\n        </Person_Applicant>\n    </Applicant>\n</Lead>"
+            "label": "Minimal example",
+            "source": "<!-- This is a payload with minimal details for an example lead -->\n\n<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Lead>\n    <Seller_Data>\n        <Client_Authority>true</Client_Authority>\n        <Customer_Authority>true</Customer_Authority>\n        <Customer_Authority_Type>Explicit</Customer_Authority_Type>\n        <CS_App_ID>1577794</CS_App_ID>\n        <Use_MLM_Flow>true</Use_MLM_Flow>\n        <Lead_Reference>MyExampleRef0001</Lead_Reference>\n    </Seller_Data>\n    <Application>\n        <Application_Date>2016-08-10</Application_Date>\n        <Amount>200</Amount>\n        <Reason>Other – Test</Reason>\n    </Application>\n    <Applicant>\n        <Applicant_Type>Primary</Applicant_Type>\n        <Person_Applicant>\n            <Title>Mr</Title>\n            <Date_Of_Birth>1980-01-01</Date_Of_Birth>\n            <Last_Name>Ward</Last_Name>\n            <First_Name>Fredrick</First_Name>\n            <Marital_Status></Marital_Status>\n            <Contact_Methods>\n                <Contact_Method>\n                    <Contact_Other>\n                        <Contact_Type>MOB</Contact_Type>\n                        <Contact_Value>0412341234</Contact_Value>\n                    </Contact_Other>\n                </Contact_Method>\n            </Contact_Methods>\n        </Person_Applicant>\n    </Applicant>\n</Lead>"
+          },
+          {
+            "lang": "XML",
+            "label": "Detailed example",
+            "source": "<!-- This is a payload for with rich details an example lead -->\n\n<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<Lead>\n    <Seller_Data>\n        <Client_Authority>true</Client_Authority>\n        <Customer_Authority>true</Customer_Authority>\n        <Customer_Authority_Type>Explicit</Customer_Authority_Type>\n        <CS_App_ID>1577794</CS_App_ID>\n        <Use_MLM_Flow>true</Use_MLM_Flow>\n        <Lead_Reference>MyExampleRef0001</Lead_Reference>\n    </Seller_Data>\n    <Application>\n        <Application_Date>2016-08-10</Application_Date>\n        <Interest_Rate>200</Interest_Rate>\n        <Repayment_Amount>200</Repayment_Amount>\n        <Fees>200</Fees>\n        <Type>Part Time</Type>\n        <Amount>200</Amount>\n        <Reason>Other – Test</Reason>\n        <Repayment_Cycle>weekly</Repayment_Cycle>\n        <Repayment_Count>200</Repayment_Count>\n        <Description></Description>\n    </Application>\n    <Applicant>\n        <Applicant_Type>Primary</Applicant_Type>\n        <References>\n            <Reference>\n                <Relationship_Type>Previous Employer</Relationship_Type>\n                <Known_Applicant_Years>25</Known_Applicant_Years>\n                <Person_Other>\n                    <Title>Mr</Title>\n                    <Date_Of_Birth>1980-01-01</Date_Of_Birth>\n                    <Last_Name>Smith</Last_Name>\n                    <First_Name>Harry</First_Name>\n                    <Gender>M</Gender>\n                    <Contact_Methods>\n                        <Contact_Method>\n                            <Contact_Other>\n                                <Contact_Type>MOB</Contact_Type>\n                                <Contact_Value>0423547987</Contact_Value>\n                            </Contact_Other>\n                        </Contact_Method>\n                        <Contact_Method>\n                            <Address>\n                                <Address_Line_1>19 Queen Street</Address_Line_1>\n                                <Address_Line_2></Address_Line_2>\n                                <Suburb>Brisbane CBD</Suburb>\n                                <State>QLD</State>\n                                <Postcode>4000</Postcode>\n                                <Is_Current>true</Is_Current>\n                                <Residential_Type>false</Residential_Type>\n                                <Residential_Status>1</Residential_Status>\n                                <Time_At_Address_Months>25</Time_At_Address_Months>\n                            </Address>\n                        </Contact_Method>\n                    </Contact_Methods>\n                </Person_Other>\n            </Reference>\n        </References>\n        <Financials>\n            <Financial>\n                <Detailed_Income>\n                    <Source>Employed</Source>\n                    <Type>Part Time</Type>\n                    <Frequency>weekly</Frequency>\n                    <Description></Description>\n                    <Net_Amount>4500</Net_Amount>\n                    <Gross_Amount>4500</Gross_Amount>\n                    <Is_Current>true</Is_Current>\n                </Detailed_Income>\n            </Financial>\n            <Financial>\n                <Detailed_Liability>\n                    <Type>Personal Loan</Type>\n                    <Frequency>monthly</Frequency>\n                    <Frequency_Amount>100</Frequency_Amount>\n                    <Balance>1000</Balance>\n                    <Start_Date>2015-07-25</Start_Date>\n                    <Estimated_End_Date>2017-03-01</Estimated_End_Date>\n                    <Description>true</Description>\n                </Detailed_Liability>\n            </Financial>\n            <Financial>\n                <Summary_Income>\n                    <Net_Amount>1000</Net_Amount>\n                    <Gross_Amount>1200</Gross_Amount>\n                    <Frequency>weekly</Frequency>\n                </Summary_Income>\n            </Financial>\n            <Financial>\n                <Summary_Liability>\n                    <Amount>1000</Amount>\n                    <Frequency>Part Time</Frequency>\n                </Summary_Liability>\n            </Financial>\n        </Financials>\n        <Bank_Accounts>\n            <Bank_Account>\n                <Account_Number>123456789</Account_Number>\n                <Account_Name>mytest</Account_Name>\n                <Bank_Name></Bank_Name>\n                <Account_Type>1</Account_Type>\n                <BSB>011234</BSB>\n                <Balance>0</Balance>\n                <Age_Of_Account>3</Age_Of_Account>\n            </Bank_Account>\n        </Bank_Accounts>\n        <Person_Applicant>\n            <Title>Mr</Title>\n            <Date_Of_Birth>1980-01-01</Date_Of_Birth>\n            <Last_Name>Ward</Last_Name>\n            <First_Name>Fredrick</First_Name>\n            <Gender>M</Gender>\n            <Dependents>2</Dependents>\n            <Marital_Status></Marital_Status>\n            <Contact_Methods>\n                <Contact_Method>\n                    <Contact_Other>\n                        <Contact_Type>Landline</Contact_Type>\n                        <Contact_Value>0412341234</Contact_Value>\n                    </Contact_Other>\n                </Contact_Method>\n                <Contact_Method>\n                    <Address>\n                        <Address_Line_1>5</Address_Line_1>\n                        <Address_Line_2>Eagle Street</Address_Line_2>\n                        <Suburb>Brisbane CBD</Suburb>\n                        <State>QLD</State>\n                        <Postcode>4000</Postcode>\n                        <Is_Current>true</Is_Current>\n                        <Residential_Type>false</Residential_Type>\n                        <Residential_Status>1</Residential_Status>\n                        <Time_At_Address_Months>25</Time_At_Address_Months>\n                    </Address>\n                </Contact_Method>\n            </Contact_Methods>\n        </Person_Applicant>\n        <Employment_History>\n            <Employment>\n                <Is_Current>true</Is_Current>\n                <Employment_Type>Full Time</Employment_Type>\n                <Occupation>Accountant</Occupation>\n                <Working_Hours_Weekly>40</Working_Hours_Weekly>\n                <Organisation_Name>Steel Accountants</Organisation_Name>\n                <Start_Date>2016-05-20</Start_Date>\n                <Employment_Contacts>\n                    <Person_Other>\n                        <Title>Mr</Title>\n                        <Date_Of_Birth>1980-01-01</Date_Of_Birth>\n                        <Last_Name>Johnson</Last_Name>\n                        <First_Name>James</First_Name>\n                        <Gender>M</Gender>\n                        <Contact_Methods>\n                            <Contact_Method>\n                                <Contact_Other>\n                                    <Contact_Type>MOB</Contact_Type>\n                                    <Contact_Value>047412589</Contact_Value>\n                                </Contact_Other>\n                            </Contact_Method>\n                            <Contact_Method>\n                                <Address>\n                                    <Address_Line_1>32 Albert Street</Address_Line_1>\n                                    <Address_Line_2></Address_Line_2>\n                                    <Suburb>Brisbane CBD</Suburb>\n                                    <State>QLD</State>\n                                    <Postcode>4000</Postcode>\n                                    <Is_Current>true</Is_Current>\n                                    <Residential_Type>false</Residential_Type>\n                                    <Residential_Status>1</Residential_Status>\n                                    <Time_At_Address_Months>25</Time_At_Address_Months>\n                                </Address>\n                            </Contact_Method>\n                        </Contact_Methods>\n                    </Person_Other>\n                </Employment_Contacts>\n                <Contact_Methods>\n                    <Contact_Method>\n                        <Contact_Other>\n                            <Contact_Type>Landline</Contact_Type>\n                            <Contact_Value>0726155948</Contact_Value>\n                        </Contact_Other>\n                    </Contact_Method>\n                    <Contact_Method>\n                        <Address>\n                            <Address_Line_1>21 Elizabeth Street</Address_Line_1>\n                            <Address_Line_2></Address_Line_2>\n                            <Suburb>Brisbane CBD</Suburb>\n                            <State>QLD</State>\n                            <Postcode>4000</Postcode>\n                            <Is_Current>true</Is_Current>\n                        </Address>\n                    </Contact_Method>\n                </Contact_Methods>\n            </Employment>\n            <Employment>\n                <Is_Current>false</Is_Current>\n                <Employment_Type>Full Time</Employment_Type>\n                <Occupation>Accountant</Occupation>\n                <Working_Hours_Weekly>40</Working_Hours_Weekly>\n                <Organisation_Name>We're Accountants</Organisation_Name>\n                <Start_Date>2015-08-10</Start_Date>\n                <End_Date>2016-05-10</End_Date>\n                <Employment_Contacts>\n                    <Person_Other>\n                        <Title>Mr</Title>\n                        <Date_Of_Birth>1980-01-01</Date_Of_Birth>\n                        <Last_Name>Smith</Last_Name>\n                        <First_Name>Harry</First_Name>\n                        <Gender>M</Gender>\n                        <Contact_Methods>\n                            <Contact_Method>\n                                <Contact_Other>\n                                    <Contact_Type>MOB</Contact_Type>\n                                    <Contact_Value>0423547987</Contact_Value>\n                                </Contact_Other>\n                            </Contact_Method>\n                            <Contact_Method>\n                                <Address>\n                                    <Address_Line_1>19 Queen Street</Address_Line_1>\n                                    <Address_Line_2></Address_Line_2>\n                                    <Suburb>Brisbane CBD</Suburb>\n                                    <State>QLD</State>\n                                    <Postcode>4000</Postcode>\n                                    <Is_Current>true</Is_Current>\n                                    <Residential_Type>false</Residential_Type>\n                                    <Residential_Status>1</Residential_Status>\n                                    <Time_At_Address_Months>25</Time_At_Address_Months>\n                                </Address>\n                            </Contact_Method>\n                        </Contact_Methods>\n                    </Person_Other>\n                </Employment_Contacts>\n                <Contact_Methods>\n                    <Contact_Method>\n                        <Contact_Other>\n                            <Contact_Type>Landline</Contact_Type>\n                            <Contact_Value>0726155948</Contact_Value>\n                        </Contact_Other>\n                    </Contact_Method>\n                    <Contact_Method>\n                        <Address>\n                            <Address_Line_1>5 Market Street</Address_Line_1>\n                            <Address_Line_2></Address_Line_2>\n                            <Suburb>Brisbane CBD</Suburb>\n                            <State>QLD</State>\n                            <Postcode>4000</Postcode>\n                            <Is_Current>true</Is_Current>\n                        </Address>\n                    </Contact_Method>\n                </Contact_Methods>\n            </Employment>\n        </Employment_History>\n        <Proof_Of_Identity>\n            <Identification>\n                <Type>Drivers License</Type>\n                <Document_ID>091153487</Document_ID>\n                <Issuer>QLD Government</Issuer>\n                <Date_Expiry>2019-07-22</Date_Expiry>\n                <Date_Issue>2015-07-21</Date_Issue>\n                <File_Name>ward-fredrick-driverslicense.png</File_Name>\n                <Is_Current>true</Is_Current>\n            </Identification>\n        </Proof_Of_Identity>\n    </Applicant>\n</Lead>\n"
           }
         ],
         "requestBody": {
@@ -533,6 +539,563 @@
                     "Success",
                     "Data"
                   ]
+                },
+                "examples": {
+                  "Buyer example": {
+                    "value": {
+                      "Applicant": {
+                        "Applicant_Type": "Primary",
+                        "References": {
+                          "Reference": [
+                            {
+                              "Relationship_Type": "Previous employer",
+                              "Known_Applicant_Years": "3",
+                              "Person_Other": {
+                                "Title": "Mr",
+                                "Date_Of_Birth": "1975-07-17",
+                                "Last_Name": "Rhoades",
+                                "Middle_Names": "Chuck",
+                                "First_Name": "Charles",
+                                "Gender": "M",
+                                "Contact_Methods": {
+                                  "Contact_Method": [
+                                    {
+                                      "Contact_Other": {
+                                        "Contact_Type": "mobile",
+                                        "Contact_Value": "+61488853631",
+                                        "V_Contact_Vallue": "+61488853631",
+                                        "V_Contact_Type": "MOB"
+                                      },
+                                      "Address": {
+                                        "Address_Line_1": "Aurora Tower",
+                                        "Address_Line_2": "Level 69, 420 Queen Street",
+                                        "Suburb": "Brisbane",
+                                        "State": "QLD",
+                                        "Postcode": "4000",
+                                        "Is_Current": "true",
+                                        "Residential_Type": "Apartment",
+                                        "Residential_Status": "Renting",
+                                        "Time_At_Address_Months": "36"
+                                      }
+                                    }
+                                  ]
+                                },
+                                "V_Unique_Contact_Methods": {
+                                  "V_Unique_Contact_Method": [
+                                    {
+                                      "V_Unique_Contact_Other": {
+                                        "V_Unique_Contact_Value": "+61488853631",
+                                        "V_Unique_Contact_Type": "MOB"
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        "Financials": {
+                          "Financial": [
+                            {
+                              "Detailed_Income": {
+                                "Source": "Axe Capital",
+                                "Type": "Full-time",
+                                "Frequency": "weekly",
+                                "Description": "This is the customer's primary income",
+                                "Net_Amount": 2000,
+                                "Gross_Amount": 3000,
+                                "Is_Current": "false",
+                                "Start_Date": "2016-01-01",
+                                "End_Date": "2020-08-26"
+                              },
+                              "Detailed_Liability": {
+                                "Type": "once-off",
+                                "Frequency": "monthly",
+                                "Frequency_Amount": 100,
+                                "Balance": 1000,
+                                "Start_Date": "2019-08-24",
+                                "Estimated_End_Date": "2019-08-24",
+                                "Description": "Personal Loan"
+                              },
+                              "Summary_Income": {
+                                "Net_Amount": "2000",
+                                "Gross_Amount": "3000",
+                                "Frequency": "weekly"
+                              },
+                              "Summary_Liability": {
+                                "Amount": "100",
+                                "Frequency": "monthly"
+                              }
+                            }
+                          ]
+                        },
+                        "Bank_Accounts": {
+                          "Bank_Account": [
+                            {
+                              "Account_Number": "17012016",
+                              "Account_Name": "Super Saver",
+                              "Bank_Name": "Mason Capital Savings and Loan",
+                              "Account_Type": "Savings",
+                              "BSB": "440003",
+                              "Balance": "10000",
+                              "Age_Of_Account": "4"
+                            }
+                          ]
+                        },
+                        "Person_Applicant": {
+                          "Title": "Ms",
+                          "Date_Of_Birth": "1978-02-11",
+                          "Last_Name": "Rhoades",
+                          "Middle_Names": "Chuck",
+                          "First_Name": "Wendy",
+                          "Gender": "F",
+                          "Dependents": "2",
+                          "Marital_Status": "Separated",
+                          "Can_Provide_Guarantor": "true",
+                          "Contact_Methods": {
+                            "Contact_Method": [
+                              {
+                                "Contact_Other": {
+                                  "Contact_Type": "mobile",
+                                  "Contact_Value": "+61488853631",
+                                  "V_Contact_Vallue": "+61488853631",
+                                  "V_Contact_Type": "MOB"
+                                },
+                                "Address": {
+                                  "Address_Line_1": "Aurora Tower",
+                                  "Address_Line_2": "Level 69, 420 Queen Street",
+                                  "Suburb": "Brisbane",
+                                  "State": "QLD",
+                                  "Postcode": "4000",
+                                  "Is_Current": "false",
+                                  "Residential_Type": "Apartment",
+                                  "Residential_Status": "Renting",
+                                  "Time_At_Address_Months": "36"
+                                }
+                              }
+                            ]
+                          },
+                          "V_Unique_Contact_Methods": {
+                            "V_Unique_Contact_Method": [
+                              {
+                                "V_Unique_Contact_Other": {
+                                  "V_Unique_Contact_Value": "+61488853631",
+                                  "V_Unique_Contact_Type": "MOB"
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        "Employment_History": {
+                          "Employment": [
+                            {
+                              "Is_Current": "true",
+                              "Employment_Type": "Contract",
+                              "Occupation": "Performance Coach",
+                              "Working_Hours_Weekly": "40",
+                              "Organisation_Name": "Axe Captial",
+                              "Start_Date": "2015-02-14",
+                              "End_Date": "2020-08-28",
+                              "Employment_Contacts": {
+                                "Person_Other": {
+                                  "Title": "Mr",
+                                  "Date_Of_Birth": "1977-04-12",
+                                  "Last_Name": "Axelrod",
+                                  "First_Name": "Bobby",
+                                  "Gender": "M",
+                                  "Contact_Methods": {
+                                    "Contact_Method": [
+                                      {
+                                        "Contact_Other": {
+                                          "Contact_Type": "mobile",
+                                          "Contact_Value": "+61488853631",
+                                          "V_Contact_Vallue": "+61488853631",
+                                          "V_Contact_Type": "MOB"
+                                        },
+                                        "Address": {
+                                          "Address_Line_1": "Casino Towers",
+                                          "Address_Line_2": "Level 33, 151 George Street",
+                                          "Suburb": "Brisbane",
+                                          "State": "QLD",
+                                          "Postcode": "4000",
+                                          "Is_Current": "true",
+                                          "Residential_Type": "Apartment",
+                                          "Residential_Status": "Owned",
+                                          "Time_At_Address_Months": "19"
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  "V_Unique_Contact_Methods": {
+                                    "V_Unique_Contact_Method": [
+                                      {
+                                        "V_Unique_Contact_Other": {
+                                          "V_Unique_Contact_Value": "+61488853631",
+                                          "V_Unique_Contact_Type": "MOB"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              },
+                              "Contact_Methods": {
+                                "Contact_Method": [
+                                  {
+                                    "Contact_Other": {
+                                      "Contact_Type": "mobile",
+                                      "Contact_Value": "+61488853631",
+                                      "V_Contact_Vallue": "+61488853631",
+                                      "V_Contact_Type": "MOB"
+                                    },
+                                    "Address": {
+                                      "Address_Line_1": "Aurora Tower",
+                                      "Address_Line_2": "Level 69, 420 Queen Street",
+                                      "Suburb": "Brisbane",
+                                      "State": "QLD",
+                                      "Postcode": "4000",
+                                      "Is_Current": "false"
+                                    }
+                                  }
+                                ]
+                              },
+                              "V_Unique_Contact_Methods": {
+                                "V_Unique_Contact_Method": [
+                                  {
+                                    "V_Unique_Contact_Other": {
+                                      "V_Unique_Contact_Value": "+61488853631",
+                                      "V_Unique_Contact_Type": "MOB"
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        },
+                        "Proof_Of_Identity": {
+                          "Identification": [
+                            {
+                              "Type": "driver licence",
+                              "Document_ID": "084859805",
+                              "Issuer": "Queensland Government",
+                              "Date_Expiry": "2029-01-06",
+                              "Date_Issue": "2019-01-06",
+                              "File_Name": "rhoades-driver-licence.pdf",
+                              "Is_Current": "true"
+                            }
+                          ]
+                        }
+                      },
+                      "Application": {
+                        "Application_Date": "2016-08-10",
+                        "Interest_Rate": 20,
+                        "Repayment_Amount": 200,
+                        "Fees": 100,
+                        "Type": "Personal Loan",
+                        "Amount": 1000,
+                        "Reason": "Book purchase",
+                        "Repayment_Cycle": "weekly",
+                        "Repayment_Count": "7",
+                        "Description": "Purchase of first-edition 'The Second World War' six-volume series by Winston Churchill"
+                      },
+                      "Buyer_Data": {
+                        "LM_SaleDT": "2017-01-06 17:22:48.4700000",
+                        "Lead_Price": 50,
+                        "CS_AppCompleted_DT": "2017-01-06 17:21:54.2600000",
+                        "Lead_ID": 5824,
+                        "CS_App_ID": 1577797,
+                        "Winning_Bid_ID": 312,
+                        "Sale_Base_Amount": 50,
+                        "Sale_Base_Amount_Tax": 5,
+                        "Sale_Trade_Comm_Amount": 7.5,
+                        "Sale_Trade_Comm_Amount_Tax": 0.75,
+                        "Sale_Net_Amount": 63.25,
+                        "Sale_Currency": "AUD",
+                        "Buyer_Token": "pC81HjJmiTKJ3stwVu7a"
+                      },
+                      "Custom_Data": {
+                        "Your_Question_Here": "An example answer"
+                      },
+                      "Decision_Points": {
+                        "Decision_Point": [
+                          {
+                            "ID": 101,
+                            "Name": "customerAge",
+                            "Score_DT": "1980-01-01 00:00:00.0000000",
+                            "Score": 50
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "Seller example": {
+                    "value": {
+                      "Applicant": {
+                        "Applicant_Type": "Primary",
+                        "References": {
+                          "Reference": [
+                            {
+                              "Relationship_Type": "Previous employer",
+                              "Known_Applicant_Years": "3",
+                              "Person_Other": {
+                                "Title": "Mr",
+                                "Date_Of_Birth": "1975-07-17",
+                                "Last_Name": "Rhoades",
+                                "Middle_Names": "Chuck",
+                                "First_Name": "Charles",
+                                "Gender": "M",
+                                "Contact_Methods": {
+                                  "Contact_Method": [
+                                    {
+                                      "Contact_Other": {
+                                        "Contact_Type": "mobile",
+                                        "Contact_Value": "+61488853631",
+                                        "V_Contact_Vallue": "+61488853631",
+                                        "V_Contact_Type": "MOB"
+                                      },
+                                      "Address": {
+                                        "Address_Line_1": "Aurora Tower",
+                                        "Address_Line_2": "Level 69, 420 Queen Street",
+                                        "Suburb": "Brisbane",
+                                        "State": "QLD",
+                                        "Postcode": "4000",
+                                        "Is_Current": "true",
+                                        "Residential_Type": "Apartment",
+                                        "Residential_Status": "Renting",
+                                        "Time_At_Address_Months": "36"
+                                      }
+                                    }
+                                  ]
+                                },
+                                "V_Unique_Contact_Methods": {
+                                  "V_Unique_Contact_Method": [
+                                    {
+                                      "V_Unique_Contact_Other": {
+                                        "V_Unique_Contact_Value": "+61488853631",
+                                        "V_Unique_Contact_Type": "MOB"
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        "Financials": {
+                          "Financial": [
+                            {
+                              "Detailed_Income": {
+                                "Source": "Axe Capital",
+                                "Type": "Full-time",
+                                "Frequency": "weekly",
+                                "Description": "This is the customer's primary income",
+                                "Net_Amount": 2000,
+                                "Gross_Amount": 3000,
+                                "Is_Current": "false",
+                                "Start_Date": "2016-01-01",
+                                "End_Date": "2020-08-26"
+                              },
+                              "Detailed_Liability": {
+                                "Type": "once-off",
+                                "Frequency": "monthly",
+                                "Frequency_Amount": 100,
+                                "Balance": 1000,
+                                "Start_Date": "2019-08-24",
+                                "Estimated_End_Date": "2019-08-24",
+                                "Description": "Personal Loan"
+                              },
+                              "Summary_Income": {
+                                "Net_Amount": "2000",
+                                "Gross_Amount": "3000",
+                                "Frequency": "weekly"
+                              },
+                              "Summary_Liability": {
+                                "Amount": "100",
+                                "Frequency": "monthly"
+                              }
+                            }
+                          ]
+                        },
+                        "Bank_Accounts": {
+                          "Bank_Account": [
+                            {
+                              "Account_Number": "17012016",
+                              "Account_Name": "Super Saver",
+                              "Bank_Name": "Mason Capital Savings and Loan",
+                              "Account_Type": "Savings",
+                              "BSB": "440003",
+                              "Balance": "10000",
+                              "Age_Of_Account": "4"
+                            }
+                          ]
+                        },
+                        "Person_Applicant": {
+                          "Title": "Ms",
+                          "Date_Of_Birth": "1978-02-11",
+                          "Last_Name": "Rhoades",
+                          "Middle_Names": "Chuck",
+                          "First_Name": "Wendy",
+                          "Gender": "F",
+                          "Dependents": "2",
+                          "Marital_Status": "Separated",
+                          "Can_Provide_Guarantor": "true",
+                          "Contact_Methods": {
+                            "Contact_Method": [
+                              {
+                                "Contact_Other": {
+                                  "Contact_Type": "mobile",
+                                  "Contact_Value": "+61488853631",
+                                  "V_Contact_Vallue": "+61488853631",
+                                  "V_Contact_Type": "MOB"
+                                },
+                                "Address": {
+                                  "Address_Line_1": "Aurora Tower",
+                                  "Address_Line_2": "Level 69, 420 Queen Street",
+                                  "Suburb": "Brisbane",
+                                  "State": "QLD",
+                                  "Postcode": "4000",
+                                  "Is_Current": "false",
+                                  "Residential_Type": "Apartment",
+                                  "Residential_Status": "Renting",
+                                  "Time_At_Address_Months": "36"
+                                }
+                              }
+                            ]
+                          },
+                          "V_Unique_Contact_Methods": {
+                            "V_Unique_Contact_Method": [
+                              {
+                                "V_Unique_Contact_Other": {
+                                  "V_Unique_Contact_Value": "+61488853631",
+                                  "V_Unique_Contact_Type": "MOB"
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        "Employment_History": {
+                          "Employment": [
+                            {
+                              "Is_Current": "true",
+                              "Employment_Type": "Contract",
+                              "Occupation": "Performance Coach",
+                              "Working_Hours_Weekly": "40",
+                              "Organisation_Name": "Axe Captial",
+                              "Start_Date": "2015-02-14",
+                              "End_Date": "2020-08-28",
+                              "Employment_Contacts": {
+                                "Person_Other": {
+                                  "Title": "Mr",
+                                  "Date_Of_Birth": "1977-04-12",
+                                  "Last_Name": "Axelrod",
+                                  "First_Name": "Bobby",
+                                  "Gender": "M",
+                                  "Contact_Methods": {
+                                    "Contact_Method": [
+                                      {
+                                        "Contact_Other": {
+                                          "Contact_Type": "mobile",
+                                          "Contact_Value": "+61488853631",
+                                          "V_Contact_Vallue": "+61488853631",
+                                          "V_Contact_Type": "MOB"
+                                        },
+                                        "Address": {
+                                          "Address_Line_1": "Casino Towers",
+                                          "Address_Line_2": "Level 33, 151 George Street",
+                                          "Suburb": "Brisbane",
+                                          "State": "QLD",
+                                          "Postcode": "4000",
+                                          "Is_Current": "true",
+                                          "Residential_Type": "Apartment",
+                                          "Residential_Status": "Owned",
+                                          "Time_At_Address_Months": "19"
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  "V_Unique_Contact_Methods": {
+                                    "V_Unique_Contact_Method": [
+                                      {
+                                        "V_Unique_Contact_Other": {
+                                          "V_Unique_Contact_Value": "+61488853631",
+                                          "V_Unique_Contact_Type": "MOB"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              },
+                              "Contact_Methods": {
+                                "Contact_Method": [
+                                  {
+                                    "Contact_Other": {
+                                      "Contact_Type": "mobile",
+                                      "Contact_Value": "+61488853631",
+                                      "V_Contact_Vallue": "+61488853631",
+                                      "V_Contact_Type": "MOB"
+                                    },
+                                    "Address": {
+                                      "Address_Line_1": "Aurora Tower",
+                                      "Address_Line_2": "Level 69, 420 Queen Street",
+                                      "Suburb": "Brisbane",
+                                      "State": "QLD",
+                                      "Postcode": "4000",
+                                      "Is_Current": "false"
+                                    }
+                                  }
+                                ]
+                              },
+                              "V_Unique_Contact_Methods": {
+                                "V_Unique_Contact_Method": [
+                                  {
+                                    "V_Unique_Contact_Other": {
+                                      "V_Unique_Contact_Value": "+61488853631",
+                                      "V_Unique_Contact_Type": "MOB"
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        },
+                        "Proof_Of_Identity": {
+                          "Identification": [
+                            {
+                              "Type": "driver licence",
+                              "Document_ID": "084859805",
+                              "Issuer": "Queensland Government",
+                              "Date_Expiry": "2029-01-06",
+                              "Date_Issue": "2019-01-06",
+                              "File_Name": "rhoades-driver-licence.pdf",
+                              "Is_Current": "true"
+                            }
+                          ]
+                        }
+                      },
+                      "Application": {
+                        "Application_Date": "2016-08-10",
+                        "Interest_Rate": 20,
+                        "Repayment_Amount": 200,
+                        "Fees": 100,
+                        "Type": "Personal Loan",
+                        "Amount": 1000,
+                        "Reason": "Book purchase",
+                        "Repayment_Cycle": "weekly",
+                        "Repayment_Count": "7",
+                        "Description": "Purchase of first-edition 'The Second World War' six-volume series by Winston Churchill"
+                      },
+                      "Seller_Data": {
+                        "Client_Authority": true,
+                        "Customer_Authority": true,
+                        "Customer_Authority_Type": "Implicit",
+                        "CS_App_ID": 18200557,
+                        "Use_MLM_Flow": true,
+                        "Lead_ID": 5824,
+                        "Lead_Token": "F16WeC",
+                        "Lead_Reference": "NYCAG2018",
+                        "Credit_Authority_Enquiry_Number": 7671338561
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -1121,88 +1684,73 @@
                   },
                   "ref": {
                     "type": "string",
-                    "example": "abc123",
-                    "description": "Your unique reference for the customer. Required in the absence of the `tok` parameter. This allows Lead Market to remember the customer so that if they click on the link multiple times it will not generate multiple applications."
+                    "example": "abc123"
                   },
                   "csid": {
                     "type": "integer",
-                    "example": 18085549,
-                    "description": "If the customer has completed Credit Sense within the last 24 hours, you can provide the App ID. Passing in a valid App ID will allow the customer to bypass the Credit Sense step in the customer journey. If no App ID is passed in, of if it is deemed invalid, the customer will be required to complete Credit Sense before the lead can be pushed into Lead Market."
+                    "example": 18085549
                   },
                   "fn": {
                     "type": "string",
-                    "example": "Lonnie",
-                    "description": "The customer's first name."
+                    "example": "Lonnie"
                   },
                   "sn": {
                     "type": "string",
-                    "example": "Watley",
-                    "description": "The customer's surname."
+                    "example": "Watley"
                   },
                   "dob": {
                     "type": "string",
-                    "description": "The customer's date of birth in [ISO format](https://en.wikipedia.org/wiki/ISO_8601).",
-                    "example": "1977-09-26",
-                    "format": "date"
+                    "description": "The lead's date of birth in [ISO format](https://en.wikipedia.org/wiki/ISO_8601).",
+                    "example": "1977-09-26"
                   },
                   "mob": {
                     "type": "string",
-                    "example": "+61488853631",
-                    "description": "The customer's mobile/cell phone number."
+                    "example": "+61488853631"
                   },
                   "e": {
                     "type": "string",
-                    "example": "support@leadexchange.ca",
-                    "description": "The customer's email address."
+                    "example": "support@leadexchange.ca"
                   },
                   "l": {
                     "type": "string",
-                    "example": "+61731185233",
-                    "description": "The lead's landline phone number."
+                    "example": "+61731185233"
                   },
                   "a": {
                     "type": "string",
-                    "example": "7/201 Charlotte Street, Brisbane QLD 4000",
-                    "description": "The customer's home address. If we're able to find an exact match for the address, we'll add the postcode to the data."
+                    "example": "7/201 Charlotte Street, Brisbane QLD 4000"
                   },
                   "emp": {
                     "type": "string",
-                    "example": "Dewey, Cheatem and Howe lawyers",
-                    "description": "The customer's employer."
+                    "example": "Dewey, Cheatem and Howe lawyers"
                   },
                   "la": {
                     "type": "number",
-                    "example": 2500,
-                    "description": "The loan amount as requested by the customer."
+                    "example": 2500
                   },
                   "lr": {
                     "type": "string",
-                    "example": "Home repairs",
-                    "description": "The reason the customer provided for wanting the loan."
+                    "example": "Home repairs"
                   },
                   "caen": {
                     "type": "integer",
-                    "example": 549689725,
-                    "description": "**Feature preview.**\nThe Credit Authority Enquiry Number that you've previously generated for the customer. Rather than acquiring a new credit report when the lead is pushed into the market, we'll use this to retrieve an existing one."
+                    "example": 549689725
                   },
                   "tok": {
                     "type": "string",
-                    "example": "w3IxLC",
-                    "description": "Our unique identifier for the lead. Required in the absence of the `ref` parameter. Provide this if you wish to update details for an existing lead."
+                    "example": "w3IxLC"
                   },
                   "public": {
                     "type": "boolean",
-                    "default": "false",
-                    "description": "Denotes whether the lead details provided will be shown to the customer when they view the page. Requires the `tok` parameter to be provided to the Lead Market iframe."
+                    "default": "false"
                   },
                   "return-lead-id": {
                     "type": "boolean",
-                    "default": "false",
-                    "description": "Denotes whether the Lead ID will be included in the response. Some of our webhook calls provide the Lead ID rather than the token so this allows you to receive both and store them in your system."
+                    "default": "false"
                   }
                 },
                 "required": [
-                  "api-token"
+                  "api-token",
+                  "ref"
                 ]
               }
             }
@@ -1234,10 +1782,26 @@
                     "application/x-www-form-urlencoded": {
                       "schema": {
                         "type": "object",
-                        "description": "The lead details.",
                         "properties": {
                           "Lead": {
-                            "$ref": "#/components/schemas/Lead-schema"
+                            "type": "object",
+                            "properties": {
+                              "Applicant": {
+                                "$ref": "#/components/schemas/Applicant-schema"
+                              },
+                              "Application": {
+                                "$ref": "#/components/schemas/Application-schema"
+                              },
+                              "Buyer_Data": {
+                                "$ref": "#/components/schemas/Buyer_Data-schema"
+                              },
+                              "Custom_Data": {
+                                "$ref": "#/components/schemas/Custom_Data-schema"
+                              },
+                              "Decision_Points": {
+                                "$ref": "#/components/schemas/Decision_Points-schema"
+                              }
+                            }
                           }
                         }
                       }
@@ -1596,10 +2160,10 @@
                   "status-id": {
                     "type": "integer",
                     "enum": [
-                      "7",
-                      "8",
-                      "9",
-                      "10"
+                      7,
+                      8,
+                      9,
+                      10
                     ],
                     "description": "Denotes the status to change the lead to."
                   }
@@ -5284,830 +5848,88 @@
         ],
         "properties": {
           "Applicant": {
+            "$ref": "#/components/schemas/Applicant-schema"
+          },
+          "Application": {
+            "$ref": "#/components/schemas/Application-schema"
+          },
+          "Buyer_Data": {
+            "$ref": "#/components/schemas/Buyer_Data-schema"
+          },
+          "Custom_Data": {
+            "$ref": "#/components/schemas/Custom_Data-schema"
+          },
+          "Decision_Points": {
+            "$ref": "#/components/schemas/Decision_Points-schema"
+          },
+          "Seller_Data": {
+            "$ref": "#/components/schemas/Seller_Data-schema"
+          }
+        }
+      },
+      "Applicant-schema": {
+        "title": "Applicant schema",
+        "type": "object",
+        "description": "Information about the applicant.",
+        "properties": {
+          "Applicant_Type": {
+            "type": "string",
+            "example": "Primary",
+            "description": "The type of applicant (e.g. Primary, Guarantor, Secondary, Business, etc.)"
+          },
+          "References": {
             "type": "object",
-            "description": "Information about the applicant.",
-            "required": [
-              "Person_Applicant"
-            ],
+            "description": "Information about the relationship between the customer and any referees.",
             "properties": {
-              "Applicant_Type": {
-                "type": "string",
-                "example": "Primary",
-                "description": "The type of applicant (e.g. Primary, Guarantor, Secondary, Business, etc.)"
-              },
-              "References": {
-                "type": "object",
-                "description": "Information about the relationship between the customer and any referees.",
-                "properties": {
-                  "Reference": {
-                    "type": "array",
-                    "description": "",
-                    "items": {
+              "Reference": {
+                "type": "array",
+                "description": "",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "Relationship_Type": {
+                      "type": "string",
+                      "example": "Previous employer",
+                      "description": "The referee's relationship to the applicant (e.g. friend, mother, employer, etc.)"
+                    },
+                    "Known_Applicant_Years": {
+                      "type": "string",
+                      "description": "The number of years the referee has known the customer.",
+                      "example": "3"
+                    },
+                    "Person_Other": {
                       "type": "object",
                       "properties": {
-                        "Relationship_Type": {
+                        "Title": {
                           "type": "string",
-                          "example": "Previous employer",
-                          "description": "The referee's relationship to the applicant (e.g. friend, mother, employer, etc.)"
+                          "description": "The person's title (e.g. Mr, Mrs, Ms, Dr, etc.)",
+                          "example": "Mr"
                         },
-                        "Known_Applicant_Years": {
+                        "Date_Of_Birth": {
                           "type": "string",
-                          "description": "The number of years the referee has known the customer.",
-                          "example": "3"
-                        },
-                        "Person_Other": {
-                          "type": "object",
-                          "properties": {
-                            "Title": {
-                              "type": "string",
-                              "description": "The person's title (e.g. Mr, Mrs, Ms, Dr, etc.)",
-                              "example": "Mr"
-                            },
-                            "Date_Of_Birth": {
-                              "type": "string",
-                              "description": "The person's date of birth.",
-                              "format": "date",
-                              "example": "1975-07-17"
-                            },
-                            "Last_Name": {
-                              "type": "string",
-                              "description": "The person's last name.",
-                              "example": "Rhoades"
-                            },
-                            "Middle_Names": {
-                              "type": "string",
-                              "description": "The person's middle name.",
-                              "example": "Chuck"
-                            },
-                            "First_Name": {
-                              "type": "string",
-                              "description": "The person's first name.",
-                              "example": "Charles"
-                            },
-                            "Gender": {
-                              "type": "string",
-                              "description": "The person's gender (e.g. M, F).",
-                              "example": "M"
-                            },
-                            "Contact_Methods": {
-                              "type": "object",
-                              "properties": {
-                                "Contact_Method": {
-                                  "type": "array",
-                                  "items": {
-                                    "type": "object",
-                                    "properties": {
-                                      "Contact_Other": {
-                                        "type": "object",
-                                        "description": "Contact details (e.g. phone numbers, email addresses etc.)",
-                                        "properties": {
-                                          "Contact_Type": {
-                                            "type": "string",
-                                            "description": "The type of contact method (e.g. mobile, email, skype, work, home, fax, etc.)",
-                                            "example": "mobile"
-                                          },
-                                          "Contact_Value": {
-                                            "type": "string",
-                                            "description": "The contact (e.g. email address, mobile number, skype address, etc.) For phone numbers we recommend using international format (e.g. AU = +614..., CA = +1..., NZ = +642...).",
-                                            "example": "+61488853631"
-                                          },
-                                          "V_Contact_Vallue": {
-                                            "type": "string",
-                                            "example": "+61488853631",
-                                            "description": "The validated contact (e.g. email address, mobile number, skype address, etc.) Australian and New Zealand mobile and landline numbers are validated on their syntax and length, while Canadian phone numbers are only checked to be a phone number (the distinction between a cell and a landline cannot be made by looking at a Canadian phone number alone)."
-                                          },
-                                          "V_Contact_Type": {
-                                            "type": "string",
-                                            "description": "The validated type of contact method (e.g. mobile, email, skype, work, home, fax, etc.)",
-                                            "enum": [
-                                              "MOB",
-                                              "FIXED_LINE",
-                                              "PAGER",
-                                              "PERSONAL_NUMBER",
-                                              "PREMIUM_RATE",
-                                              "SHARED_COST",
-                                              "TOLL_FREE",
-                                              "UAN",
-                                              "UNKNOWN",
-                                              "VOICEMAIL",
-                                              "VOIP"
-                                            ]
-                                          }
-                                        }
-                                      },
-                                      "Address": {
-                                        "type": "object",
-                                        "description": "Information about the person's addresses.",
-                                        "properties": {
-                                          "Address_Line_1": {
-                                            "type": "string",
-                                            "description": "Building name, suite number, etc.",
-                                            "example": "Aurora Tower"
-                                          },
-                                          "Address_Line_2": {
-                                            "type": "string",
-                                            "description": "Street number, name and type.",
-                                            "example": "Level 69, 420 Queen Street"
-                                          },
-                                          "Suburb": {
-                                            "type": "string",
-                                            "description": "Suburb, Town, Municipality, etc.",
-                                            "example": "Brisbane"
-                                          },
-                                          "State": {
-                                            "type": "string",
-                                            "description": "AU = State or Territory, CA = Province or Territory, NZ = Town or City.",
-                                            "example": "QLD"
-                                          },
-                                          "Postcode": {
-                                            "type": "string",
-                                            "description": "Postcode or Zip Code.",
-                                            "example": "4000"
-                                          },
-                                          "Is_Current": {
-                                            "type": "string",
-                                            "description": "Denotes whether this is the person's current address.",
-                                            "example": "true"
-                                          },
-                                          "Residential_Type": {
-                                            "type": "string",
-                                            "description": "The type of residence (e.g. house, unit, rural, acreage, etc.)",
-                                            "example": "Apartment"
-                                          },
-                                          "Residential_Status": {
-                                            "type": "string",
-                                            "description": "The person's relationhsip to the address (e.g. renting, buying, boarding, etc.)",
-                                            "example": "Renting"
-                                          },
-                                          "Time_At_Address_Months": {
-                                            "type": "string",
-                                            "description": "The number of months the person has lived/did live at the address.",
-                                            "example": "36"
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            },
-                            "V_Unique_Contact_Methods": {
-                              "type": "object",
-                              "properties": {
-                                "V_Unique_Contact_Method": {
-                                  "type": "array",
-                                  "items": {
-                                    "type": "object",
-                                    "properties": {
-                                      "V_Unique_Contact_Other": {
-                                        "type": "object",
-                                        "properties": {
-                                          "V_Unique_Contact_Value": {
-                                            "type": "string",
-                                            "example": "+61488853631",
-                                            "description": "The validated contact (e.g. email address, mobile number, skype address, etc.) as a consolidation of two or more contacts where they are identical."
-                                          },
-                                          "V_Unique_Contact_Type": {
-                                            "type": "string",
-                                            "enum": [
-                                              "MOB",
-                                              "FIXED_LINE",
-                                              "PAGER",
-                                              "PERSONAL_NUMBER",
-                                              "PREMIUM_RATE",
-                                              "SHARED_COST",
-                                              "TOLL_FREE",
-                                              "UAN",
-                                              "UNKNOWN",
-                                              "VOICEMAIL",
-                                              "VOIP"
-                                            ],
-                                            "description": "The validated type of contact method (e.g. mobile, email, skype, work, home, fax, etc.)"
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              },
-              "Financials": {
-                "type": "object",
-                "description": "Information about the customer's income and liabilities.",
-                "properties": {
-                  "Financial": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "Detailed_Income": {
-                          "type": "object",
-                          "description": "Detailed information about the customer's current or previous income.",
-                          "properties": {
-                            "Source": {
-                              "type": "string",
-                              "description": "The name of the source of the customer's income (e.g. Coles, Municipality of Manitoba, Vodafone, etc.)",
-                              "example": "Axe Capital"
-                            },
-                            "Type": {
-                              "type": "string",
-                              "description": "The customer's income type (e.g. salary, benefits, rental, gift, etc.)",
-                              "example": "Full-time"
-                            },
-                            "Frequency": {
-                              "type": "string",
-                              "description": "The frequency with which the customer is paid (e.g. weekly, fortnightly, monthly, etc.)",
-                              "example": "weekly"
-                            },
-                            "Description": {
-                              "type": "string",
-                              "description": "Additional information about this income.",
-                              "example": "This is the customer's primary income"
-                            },
-                            "Net_Amount": {
-                              "type": "number",
-                              "description": "The net amount of the customer's pay per frequency.",
-                              "example": 2000
-                            },
-                            "Gross_Amount": {
-                              "type": "number",
-                              "description": "The gross amount of the customer's pay per frequency.",
-                              "example": 3000
-                            },
-                            "Is_Current": {
-                              "type": "string",
-                              "description": "Denotes whether the source of income is current.",
-                              "example": "false"
-                            },
-                            "Start_Date": {
-                              "type": "string",
-                              "format": "date",
-                              "description": "The date this income began.",
-                              "example": "2016-01-01"
-                            },
-                            "End_Date": {
-                              "type": "string",
-                              "format": "date",
-                              "description": "The date this income ended.",
-                              "example": "2020-08-26"
-                            }
-                          }
-                        },
-                        "Detailed_Liability": {
-                          "type": "object",
-                          "description": "Detailed information about the customer's current liabilities.",
-                          "properties": {
-                            "Type": {
-                              "type": "string",
-                              "description": "The type of liability (e.g. ongoing, once-off).",
-                              "example": "once-off"
-                            },
-                            "Frequency": {
-                              "type": "string",
-                              "description": "The frequency with which the liability is paid (e.g. weekly, fortnightly, monthly, etc.)",
-                              "example": "monthly"
-                            },
-                            "Frequency_Amount": {
-                              "type": "number",
-                              "description": "The amount paid towards the liability per frequency.",
-                              "example": 100
-                            },
-                            "Balance": {
-                              "type": "number",
-                              "description": "The amount currently owing on the liability.",
-                              "example": 1000
-                            },
-                            "Start_Date": {
-                              "type": "string",
-                              "format": "date",
-                              "description": "The date that the customer assumed the liability."
-                            },
-                            "Estimated_End_Date": {
-                              "type": "string",
-                              "format": "date",
-                              "description": "The estimated date that the customer will finalise the liability."
-                            },
-                            "Description": {
-                              "type": "string",
-                              "description": "Description of the liability (e.g. rent, loan, living expenses, education, etc.)",
-                              "example": "Personal Loan"
-                            }
-                          }
-                        },
-                        "Summary_Income": {
-                          "type": "object",
-                          "description": "Summary information about the customer's current income.",
-                          "properties": {
-                            "Net_Amount": {
-                              "type": "string",
-                              "example": "2000",
-                              "description": "The net amount of the customer's pay per frequency."
-                            },
-                            "Gross_Amount": {
-                              "type": "string",
-                              "example": "3000",
-                              "description": "The gross amount of the customer's pay per frequency."
-                            },
-                            "Frequency": {
-                              "type": "string",
-                              "example": "weekly",
-                              "description": "The frequency with which the customer is paid (e.g. weekly, fortnightly, monthly, etc.)"
-                            }
-                          }
-                        },
-                        "Summary_Liability": {
-                          "type": "object",
-                          "description": "Summary information about the customer's current liabilities.",
-                          "properties": {
-                            "Amount": {
-                              "type": "string",
-                              "example": "100",
-                              "description": "The amount paid towards the liability per frequency."
-                            },
-                            "Frequency": {
-                              "type": "string",
-                              "example": "monthly",
-                              "description": "The frequency with which the liability is paid (e.g. weekly, fortnightly, monthly, etc.)"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              },
-              "Bank_Accounts": {
-                "type": "object",
-                "description": "Information about the customer's bank accounts.",
-                "properties": {
-                  "Bank_Account": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "Account_Number": {
-                          "type": "string",
-                          "description": "The customer's account number.",
-                          "example": "17012016"
-                        },
-                        "Account_Name": {
-                          "type": "string",
-                          "description": "The customer's account name.",
-                          "example": "Super Saver"
-                        },
-                        "Bank_Name": {
-                          "type": "string",
-                          "description": "The name of the customer's bank.",
-                          "example": "Mason Capital Savings and Loan"
-                        },
-                        "Account_Type": {
-                          "type": "string",
-                          "description": "The type of account (e.g. savings, cheque, etc.)",
-                          "example": "Savings"
-                        },
-                        "BSB": {
-                          "type": "string",
-                          "description": "The customer's BSB or routing (transit) number.",
-                          "example": "440003"
-                        },
-                        "Balance": {
-                          "type": "string",
-                          "description": "The customer's current account balance.",
-                          "example": "10000"
-                        },
-                        "Age_Of_Account": {
-                          "type": "string",
-                          "description": "The age of the customer's account in years.",
-                          "example": "4"
-                        }
-                      }
-                    }
-                  }
-                }
-              },
-              "Person_Applicant": {
-                "type": "object",
-                "description": "Information about the applicant.",
-                "required": [
-                  "Last_Name",
-                  "First_Name"
-                ],
-                "properties": {
-                  "Title": {
-                    "type": "string",
-                    "example": "Ms",
-                    "description": "The customer's title (e.g. Mr, Mrs, Ms, Dr, etc.)"
-                  },
-                  "Date_Of_Birth": {
-                    "type": "string",
-                    "example": "1978-02-11"
-                  },
-                  "Last_Name": {
-                    "type": "string",
-                    "example": "Rhoades",
-                    "minLength": 1
-                  },
-                  "Middle_Names": {
-                    "type": "string",
-                    "description": "The person's middle name.",
-                    "example": "Chuck"
-                  },
-                  "First_Name": {
-                    "type": "string",
-                    "example": "Wendy",
-                    "description": "The customer's first name.",
-                    "minLength": 1
-                  },
-                  "Gender": {
-                    "type": "string",
-                    "example": "F"
-                  },
-                  "Dependents": {
-                    "type": "string",
-                    "example": "2"
-                  },
-                  "Marital_Status": {
-                    "type": "string",
-                    "example": "Separated"
-                  },
-                  "Can_Provide_Guarantor": {
-                    "type": "string",
-                    "example": "true"
-                  },
-                  "Contact_Methods": {
-                    "type": "object",
-                    "properties": {
-                      "Contact_Method": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "Contact_Other": {
-                              "type": "object",
-                              "description": "Contact details (e.g. phone numbers, email addresses etc.)",
-                              "properties": {
-                                "Contact_Type": {
-                                  "type": "string",
-                                  "description": "The type of contact method (e.g. mobile, email, skype, work, home, fax, etc.)",
-                                  "example": "mobile"
-                                },
-                                "Contact_Value": {
-                                  "type": "string",
-                                  "description": "The contact (e.g. email address, mobile number, skype address, etc.) For phone numbers we recommend using international format (e.g. AU = +614..., CA = +1..., NZ = +642...).",
-                                  "example": "+61488853631"
-                                },
-                                "V_Contact_Vallue": {
-                                  "type": "string",
-                                  "example": "+61488853631",
-                                  "description": "The validated contact (e.g. email address, mobile number, skype address, etc.) Australian and New Zealand mobile and landline numbers are validated on their syntax and length, while Canadian phone numbers are only checked to be a phone number (the distinction between a cell and a landline cannot be made by looking at a Canadian phone number alone)."
-                                },
-                                "V_Contact_Type": {
-                                  "type": "string",
-                                  "description": "The validated type of contact method (e.g. mobile, email, skype, work, home, fax, etc.)",
-                                  "enum": [
-                                    "MOB",
-                                    "FIXED_LINE",
-                                    "PAGER",
-                                    "PERSONAL_NUMBER",
-                                    "PREMIUM_RATE",
-                                    "SHARED_COST",
-                                    "TOLL_FREE",
-                                    "UAN",
-                                    "UNKNOWN",
-                                    "VOICEMAIL",
-                                    "VOIP"
-                                  ]
-                                }
-                              }
-                            },
-                            "Address": {
-                              "type": "object",
-                              "description": "Information about the person's addresses.",
-                              "properties": {
-                                "Address_Line_1": {
-                                  "type": "string",
-                                  "description": "Building name, suite number, etc.",
-                                  "example": "Aurora Tower"
-                                },
-                                "Address_Line_2": {
-                                  "type": "string",
-                                  "description": "Street number, name and type.",
-                                  "example": "Level 69, 420 Queen Street"
-                                },
-                                "Suburb": {
-                                  "type": "string",
-                                  "description": "Suburb, Town, Municipality, etc.",
-                                  "example": "Brisbane"
-                                },
-                                "State": {
-                                  "type": "string",
-                                  "description": "AU = State or Territory, CA = Province or Territory, NZ = Town or City.",
-                                  "example": "QLD"
-                                },
-                                "Postcode": {
-                                  "type": "string",
-                                  "description": "Postcode or Zip Code.",
-                                  "example": "4000"
-                                },
-                                "Is_Current": {
-                                  "type": "string",
-                                  "description": "Denotes whether this is the person's current address.",
-                                  "example": "false"
-                                },
-                                "Residential_Type": {
-                                  "type": "string",
-                                  "description": "The type of residence (e.g. house, unit, rural, acreage, etc.)",
-                                  "example": "Apartment"
-                                },
-                                "Residential_Status": {
-                                  "type": "string",
-                                  "description": "The person's relationhsip to the address (e.g. renting, buying, boarding, etc.)",
-                                  "example": "Renting"
-                                },
-                                "Time_At_Address_Months": {
-                                  "type": "string",
-                                  "description": "The number of months the person has lived/did live at the address.",
-                                  "example": "36"
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "V_Unique_Contact_Methods": {
-                    "type": "object",
-                    "properties": {
-                      "V_Unique_Contact_Method": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "V_Unique_Contact_Other": {
-                              "type": "object",
-                              "properties": {
-                                "V_Unique_Contact_Value": {
-                                  "type": "string",
-                                  "example": "+61488853631",
-                                  "description": "The validated contact (e.g. email address, mobile number, skype address, etc.) as a consolidation of two or more contacts where they are identical."
-                                },
-                                "V_Unique_Contact_Type": {
-                                  "type": "string",
-                                  "enum": [
-                                    "MOB",
-                                    "FIXED_LINE",
-                                    "PAGER",
-                                    "PERSONAL_NUMBER",
-                                    "PREMIUM_RATE",
-                                    "SHARED_COST",
-                                    "TOLL_FREE",
-                                    "UAN",
-                                    "UNKNOWN",
-                                    "VOICEMAIL",
-                                    "VOIP"
-                                  ],
-                                  "description": "The validated type of contact method (e.g. mobile, email, skype, work, home, fax, etc.)"
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              },
-              "Employment_History": {
-                "type": "object",
-                "description": "Information about the customer's current and past employment.",
-                "properties": {
-                  "Employment": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "Is_Current": {
-                          "type": "string",
-                          "example": "true",
-                          "description": "Denotes whether this is the customer's current employer."
-                        },
-                        "Employment_Type": {
-                          "type": "string",
-                          "example": "Contract",
-                          "description": "The customer's type of employment (e.g. full-time, part-time, casual, etc.)"
-                        },
-                        "Occupation": {
-                          "type": "string",
-                          "example": "Performance Coach",
-                          "description": "The customer's occupation (e.g. plumber, admin assistant, engineer, etc.)"
-                        },
-                        "Working_Hours_Weekly": {
-                          "type": "string",
-                          "example": "40",
-                          "description": "The average number of hours the customer works per week."
-                        },
-                        "Organisation_Name": {
-                          "type": "string",
-                          "example": "Axe Captial",
-                          "description": "The name of the customer's employer."
-                        },
-                        "Start_Date": {
-                          "type": "string",
-                          "example": "2015-02-14",
+                          "description": "The person's date of birth.",
                           "format": "date",
-                          "description": "The date the customer started this employment."
+                          "example": "1975-07-17"
                         },
-                        "End_Date": {
+                        "Last_Name": {
                           "type": "string",
-                          "example": "2020-08-28",
-                          "format": "date",
-                          "description": "The date the customer started this employment."
+                          "description": "The person's last name.",
+                          "example": "Rhoades"
                         },
-                        "Employment_Contacts": {
-                          "type": "object",
-                          "properties": {
-                            "Person_Other": {
-                              "type": "object",
-                              "properties": {
-                                "Title": {
-                                  "type": "string",
-                                  "description": "The person's title (e.g. Mr, Mrs, Ms, Dr, etc.)",
-                                  "example": "Mr"
-                                },
-                                "Date_Of_Birth": {
-                                  "type": "string",
-                                  "description": "The person's date of birth.",
-                                  "format": "date",
-                                  "example": "1977-04-12"
-                                },
-                                "Last_Name": {
-                                  "type": "string",
-                                  "description": "The person's last name.",
-                                  "example": "Axelrod"
-                                },
-                                "First_Name": {
-                                  "type": "string",
-                                  "description": "The person's first name.",
-                                  "example": "Bobby"
-                                },
-                                "Gender": {
-                                  "type": "string",
-                                  "description": "The person's gender (e.g. M, F).",
-                                  "example": "M"
-                                },
-                                "Contact_Methods": {
-                                  "type": "object",
-                                  "properties": {
-                                    "Contact_Method": {
-                                      "type": "array",
-                                      "items": {
-                                        "type": "object",
-                                        "properties": {
-                                          "Contact_Other": {
-                                            "type": "object",
-                                            "description": "Contact details (e.g. phone numbers, email addresses etc.)",
-                                            "properties": {
-                                              "Contact_Type": {
-                                                "type": "string",
-                                                "description": "The type of contact method (e.g. mobile, email, skype, work, home, fax, etc.)",
-                                                "example": "mobile"
-                                              },
-                                              "Contact_Value": {
-                                                "type": "string",
-                                                "description": "The contact (e.g. email address, mobile number, skype address, etc.) For phone numbers we recommend using international format (e.g. AU = +614..., CA = +1..., NZ = +642...).",
-                                                "example": "+61488853631"
-                                              },
-                                              "V_Contact_Vallue": {
-                                                "type": "string",
-                                                "example": "+61488853631",
-                                                "description": "The validated contact (e.g. email address, mobile number, skype address, etc.) Australian and New Zealand mobile and landline numbers are validated on their syntax and length, while Canadian phone numbers are only checked to be a phone number (the distinction between a cell and a landline cannot be made by looking at a Canadian phone number alone)."
-                                              },
-                                              "V_Contact_Type": {
-                                                "type": "string",
-                                                "description": "The validated type of contact method (e.g. mobile, email, skype, work, home, fax, etc.)",
-                                                "enum": [
-                                                  "MOB",
-                                                  "FIXED_LINE",
-                                                  "PAGER",
-                                                  "PERSONAL_NUMBER",
-                                                  "PREMIUM_RATE",
-                                                  "SHARED_COST",
-                                                  "TOLL_FREE",
-                                                  "UAN",
-                                                  "UNKNOWN",
-                                                  "VOICEMAIL",
-                                                  "VOIP"
-                                                ]
-                                              }
-                                            }
-                                          },
-                                          "Address": {
-                                            "type": "object",
-                                            "description": "Information about the person's addresses.",
-                                            "properties": {
-                                              "Address_Line_1": {
-                                                "type": "string",
-                                                "description": "Building name, suite number, etc.",
-                                                "example": "Casino Towers"
-                                              },
-                                              "Address_Line_2": {
-                                                "type": "string",
-                                                "description": "Street number, name and type.",
-                                                "example": "Level 33, 151 George Street"
-                                              },
-                                              "Suburb": {
-                                                "type": "string",
-                                                "description": "Suburb, Town, Municipality, etc.",
-                                                "example": "Brisbane"
-                                              },
-                                              "State": {
-                                                "type": "string",
-                                                "description": "AU = State or Territory, CA = Province or Territory, NZ = Town or City.",
-                                                "example": "QLD"
-                                              },
-                                              "Postcode": {
-                                                "type": "string",
-                                                "description": "Postcode or Zip Code.",
-                                                "example": "4000"
-                                              },
-                                              "Is_Current": {
-                                                "type": "string",
-                                                "description": "Denotes whether this is the person's current address.",
-                                                "example": "true"
-                                              },
-                                              "Residential_Type": {
-                                                "type": "string",
-                                                "description": "The type of residence (e.g. house, unit, rural, acreage, etc.)",
-                                                "example": "Apartment"
-                                              },
-                                              "Residential_Status": {
-                                                "type": "string",
-                                                "description": "The person's relationhsip to the address (e.g. renting, buying, boarding, etc.)",
-                                                "example": "Owned"
-                                              },
-                                              "Time_At_Address_Months": {
-                                                "type": "string",
-                                                "description": "The number of months the person has lived/did live at the address.",
-                                                "example": "19"
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                },
-                                "V_Unique_Contact_Methods": {
-                                  "type": "object",
-                                  "properties": {
-                                    "V_Unique_Contact_Method": {
-                                      "type": "array",
-                                      "items": {
-                                        "type": "object",
-                                        "properties": {
-                                          "V_Unique_Contact_Other": {
-                                            "type": "object",
-                                            "properties": {
-                                              "V_Unique_Contact_Value": {
-                                                "type": "string",
-                                                "example": "+61488853631",
-                                                "description": "The validated contact (e.g. email address, mobile number, skype address, etc.) as a consolidation of two or more contacts where they are identical."
-                                              },
-                                              "V_Unique_Contact_Type": {
-                                                "type": "string",
-                                                "enum": [
-                                                  "MOB",
-                                                  "FIXED_LINE",
-                                                  "PAGER",
-                                                  "PERSONAL_NUMBER",
-                                                  "PREMIUM_RATE",
-                                                  "SHARED_COST",
-                                                  "TOLL_FREE",
-                                                  "UAN",
-                                                  "UNKNOWN",
-                                                  "VOICEMAIL",
-                                                  "VOIP"
-                                                ],
-                                                "description": "The validated type of contact method (e.g. mobile, email, skype, work, home, fax, etc.)"
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
+                        "Middle_Names": {
+                          "type": "string",
+                          "description": "The person's middle name.",
+                          "example": "Chuck"
+                        },
+                        "First_Name": {
+                          "type": "string",
+                          "description": "The person's first name.",
+                          "example": "Charles"
+                        },
+                        "Gender": {
+                          "type": "string",
+                          "description": "The person's gender (e.g. M, F).",
+                          "example": "M"
                         },
                         "Contact_Methods": {
                           "type": "object",
@@ -6187,7 +6009,22 @@
                                       "Is_Current": {
                                         "type": "string",
                                         "description": "Denotes whether this is the person's current address.",
-                                        "example": "false"
+                                        "example": "true"
+                                      },
+                                      "Residential_Type": {
+                                        "type": "string",
+                                        "description": "The type of residence (e.g. house, unit, rural, acreage, etc.)",
+                                        "example": "Apartment"
+                                      },
+                                      "Residential_Status": {
+                                        "type": "string",
+                                        "description": "The person's relationhsip to the address (e.g. renting, buying, boarding, etc.)",
+                                        "example": "Renting"
+                                      },
+                                      "Time_At_Address_Months": {
+                                        "type": "string",
+                                        "description": "The number of months the person has lived/did live at the address.",
+                                        "example": "36"
                                       }
                                     }
                                   }
@@ -6240,299 +6077,1041 @@
                     }
                   }
                 }
+              }
+            }
+          },
+          "Financials": {
+            "type": "object",
+            "description": "Information about the customer's income and liabilities.",
+            "properties": {
+              "Financial": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "Detailed_Income": {
+                      "type": "object",
+                      "description": "Detailed information about the customer's current or previous income.",
+                      "properties": {
+                        "Source": {
+                          "type": "string",
+                          "description": "The name of the source of the customer's income (e.g. Coles, Municipality of Manitoba, Vodafone, etc.)",
+                          "example": "Axe Capital"
+                        },
+                        "Type": {
+                          "type": "string",
+                          "description": "The customer's income type (e.g. salary, benefits, rental, gift, etc.)",
+                          "example": "Full-time"
+                        },
+                        "Frequency": {
+                          "type": "string",
+                          "description": "The frequency with which the customer is paid (e.g. weekly, fortnightly, monthly, etc.)",
+                          "example": "weekly"
+                        },
+                        "Description": {
+                          "type": "string",
+                          "description": "Additional information about this income.",
+                          "example": "This is the customer's primary income"
+                        },
+                        "Net_Amount": {
+                          "type": "number",
+                          "description": "The net amount of the customer's pay per frequency.",
+                          "example": 2000
+                        },
+                        "Gross_Amount": {
+                          "type": "number",
+                          "description": "The gross amount of the customer's pay per frequency.",
+                          "example": 3000
+                        },
+                        "Is_Current": {
+                          "type": "string",
+                          "description": "Denotes whether the source of income is current.",
+                          "example": "false"
+                        },
+                        "Start_Date": {
+                          "type": "string",
+                          "format": "date",
+                          "description": "The date this income began.",
+                          "example": "2016-01-01"
+                        },
+                        "End_Date": {
+                          "type": "string",
+                          "format": "date",
+                          "description": "The date this income ended.",
+                          "example": "2020-08-26"
+                        }
+                      }
+                    },
+                    "Detailed_Liability": {
+                      "type": "object",
+                      "description": "Detailed information about the customer's current liabilities.",
+                      "properties": {
+                        "Type": {
+                          "type": "string",
+                          "description": "The type of liability (e.g. ongoing, once-off).",
+                          "example": "once-off"
+                        },
+                        "Frequency": {
+                          "type": "string",
+                          "description": "The frequency with which the liability is paid (e.g. weekly, fortnightly, monthly, etc.)",
+                          "example": "monthly"
+                        },
+                        "Frequency_Amount": {
+                          "type": "number",
+                          "description": "The amount paid towards the liability per frequency.",
+                          "example": 100
+                        },
+                        "Balance": {
+                          "type": "number",
+                          "description": "The amount currently owing on the liability.",
+                          "example": 1000
+                        },
+                        "Start_Date": {
+                          "type": "string",
+                          "format": "date",
+                          "description": "The date that the customer assumed the liability."
+                        },
+                        "Estimated_End_Date": {
+                          "type": "string",
+                          "format": "date",
+                          "description": "The estimated date that the customer will finalise the liability."
+                        },
+                        "Description": {
+                          "type": "string",
+                          "description": "Description of the liability (e.g. rent, loan, living expenses, education, etc.)",
+                          "example": "Personal Loan"
+                        }
+                      }
+                    },
+                    "Summary_Income": {
+                      "type": "object",
+                      "description": "Summary information about the customer's current income.",
+                      "properties": {
+                        "Net_Amount": {
+                          "type": "string",
+                          "example": "2000",
+                          "description": "The net amount of the customer's pay per frequency."
+                        },
+                        "Gross_Amount": {
+                          "type": "string",
+                          "example": "3000",
+                          "description": "The gross amount of the customer's pay per frequency."
+                        },
+                        "Frequency": {
+                          "type": "string",
+                          "example": "weekly",
+                          "description": "The frequency with which the customer is paid (e.g. weekly, fortnightly, monthly, etc.)"
+                        }
+                      }
+                    },
+                    "Summary_Liability": {
+                      "type": "object",
+                      "description": "Summary information about the customer's current liabilities.",
+                      "properties": {
+                        "Amount": {
+                          "type": "string",
+                          "example": "100",
+                          "description": "The amount paid towards the liability per frequency."
+                        },
+                        "Frequency": {
+                          "type": "string",
+                          "example": "monthly",
+                          "description": "The frequency with which the liability is paid (e.g. weekly, fortnightly, monthly, etc.)"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "Bank_Accounts": {
+            "type": "object",
+            "description": "Information about the customer's bank accounts.",
+            "properties": {
+              "Bank_Account": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "Account_Number": {
+                      "type": "string",
+                      "description": "The customer's account number.",
+                      "example": "17012016"
+                    },
+                    "Account_Name": {
+                      "type": "string",
+                      "description": "The customer's account name.",
+                      "example": "Super Saver"
+                    },
+                    "Bank_Name": {
+                      "type": "string",
+                      "description": "The name of the customer's bank.",
+                      "example": "Mason Capital Savings and Loan"
+                    },
+                    "Account_Type": {
+                      "type": "string",
+                      "description": "The type of account (e.g. savings, cheque, etc.)",
+                      "example": "Savings"
+                    },
+                    "BSB": {
+                      "type": "string",
+                      "description": "The customer's BSB or routing (transit) number.",
+                      "example": "440003"
+                    },
+                    "Balance": {
+                      "type": "string",
+                      "description": "The customer's current account balance.",
+                      "example": "10000"
+                    },
+                    "Age_Of_Account": {
+                      "type": "string",
+                      "description": "The age of the customer's account in years.",
+                      "example": "4"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "Person_Applicant": {
+            "type": "object",
+            "description": "Information about the applicant.",
+            "properties": {
+              "Title": {
+                "type": "string",
+                "example": "Ms",
+                "description": "The customer's title (e.g. Mr, Mrs, Ms, Dr, etc.)"
               },
-              "Proof_Of_Identity": {
+              "Date_Of_Birth": {
+                "type": "string",
+                "example": "1978-02-11"
+              },
+              "Last_Name": {
+                "type": "string",
+                "example": "Rhoades",
+                "minLength": 1
+              },
+              "Middle_Names": {
+                "type": "string",
+                "description": "The person's middle name.",
+                "example": "Chuck"
+              },
+              "First_Name": {
+                "type": "string",
+                "example": "Wendy",
+                "description": "The customer's first name.",
+                "minLength": 1
+              },
+              "Gender": {
+                "type": "string",
+                "example": "F"
+              },
+              "Dependents": {
+                "type": "string",
+                "example": "2"
+              },
+              "Marital_Status": {
+                "type": "string",
+                "example": "Separated"
+              },
+              "Can_Provide_Guarantor": {
+                "type": "string",
+                "example": "true"
+              },
+              "Contact_Methods": {
                 "type": "object",
-                "description": "The customer's identification information.",
                 "properties": {
-                  "Identification": {
+                  "Contact_Method": {
                     "type": "array",
                     "items": {
                       "type": "object",
                       "properties": {
-                        "Type": {
-                          "type": "string",
-                          "description": "The type of identity document (e.g. driver licence, Medicare card, etc.)",
-                          "example": "driver licence"
+                        "Contact_Other": {
+                          "type": "object",
+                          "description": "Contact details (e.g. phone numbers, email addresses etc.)",
+                          "properties": {
+                            "Contact_Type": {
+                              "type": "string",
+                              "description": "The type of contact method (e.g. mobile, email, skype, work, home, fax, etc.)",
+                              "example": "mobile"
+                            },
+                            "Contact_Value": {
+                              "type": "string",
+                              "description": "The contact (e.g. email address, mobile number, skype address, etc.) For phone numbers we recommend using international format (e.g. AU = +614..., CA = +1..., NZ = +642...).",
+                              "example": "+61488853631"
+                            },
+                            "V_Contact_Vallue": {
+                              "type": "string",
+                              "example": "+61488853631",
+                              "description": "The validated contact (e.g. email address, mobile number, skype address, etc.) Australian and New Zealand mobile and landline numbers are validated on their syntax and length, while Canadian phone numbers are only checked to be a phone number (the distinction between a cell and a landline cannot be made by looking at a Canadian phone number alone)."
+                            },
+                            "V_Contact_Type": {
+                              "type": "string",
+                              "description": "The validated type of contact method (e.g. mobile, email, skype, work, home, fax, etc.)",
+                              "enum": [
+                                "MOB",
+                                "FIXED_LINE",
+                                "PAGER",
+                                "PERSONAL_NUMBER",
+                                "PREMIUM_RATE",
+                                "SHARED_COST",
+                                "TOLL_FREE",
+                                "UAN",
+                                "UNKNOWN",
+                                "VOICEMAIL",
+                                "VOIP"
+                              ]
+                            }
+                          }
                         },
-                        "Document_ID": {
-                          "type": "string",
-                          "description": "The identifier on the document (e.g. driver licence number, Medicare card number, etc.)",
-                          "example": "084859805"
-                        },
-                        "Issuer": {
-                          "type": "string",
-                          "description": "The entity that issued identity document (e.g. Transport & Main Roads QLD, Medicare, etc.)",
-                          "example": "Queensland Government"
-                        },
-                        "Date_Expiry": {
-                          "type": "string",
-                          "description": "The date the identity document expires.",
-                          "format": "date",
-                          "example": "2029-01-06"
-                        },
-                        "Date_Issue": {
-                          "type": "string",
-                          "description": "The date the identity document was issued.",
-                          "format": "date",
-                          "example": "2019-01-06"
-                        },
-                        "File_Name": {
-                          "type": "string",
-                          "description": "The name of the file that contains the identity document.",
-                          "example": "rhoades-driver-licence.pdf"
-                        },
-                        "Is_Current": {
-                          "type": "string",
-                          "description": "Denotes whether the identity document is current.",
-                          "example": "true"
+                        "Address": {
+                          "type": "object",
+                          "description": "Information about the person's addresses.",
+                          "properties": {
+                            "Address_Line_1": {
+                              "type": "string",
+                              "description": "Building name, suite number, etc.",
+                              "example": "Aurora Tower"
+                            },
+                            "Address_Line_2": {
+                              "type": "string",
+                              "description": "Street number, name and type.",
+                              "example": "Level 69, 420 Queen Street"
+                            },
+                            "Suburb": {
+                              "type": "string",
+                              "description": "Suburb, Town, Municipality, etc.",
+                              "example": "Brisbane"
+                            },
+                            "State": {
+                              "type": "string",
+                              "description": "AU = State or Territory, CA = Province or Territory, NZ = Town or City.",
+                              "example": "QLD"
+                            },
+                            "Postcode": {
+                              "type": "string",
+                              "description": "Postcode or Zip Code.",
+                              "example": "4000"
+                            },
+                            "Is_Current": {
+                              "type": "string",
+                              "description": "Denotes whether this is the person's current address.",
+                              "example": "false"
+                            },
+                            "Residential_Type": {
+                              "type": "string",
+                              "description": "The type of residence (e.g. house, unit, rural, acreage, etc.)",
+                              "example": "Apartment"
+                            },
+                            "Residential_Status": {
+                              "type": "string",
+                              "description": "The person's relationhsip to the address (e.g. renting, buying, boarding, etc.)",
+                              "example": "Renting"
+                            },
+                            "Time_At_Address_Months": {
+                              "type": "string",
+                              "description": "The number of months the person has lived/did live at the address.",
+                              "example": "36"
+                            }
+                          }
                         }
                       }
                     }
                   }
                 }
               },
-              "": {
-                "type": "string"
+              "V_Unique_Contact_Methods": {
+                "type": "object",
+                "properties": {
+                  "V_Unique_Contact_Method": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "V_Unique_Contact_Other": {
+                          "type": "object",
+                          "properties": {
+                            "V_Unique_Contact_Value": {
+                              "type": "string",
+                              "example": "+61488853631",
+                              "description": "The validated contact (e.g. email address, mobile number, skype address, etc.) as a consolidation of two or more contacts where they are identical."
+                            },
+                            "V_Unique_Contact_Type": {
+                              "type": "string",
+                              "enum": [
+                                "MOB",
+                                "FIXED_LINE",
+                                "PAGER",
+                                "PERSONAL_NUMBER",
+                                "PREMIUM_RATE",
+                                "SHARED_COST",
+                                "TOLL_FREE",
+                                "UAN",
+                                "UNKNOWN",
+                                "VOICEMAIL",
+                                "VOIP"
+                              ],
+                              "description": "The validated type of contact method (e.g. mobile, email, skype, work, home, fax, etc.)"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
               }
-            }
+            },
+            "required": [
+              "Last_Name",
+              "First_Name"
+            ]
           },
-          "Application": {
+          "Employment_History": {
             "type": "object",
-            "description": "Information about the product or facility that the customer was applying for.",
+            "description": "Information about the customer's current and past employment.",
             "properties": {
-              "Application_Date": {
-                "type": "string",
-                "format": "date",
-                "description": "The date the customer completed the Seller's application form.",
-                "example": "2016-08-10"
-              },
-              "Interest_Rate": {
-                "type": "number",
-                "description": "The annual interest rate of the product or facility the customer applied for.",
-                "example": 20
-              },
-              "Repayment_Amount": {
-                "type": "number",
-                "description": "The amount of each repayment due under the product or facility the customer applied for.",
-                "example": 200
-              },
-              "Fees": {
-                "type": "number",
-                "description": "The total application fees associated with the product or facility the customer applied for.",
-                "example": 100
-              },
-              "Type": {
-                "type": "string",
-                "description": "The type of product or facility the customer applied for (e.g. Personal Loan, Credit Card, SACC, etc.)",
-                "example": "Personal Loan"
-              },
-              "Amount": {
-                "type": "number",
-                "description": "The amount of credit requested by the customer.",
-                "example": 1000
-              },
-              "Reason": {
-                "type": "string",
-                "description": "The reason the customer requires the loan.",
-                "example": "Book purchase"
-              },
-              "Repayment_Cycle": {
-                "type": "string",
-                "description": "The regularity of repayments due under the product or facility the customer applied for (e.g. weekly, fortnightly, monthly).",
-                "example": "weekly"
-              },
-              "Repayment_Count": {
-                "type": "string",
-                "description": "The number of repayments due under the producat or facility the customer applied for.",
-                "example": "7"
-              },
-              "Description": {
-                "type": "string",
-                "description": "Any additional notes relating to the application.",
-                "example": "Purchase of first-edition 'The Second World War' six-volume series by Winston Churchill"
-              }
-            }
-          },
-          "Buyer_Data": {
-            "type": "object",
-            "description": "Information about the lead, specific to the Buyer. When provided, `$.Seller_Data` will be omitted.",
-            "properties": {
-              "LM_SaleDT": {
-                "type": "string",
-                "example": "2017-01-06 17:22:48.4700000",
-                "description": "The date-time of the sale."
-              },
-              "Lead_Price": {
-                "type": "number",
-                "example": 50,
-                "description": "The base sale amount for the lead. This is a duplicate of `$.Buyer_Data.Sale_Base_Amount` provided for backwards compatibility."
-              },
-              "CS_AppCompleted_DT": {
-                "type": "string",
-                "example": "2017-01-06 17:21:54.2600000",
-                "description": "The date and time when the Credit Sense report was completed."
-              },
-              "Lead_ID": {
-                "type": "integer",
-                "example": 5824,
-                "description": "Uniquely identifies the lead across Lead Market."
-              },
-              "CS_App_ID": {
-                "type": "integer",
-                "example": 1577797,
-                "description": "Our unique identifier for the Credit Sense application."
-              },
-              "Winning_Bid_ID": {
-                "type": "integer",
-                "example": 312,
-                "description": "The ID of the Bid that won the lead."
-              },
-              "Sale_Base_Amount": {
-                "type": "number",
-                "example": 50,
-                "description": "The base sale amount for the lead."
-              },
-              "Sale_Base_Amount_Tax": {
-                "type": "number",
-                "example": 5,
-                "description": "The tax amount for the base sale amount of the lead. This will be `0` if no tax is due for the sale."
-              },
-              "Sale_Trade_Comm_Amount": {
-                "type": "number",
-                "example": 7.5,
-                "description": "The trade commission amount for the lead."
-              },
-              "Sale_Trade_Comm_Amount_Tax": {
-                "type": "number",
-                "example": 0.75,
-                "description": "The tax amount for the trade comission on the lead. This will be `0` if no tax is due for the sale."
-              },
-              "Sale_Net_Amount": {
-                "type": "number",
-                "example": 63.25,
-                "description": "**Sellers**: The base sale amount less the trade comission. **Buyers**: The base sale amount plus the trade comission. All amounts are tax-inclusive."
-              },
-              "Sale_Currency": {
-                "type": "string",
-                "description": "Denotes the [currency](https://www.iban.com/currency-codes) that lead sale amounts are expressed in.",
-                "enum": [
-                  "AUD",
-                  "CAD",
-                  "GBP",
-                  "NZD"
-                ]
-              },
-              "Buyer_Token": {
-                "type": "string",
-                "description": "A string that uniquely identifies this Lead for the Buyer. This token can be used as an alternative to `Lead_ID` in the `/application/detail` API call.\nThis field will not appear until some time after the Lead is purchased, so it will not be available on the `buyerNotifyWithData` URI notification.",
-                "example": "pC81HjJmiTKJ3stwVu7a"
-              }
-            }
-          },
-          "Decision_Points": {
-            "type": "object",
-            "description": "Information about the decision points/bid criteria related to the purchase of the lead, specific to the Buyer. When provided, `$.Seller_Data` will be omitted.",
-            "properties": {
-              "Decision_Point": {
+              "Employment": {
                 "type": "array",
                 "items": {
                   "type": "object",
                   "properties": {
-                    "ID": {
-                      "type": "integer",
-                      "description": "Uniquely identifies the decision point/bid criteria.",
-                      "example": 101
-                    },
-                    "Name": {
+                    "Is_Current": {
                       "type": "string",
-                      "description": "A description for the decision point/bid criteria.",
-                      "example": "customerAge"
+                      "example": "true",
+                      "description": "Denotes whether this is the customer's current employer."
                     },
-                    "Score_DT": {
+                    "Employment_Type": {
                       "type": "string",
-                      "description": "The calculated result for this decision point as a date-time. This will only be present in the absence of `$.Decision_Points.Decision_Point.Score`.",
-                      "example": "1980-01-01 00:00:00.0000000"
+                      "example": "Contract",
+                      "description": "The customer's type of employment (e.g. full-time, part-time, casual, etc.)"
                     },
-                    "Score": {
-                      "type": "number",
-                      "description": "The calculated result for this decision point. This will only be present in the absence of `$.Decision_Points.Decision_Point.Score_DT`.",
-                      "example": 50
+                    "Occupation": {
+                      "type": "string",
+                      "example": "Performance Coach",
+                      "description": "The customer's occupation (e.g. plumber, admin assistant, engineer, etc.)"
+                    },
+                    "Working_Hours_Weekly": {
+                      "type": "string",
+                      "example": "40",
+                      "description": "The average number of hours the customer works per week."
+                    },
+                    "Organisation_Name": {
+                      "type": "string",
+                      "example": "Axe Captial",
+                      "description": "The name of the customer's employer."
+                    },
+                    "Start_Date": {
+                      "type": "string",
+                      "example": "2015-02-14",
+                      "format": "date",
+                      "description": "The date the customer started this employment."
+                    },
+                    "End_Date": {
+                      "type": "string",
+                      "example": "2020-08-28",
+                      "format": "date",
+                      "description": "The date the customer started this employment."
+                    },
+                    "Employment_Contacts": {
+                      "type": "object",
+                      "properties": {
+                        "Person_Other": {
+                          "type": "object",
+                          "properties": {
+                            "Title": {
+                              "type": "string",
+                              "description": "The person's title (e.g. Mr, Mrs, Ms, Dr, etc.)",
+                              "example": "Mr"
+                            },
+                            "Date_Of_Birth": {
+                              "type": "string",
+                              "description": "The person's date of birth.",
+                              "format": "date",
+                              "example": "1977-04-12"
+                            },
+                            "Last_Name": {
+                              "type": "string",
+                              "description": "The person's last name.",
+                              "example": "Axelrod"
+                            },
+                            "First_Name": {
+                              "type": "string",
+                              "description": "The person's first name.",
+                              "example": "Bobby"
+                            },
+                            "Gender": {
+                              "type": "string",
+                              "description": "The person's gender (e.g. M, F).",
+                              "example": "M"
+                            },
+                            "Contact_Methods": {
+                              "type": "object",
+                              "properties": {
+                                "Contact_Method": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "Contact_Other": {
+                                        "type": "object",
+                                        "description": "Contact details (e.g. phone numbers, email addresses etc.)",
+                                        "properties": {
+                                          "Contact_Type": {
+                                            "type": "string",
+                                            "description": "The type of contact method (e.g. mobile, email, skype, work, home, fax, etc.)",
+                                            "example": "mobile"
+                                          },
+                                          "Contact_Value": {
+                                            "type": "string",
+                                            "description": "The contact (e.g. email address, mobile number, skype address, etc.) For phone numbers we recommend using international format (e.g. AU = +614..., CA = +1..., NZ = +642...).",
+                                            "example": "+61488853631"
+                                          },
+                                          "V_Contact_Vallue": {
+                                            "type": "string",
+                                            "example": "+61488853631",
+                                            "description": "The validated contact (e.g. email address, mobile number, skype address, etc.) Australian and New Zealand mobile and landline numbers are validated on their syntax and length, while Canadian phone numbers are only checked to be a phone number (the distinction between a cell and a landline cannot be made by looking at a Canadian phone number alone)."
+                                          },
+                                          "V_Contact_Type": {
+                                            "type": "string",
+                                            "description": "The validated type of contact method (e.g. mobile, email, skype, work, home, fax, etc.)",
+                                            "enum": [
+                                              "MOB",
+                                              "FIXED_LINE",
+                                              "PAGER",
+                                              "PERSONAL_NUMBER",
+                                              "PREMIUM_RATE",
+                                              "SHARED_COST",
+                                              "TOLL_FREE",
+                                              "UAN",
+                                              "UNKNOWN",
+                                              "VOICEMAIL",
+                                              "VOIP"
+                                            ]
+                                          }
+                                        }
+                                      },
+                                      "Address": {
+                                        "type": "object",
+                                        "description": "Information about the person's addresses.",
+                                        "properties": {
+                                          "Address_Line_1": {
+                                            "type": "string",
+                                            "description": "Building name, suite number, etc.",
+                                            "example": "Casino Towers"
+                                          },
+                                          "Address_Line_2": {
+                                            "type": "string",
+                                            "description": "Street number, name and type.",
+                                            "example": "Level 33, 151 George Street"
+                                          },
+                                          "Suburb": {
+                                            "type": "string",
+                                            "description": "Suburb, Town, Municipality, etc.",
+                                            "example": "Brisbane"
+                                          },
+                                          "State": {
+                                            "type": "string",
+                                            "description": "AU = State or Territory, CA = Province or Territory, NZ = Town or City.",
+                                            "example": "QLD"
+                                          },
+                                          "Postcode": {
+                                            "type": "string",
+                                            "description": "Postcode or Zip Code.",
+                                            "example": "4000"
+                                          },
+                                          "Is_Current": {
+                                            "type": "string",
+                                            "description": "Denotes whether this is the person's current address.",
+                                            "example": "true"
+                                          },
+                                          "Residential_Type": {
+                                            "type": "string",
+                                            "description": "The type of residence (e.g. house, unit, rural, acreage, etc.)",
+                                            "example": "Apartment"
+                                          },
+                                          "Residential_Status": {
+                                            "type": "string",
+                                            "description": "The person's relationhsip to the address (e.g. renting, buying, boarding, etc.)",
+                                            "example": "Owned"
+                                          },
+                                          "Time_At_Address_Months": {
+                                            "type": "string",
+                                            "description": "The number of months the person has lived/did live at the address.",
+                                            "example": "19"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "V_Unique_Contact_Methods": {
+                              "type": "object",
+                              "properties": {
+                                "V_Unique_Contact_Method": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "V_Unique_Contact_Other": {
+                                        "type": "object",
+                                        "properties": {
+                                          "V_Unique_Contact_Value": {
+                                            "type": "string",
+                                            "example": "+61488853631",
+                                            "description": "The validated contact (e.g. email address, mobile number, skype address, etc.) as a consolidation of two or more contacts where they are identical."
+                                          },
+                                          "V_Unique_Contact_Type": {
+                                            "type": "string",
+                                            "enum": [
+                                              "MOB",
+                                              "FIXED_LINE",
+                                              "PAGER",
+                                              "PERSONAL_NUMBER",
+                                              "PREMIUM_RATE",
+                                              "SHARED_COST",
+                                              "TOLL_FREE",
+                                              "UAN",
+                                              "UNKNOWN",
+                                              "VOICEMAIL",
+                                              "VOIP"
+                                            ],
+                                            "description": "The validated type of contact method (e.g. mobile, email, skype, work, home, fax, etc.)"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "Contact_Methods": {
+                      "type": "object",
+                      "properties": {
+                        "Contact_Method": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "Contact_Other": {
+                                "type": "object",
+                                "description": "Contact details (e.g. phone numbers, email addresses etc.)",
+                                "properties": {
+                                  "Contact_Type": {
+                                    "type": "string",
+                                    "description": "The type of contact method (e.g. mobile, email, skype, work, home, fax, etc.)",
+                                    "example": "mobile"
+                                  },
+                                  "Contact_Value": {
+                                    "type": "string",
+                                    "description": "The contact (e.g. email address, mobile number, skype address, etc.) For phone numbers we recommend using international format (e.g. AU = +614..., CA = +1..., NZ = +642...).",
+                                    "example": "+61488853631"
+                                  },
+                                  "V_Contact_Vallue": {
+                                    "type": "string",
+                                    "example": "+61488853631",
+                                    "description": "The validated contact (e.g. email address, mobile number, skype address, etc.) Australian and New Zealand mobile and landline numbers are validated on their syntax and length, while Canadian phone numbers are only checked to be a phone number (the distinction between a cell and a landline cannot be made by looking at a Canadian phone number alone)."
+                                  },
+                                  "V_Contact_Type": {
+                                    "type": "string",
+                                    "description": "The validated type of contact method (e.g. mobile, email, skype, work, home, fax, etc.)",
+                                    "enum": [
+                                      "MOB",
+                                      "FIXED_LINE",
+                                      "PAGER",
+                                      "PERSONAL_NUMBER",
+                                      "PREMIUM_RATE",
+                                      "SHARED_COST",
+                                      "TOLL_FREE",
+                                      "UAN",
+                                      "UNKNOWN",
+                                      "VOICEMAIL",
+                                      "VOIP"
+                                    ]
+                                  }
+                                }
+                              },
+                              "Address": {
+                                "type": "object",
+                                "description": "Information about the person's addresses.",
+                                "properties": {
+                                  "Address_Line_1": {
+                                    "type": "string",
+                                    "description": "Building name, suite number, etc.",
+                                    "example": "Aurora Tower"
+                                  },
+                                  "Address_Line_2": {
+                                    "type": "string",
+                                    "description": "Street number, name and type.",
+                                    "example": "Level 69, 420 Queen Street"
+                                  },
+                                  "Suburb": {
+                                    "type": "string",
+                                    "description": "Suburb, Town, Municipality, etc.",
+                                    "example": "Brisbane"
+                                  },
+                                  "State": {
+                                    "type": "string",
+                                    "description": "AU = State or Territory, CA = Province or Territory, NZ = Town or City.",
+                                    "example": "QLD"
+                                  },
+                                  "Postcode": {
+                                    "type": "string",
+                                    "description": "Postcode or Zip Code.",
+                                    "example": "4000"
+                                  },
+                                  "Is_Current": {
+                                    "type": "string",
+                                    "description": "Denotes whether this is the person's current address.",
+                                    "example": "false"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "V_Unique_Contact_Methods": {
+                      "type": "object",
+                      "properties": {
+                        "V_Unique_Contact_Method": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "V_Unique_Contact_Other": {
+                                "type": "object",
+                                "properties": {
+                                  "V_Unique_Contact_Value": {
+                                    "type": "string",
+                                    "example": "+61488853631",
+                                    "description": "The validated contact (e.g. email address, mobile number, skype address, etc.) as a consolidation of two or more contacts where they are identical."
+                                  },
+                                  "V_Unique_Contact_Type": {
+                                    "type": "string",
+                                    "enum": [
+                                      "MOB",
+                                      "FIXED_LINE",
+                                      "PAGER",
+                                      "PERSONAL_NUMBER",
+                                      "PREMIUM_RATE",
+                                      "SHARED_COST",
+                                      "TOLL_FREE",
+                                      "UAN",
+                                      "UNKNOWN",
+                                      "VOICEMAIL",
+                                      "VOIP"
+                                    ],
+                                    "description": "The validated type of contact method (e.g. mobile, email, skype, work, home, fax, etc.)"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
                     }
                   }
                 }
               }
             }
           },
-          "Seller_Data": {
+          "Proof_Of_Identity": {
             "type": "object",
-            "description": "Information about the lead, specific to the Seller. When provided, `$.Buyer_Data` and `$.Decision_Points` will be omitted.",
+            "description": "The customer's identification information.",
             "properties": {
-              "Client_Authority": {
-                "type": "boolean",
-                "example": true,
-                "description": "The Seller's authority to sell the lead."
-              },
-              "Customer_Authority": {
-                "type": "boolean",
-                "example": true,
-                "description": "The Seller's confirmation that they have obtained the customer's authority to trade their information on Lead Market."
-              },
-              "Customer_Authority_Type": {
-                "type": "string",
-                "enum": [
-                  "Implicit",
-                  "Explicit"
-                ],
-                "description": "**Implicit** - The customer has implicitly provided authority in the form of agreement to T&C's. **Explicit** - The customer has explicitly provided authority in the form of an opt-in."
-              },
-              "CS_App_ID": {
-                "type": "integer",
-                "description": "The App ID of the Credit Sense report completed by the customer.",
-                "example": 18200557
-              },
-              "Use_MLM_Flow": {
-                "type": "boolean",
-                "example": true,
-                "description": "Denotes whether the customer will be engaged when the lead is pushed to Lead Market."
-              },
-              "Lead_ID": {
-                "type": "integer",
-                "example": 5824,
-                "description": "Uniquely identifies the lead across Lead Market."
-              },
-              "Lead_Token": {
-                "type": "string",
-                "description": "A string that uniquely identifies this Lead for the Seller.",
-                "example": "F16WeC"
-              },
-              "Lead_Reference": {
-                "type": "string",
-                "example": "NYCAG2018",
-                "description": "Your unique reference for the lead."
-              },
-              "Credit_Authority_Enquiry_Number": {
-                "type": "integer",
-                "description": "If your Lead Market environment is configured to sell leads with credit scores, this field allows you to pass in a previously generated credit report enquiry number.",
-                "example": 7671338561
-              }
-            }
-          },
-          "Custom_Data": {
-            "type": "object",
-            "description": "Additional information (not catered for by our schema) gathered from an engaged lead by use of the Lead Market dynamic form.",
-            "properties": {
-              "Your_Question_Here": {
-                "type": "string",
-                "example": "An example answer",
-                "description": "Custom formatted data as configured on your Lead Market environment. [Contact us](mailto:support@creditsense.com.au) for more information."
+              "Identification": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "Type": {
+                      "type": "string",
+                      "description": "The type of identity document (e.g. driver licence, Medicare card, etc.)",
+                      "example": "driver licence"
+                    },
+                    "Document_ID": {
+                      "type": "string",
+                      "description": "The identifier on the document (e.g. driver licence number, Medicare card number, etc.)",
+                      "example": "084859805"
+                    },
+                    "Issuer": {
+                      "type": "string",
+                      "description": "The entity that issued identity document (e.g. Transport & Main Roads QLD, Medicare, etc.)",
+                      "example": "Queensland Government"
+                    },
+                    "Date_Expiry": {
+                      "type": "string",
+                      "description": "The date the identity document expires.",
+                      "format": "date",
+                      "example": "2029-01-06"
+                    },
+                    "Date_Issue": {
+                      "type": "string",
+                      "description": "The date the identity document was issued.",
+                      "format": "date",
+                      "example": "2019-01-06"
+                    },
+                    "File_Name": {
+                      "type": "string",
+                      "description": "The name of the file that contains the identity document.",
+                      "example": "rhoades-driver-licence.pdf"
+                    },
+                    "Is_Current": {
+                      "type": "string",
+                      "description": "Denotes whether the identity document is current.",
+                      "example": "true"
+                    }
+                  }
+                }
               }
             }
           }
-        },
-        "required": [
-          "Applicant"
-        ]
+        }
+      },
+      "Application-schema": {
+        "title": "Application schema",
+        "type": "object",
+        "description": "Information about the product or facility that the customer was applying for.",
+        "properties": {
+          "Application_Date": {
+            "type": "string",
+            "format": "date",
+            "description": "The date the customer completed the Seller's application form.",
+            "example": "2016-08-10"
+          },
+          "Interest_Rate": {
+            "type": "number",
+            "description": "The annual interest rate of the product or facility the customer applied for.",
+            "example": 20
+          },
+          "Repayment_Amount": {
+            "type": "number",
+            "description": "The amount of each repayment due under the product or facility the customer applied for.",
+            "example": 200
+          },
+          "Fees": {
+            "type": "number",
+            "description": "The total application fees associated with the product or facility the customer applied for.",
+            "example": 100
+          },
+          "Type": {
+            "type": "string",
+            "description": "The type of product or facility the customer applied for (e.g. Personal Loan, Credit Card, SACC, etc.)",
+            "example": "Personal Loan"
+          },
+          "Amount": {
+            "type": "number",
+            "description": "The amount of credit requested by the customer.",
+            "example": 1000
+          },
+          "Reason": {
+            "type": "string",
+            "description": "The reason the customer requires the loan.",
+            "example": "Book purchase"
+          },
+          "Repayment_Cycle": {
+            "type": "string",
+            "description": "The regularity of repayments due under the product or facility the customer applied for (e.g. weekly, fortnightly, monthly).",
+            "example": "weekly"
+          },
+          "Repayment_Count": {
+            "type": "string",
+            "description": "The number of repayments due under the producat or facility the customer applied for.",
+            "example": "7"
+          },
+          "Description": {
+            "type": "string",
+            "description": "Any additional notes relating to the application.",
+            "example": "Purchase of first-edition 'The Second World War' six-volume series by Winston Churchill"
+          }
+        }
+      },
+      "Buyer_Data-schema": {
+        "title": "Buyer Data schema",
+        "type": "object",
+        "description": "Information about the lead, specific to the Buyer.",
+        "properties": {
+          "LM_SaleDT": {
+            "type": "string",
+            "example": "2017-01-06 17:22:48.4700000",
+            "description": "The date-time of the sale."
+          },
+          "Lead_Price": {
+            "type": "number",
+            "example": 50,
+            "description": "The base sale amount for the lead. This is a duplicate of `$.Buyer_Data.Sale_Base_Amount` provided for backwards compatibility."
+          },
+          "CS_AppCompleted_DT": {
+            "type": "string",
+            "example": "2017-01-06 17:21:54.2600000",
+            "description": "The date and time when the Credit Sense report was completed."
+          },
+          "Lead_ID": {
+            "type": "integer",
+            "example": 5824,
+            "description": "Uniquely identifies the lead across Lead Market."
+          },
+          "CS_App_ID": {
+            "type": "integer",
+            "example": 1577797,
+            "description": "Our unique identifier for the Credit Sense application."
+          },
+          "Winning_Bid_ID": {
+            "type": "integer",
+            "example": 312,
+            "description": "The ID of the Bid that won the lead."
+          },
+          "Sale_Base_Amount": {
+            "type": "number",
+            "example": 50,
+            "description": "The base sale amount for the lead."
+          },
+          "Sale_Base_Amount_Tax": {
+            "type": "number",
+            "example": 5,
+            "description": "The tax amount for the base sale amount of the lead. This will be `0` if no tax is due for the sale."
+          },
+          "Sale_Trade_Comm_Amount": {
+            "type": "number",
+            "example": 7.5,
+            "description": "The trade commission amount for the lead."
+          },
+          "Sale_Trade_Comm_Amount_Tax": {
+            "type": "number",
+            "example": 0.75,
+            "description": "The tax amount for the trade comission on the lead. This will be `0` if no tax is due for the sale."
+          },
+          "Sale_Net_Amount": {
+            "type": "number",
+            "example": 63.25,
+            "description": "**Sellers**: The base sale amount less the trade comission. **Buyers**: The base sale amount plus the trade comission. All amounts are tax-inclusive."
+          },
+          "Sale_Currency": {
+            "type": "string",
+            "description": "Denotes the [currency](https://www.iban.com/currency-codes) that lead sale amounts are expressed in.",
+            "enum": [
+              "AUD",
+              "CAD",
+              "GBP",
+              "NZD"
+            ]
+          },
+          "Buyer_Token": {
+            "type": "string",
+            "description": "A string that uniquely identifies this Lead for the Buyer. This token can be used as an alternative to `Lead_ID` in the `/application/detail` API call.\nThis field will not appear until some time after the Lead is purchased, so it will not be available on the `buyerNotifyWithData` URI notification.",
+            "example": "pC81HjJmiTKJ3stwVu7a"
+          }
+        }
+      },
+      "Custom_Data-schema": {
+        "title": "Custom Data schema",
+        "type": "object",
+        "description": "Additional information (not catered for by our schema) gathered from an engaged lead by use of the Lead Market dynamic form.",
+        "properties": {
+          "Your_Question_Here": {
+            "type": "string",
+            "example": "An example answer",
+            "description": "Custom formatted data as configured on your Lead Market environment. [Contact us](mailto:support@creditsense.com.au) for more information."
+          }
+        }
+      },
+      "Decision_Points-schema": {
+        "title": "Decision Points schema",
+        "type": "object",
+        "description": "Information about the decision points/bid criteria related to the purchase of the lead, specific to the Buyer.",
+        "properties": {
+          "Decision_Point": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "ID": {
+                  "type": "integer",
+                  "description": "Uniquely identifies the decision point/bid criteria.",
+                  "example": 101
+                },
+                "Name": {
+                  "type": "string",
+                  "description": "A description for the decision point/bid criteria.",
+                  "example": "customerAge"
+                },
+                "Score_DT": {
+                  "type": "string",
+                  "description": "The calculated result for this decision point as a date-time. This will only be present in the absence of `$.Decision_Points.Decision_Point.Score`.",
+                  "example": "1980-01-01 00:00:00.0000000"
+                },
+                "Score": {
+                  "type": "number",
+                  "description": "The calculated result for this decision point. This will only be present in the absence of `$.Decision_Points.Decision_Point.Score_DT`.",
+                  "example": 50
+                }
+              }
+            }
+          }
+        }
+      },
+      "Seller_Data-schema": {
+        "title": "Seller Data schema",
+        "type": "object",
+        "description": "Information about the lead, specific to the Seller.",
+        "properties": {
+          "Client_Authority": {
+            "type": "boolean",
+            "example": true,
+            "description": "The Seller's authority to sell the lead."
+          },
+          "Customer_Authority": {
+            "type": "boolean",
+            "example": true,
+            "description": "The Seller's confirmation that they have obtained the customer's authority to trade their information on Lead Market."
+          },
+          "Customer_Authority_Type": {
+            "type": "string",
+            "enum": [
+              "Implicit",
+              "Explicit"
+            ],
+            "description": "**Implicit** - The customer has implicitly provided authority in the form of agreement to T&C's. **Explicit** - The customer has explicitly provided authority in the form of an opt-in."
+          },
+          "CS_App_ID": {
+            "type": "integer",
+            "description": "The App ID of the Credit Sense report completed by the customer.",
+            "example": 18200557
+          },
+          "Use_MLM_Flow": {
+            "type": "boolean",
+            "example": true,
+            "description": "Denotes whether the customer will be engaged when the lead is pushed to Lead Market."
+          },
+          "Lead_ID": {
+            "type": "integer",
+            "example": 5824,
+            "description": "Uniquely identifies the lead across Lead Market."
+          },
+          "Lead_Token": {
+            "type": "string",
+            "description": "A string that uniquely identifies this Lead for the Seller.",
+            "example": "F16WeC"
+          },
+          "Lead_Reference": {
+            "type": "string",
+            "example": "NYCAG2018",
+            "description": "Your unique reference for the lead."
+          },
+          "Credit_Authority_Enquiry_Number": {
+            "type": "integer",
+            "description": "If your Lead Market environment is configured to sell leads with credit scores, this field allows you to pass in a previously generated credit report enquiry number.",
+            "example": 7671338561
+          }
+        }
       }
     }
   },
