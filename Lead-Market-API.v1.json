@@ -1122,7 +1122,7 @@
                   "ref": {
                     "type": "string",
                     "example": "abc123",
-                    "description": "Your unique reference for the customer. This allows Lead Market to remember the customer so that if they click on the link multiple times it will not generate multiple applications."
+                    "description": "Your unique reference for the customer. Required in the absence of the `tok` parameter. This allows Lead Market to remember the customer so that if they click on the link multiple times it will not generate multiple applications."
                   },
                   "csid": {
                     "type": "integer",
@@ -1188,7 +1188,7 @@
                   "tok": {
                     "type": "string",
                     "example": "w3IxLC",
-                    "description": "Our unique identifier for the lead. Provide this if you wish to update details for an existing lead."
+                    "description": "Our unique identifier for the lead. Required in the absence of the `ref` parameter. Provide this if you wish to update details for an existing lead."
                   },
                   "public": {
                     "type": "boolean",
@@ -1202,8 +1202,7 @@
                   }
                 },
                 "required": [
-                  "api-token",
-                  "ref"
+                  "api-token"
                 ]
               }
             }
