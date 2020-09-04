@@ -1121,68 +1121,84 @@
                   },
                   "ref": {
                     "type": "string",
-                    "example": "abc123"
+                    "example": "abc123",
+                    "description": "Your unique reference for the customer. This allows Lead Market to remember the customer so that if they click on the link multiple times it will not generate multiple applications."
                   },
                   "csid": {
                     "type": "integer",
-                    "example": 18085549
+                    "example": 18085549,
+                    "description": "If the customer has completed Credit Sense within the last 24 hours, you can provide the App ID. Passing in a valid App ID will allow the customer to bypass the Credit Sense step in the customer journey. If no App ID is passed in, of if it is deemed invalid, the customer will be required to complete Credit Sense before the lead can be pushed into Lead Market."
                   },
                   "fn": {
                     "type": "string",
-                    "example": "Lonnie"
+                    "example": "Lonnie",
+                    "description": "The customer's first name."
                   },
                   "sn": {
                     "type": "string",
-                    "example": "Watley"
+                    "example": "Watley",
+                    "description": "The customer's surname."
                   },
                   "dob": {
                     "type": "string",
-                    "description": "The lead's date of birth in [ISO format](https://en.wikipedia.org/wiki/ISO_8601).",
-                    "example": "1977-09-26"
+                    "description": "The customer's date of birth in [ISO format](https://en.wikipedia.org/wiki/ISO_8601).",
+                    "example": "1977-09-26",
+                    "format": "date"
                   },
                   "mob": {
                     "type": "string",
-                    "example": "+61488853631"
+                    "example": "+61488853631",
+                    "description": "The customer's mobile/cell phone number."
                   },
                   "e": {
                     "type": "string",
-                    "example": "support@leadexchange.ca"
+                    "example": "support@leadexchange.ca",
+                    "description": "The customer's email address."
                   },
                   "l": {
                     "type": "string",
-                    "example": "+61731185233"
+                    "example": "+61731185233",
+                    "description": "The lead's landline phone number."
                   },
                   "a": {
                     "type": "string",
-                    "example": "7/201 Charlotte Street, Brisbane QLD 4000"
+                    "example": "7/201 Charlotte Street, Brisbane QLD 4000",
+                    "description": "The customer's home address. If we're able to find an exact match for the address, we'll add the postcode to the data."
                   },
                   "emp": {
                     "type": "string",
-                    "example": "Dewey, Cheatem and Howe lawyers"
+                    "example": "Dewey, Cheatem and Howe lawyers",
+                    "description": "The customer's employer."
                   },
                   "la": {
                     "type": "number",
-                    "example": 2500
+                    "example": 2500,
+                    "description": "The loan amount as requested by the customer."
                   },
                   "lr": {
                     "type": "string",
-                    "example": "Home repairs"
+                    "example": "Home repairs",
+                    "description": "The reason the customer provided for wanting the loan."
                   },
                   "caen": {
                     "type": "integer",
-                    "example": 549689725
+                    "example": 549689725,
+                    "description": "**Feature preview.**\nThe Credit Authority Enquiry Number that you've previously generated for the customer. Rather than acquiring a new credit report when the lead is pushed into the market, we'll use this to retrieve an existing one."
                   },
                   "tok": {
                     "type": "string",
-                    "example": "w3IxLC"
+                    "example": "w3IxLC",
+                    "description": "Our unique identifier for the lead. Provide this if you wish to update details for an existing lead."
                   },
                   "public": {
                     "type": "boolean",
-                    "default": "false"
+                    "default": "false",
+                    "description": "Denotes whether the lead details provided will be shown to the customer when they view the page. Requires the `tok` parameter to be provided to the Lead Market iframe."
                   },
                   "return-lead-id": {
                     "type": "boolean",
-                    "default": "false"
+                    "default": "false",
+                    "description": "Denotes whether the Lead ID will be included in the response. Some of our webhook calls provide the Lead ID rather than the token so this allows you to receive both and store them in your system."
                   }
                 },
                 "required": [
