@@ -5928,7 +5928,7 @@
                         },
                         "Gender": {
                           "type": "string",
-                          "description": "The person's gender (e.g. M, F).",
+                          "description": "The person's gender.",
                           "example": "M"
                         },
                         "Contact_Methods": {
@@ -6542,7 +6542,7 @@
                             },
                             "Gender": {
                               "type": "string",
-                              "description": "The person's gender (e.g. M, F).",
+                              "description": "The person's gender.",
                               "example": "M"
                             },
                             "Contact_Methods": {
@@ -7118,6 +7118,80 @@
   "externalDocs": {
     "description": "Help docs",
     "url": "https://docs.creditsense.com.au"
+  },
+  "x-webhooks": {
+     "webhook-bought-lead": {
+        "post": {
+          "requestBody": {
+              "description": "Information about a new pet in the system",
+              "content": {
+                "application/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/Application-schema"
+                    }
+                }
+              }
+          },
+          "responses": {
+              "200": {
+                "description": "Return a `200` status to indicate that the data was received successfully"
+              }
+          },
+          "tags": [
+            "Buyer"
+          ],
+          "summary": "Bought lead webhook",
+          "description": "test description"
+        }
+    },
+    "webhook-sold-lead": {
+        "post": {
+          "requestBody": {
+              "description": "Information about a new pet in the system",
+              "content": {
+                "application/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/Application-schema"
+                    }
+                }
+              }
+          },
+          "responses": {
+              "200": {
+                "description": "Return a `200` status to indicate that the data was received successfully"
+              }
+          },
+          "tags": [
+            "Seller"
+          ],
+          "summary": "Sold lead webhook",
+          "description": "test description"
+        }
+    },
+    "webhook-unsold-lead": {
+        "post": {
+          "requestBody": {
+              "description": "Information about a new pet in the system",
+              "content": {
+                "application/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/Application-schema"
+                    }
+                }
+              }
+          },
+          "responses": {
+              "200": {
+                "description": "Return a `200` status to indicate that the data was received successfully"
+              }
+          },
+          "tags": [
+            "Seller"
+          ],
+          "summary": "Unsold lead webhook",
+          "description": "test description"
+        }
+    }
   },
   "tags": [
     {
