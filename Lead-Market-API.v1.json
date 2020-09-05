@@ -1202,319 +1202,6 @@
         ]
       }
     },
-    "/webhook-seller": {
-      "post": {
-        "summary": "Seller webhooks",
-        "operationId": "post-seller-webhook-sold",
-        "responses": {},
-        "callbacks": {
-          "Seller sold webhook": {
-            "https://your-webhook-endpoint.com": {
-              "post": {
-                "summary": "Lead Market sold lead webhook",
-                "description": "A callback is triggered every time a lead is sold.",
-                "externalDocs": {
-                  "description": "Check out our help docs.",
-                  "url": "https://docs.creditsense.com.au/display/CSI/Fully+integrated+webhook"
-                },
-                "requestBody": {
-                  "content": {
-                    "application/x-www-form-urlencoded": {
-                      "schema": {
-                        "type": "object",
-                        "properties": {
-                          "Status": {
-                            "type": "object",
-                            "description": "An object containing status information about the lead.",
-                            "required": [
-                              "Status_Type_Code",
-                              "Status_Type_Description",
-                              "Status_Code",
-                              "Status_Description",
-                              "Sale_Data"
-                            ],
-                            "properties": {
-                              "Status_Type_Code": {
-                                "type": "integer",
-                                "enum": [
-                                  1,
-                                  2,
-                                  3,
-                                  4,
-                                  5
-                                ],
-                                "description": "The code that identifies the status type."
-                              },
-                              "Status_Type_Description": {
-                                "type": "string",
-                                "enum": [
-                                  "Bought",
-                                  "On Market",
-                                  "Sold",
-                                  "Recalled",
-                                  "Preparing to Sell"
-                                ],
-                                "description": "Describes the status type."
-                              },
-                              "Status_Code": {
-                                "type": "integer",
-                                "enum": [
-                                  1,
-                                  2,
-                                  3,
-                                  4,
-                                  5,
-                                  10,
-                                  11,
-                                  12,
-                                  13,
-                                  14,
-                                  15,
-                                  16,
-                                  20,
-                                  21,
-                                  22
-                                ],
-                                "description": "The code that identifies the status."
-                              },
-                              "Status_Description": {
-                                "type": "string",
-                                "enum": [
-                                  "Bought",
-                                  "Bought - Cust Notified",
-                                  "Resell Pending",
-                                  "Pending CS App",
-                                  "Analysing Data",
-                                  "On Market",
-                                  "Waiting Sale",
-                                  "Sold",
-                                  "Sold - Cust Notified",
-                                  "Recalled",
-                                  "Recalled - Lead already on market",
-                                  "Recalled - No Buyer",
-                                  "Recalled - Lead already on market by same seller",
-                                  "Pending Client",
-                                  "Error - no active bid on client"
-                                ],
-                                "description": "Describes the status."
-                              }
-                            }
-                          },
-                          "LM_SaleDT": {
-                            "type": "string",
-                            "example": "2020-07-25 14:56:28.9966667",
-                            "description": "The date-time of the sale."
-                          },
-                          "Lead_Price": {
-                            "type": "number",
-                            "example": 15,
-                            "description": "The base sale amount for the lead. This is a duplicate of `$.Data.Sale_Data.Sale_Base_Amount` provided for backwards compatibility."
-                          },
-                          "Lead_ID": {
-                            "type": "integer",
-                            "example": 6605347,
-                            "description": "Uniquely identifies the lead across Lead Market."
-                          },
-                          "CS_App_ID": {
-                            "type": "integer",
-                            "example": 1234567,
-                            "description": "Our unique identifier for the Credit Sense application."
-                          },
-                          "Sale_Base_Amount": {
-                            "type": "number",
-                            "example": 15,
-                            "description": "The base sale amount for the lead."
-                          },
-                          "Sale_Base_Amount_Tax": {
-                            "type": "number",
-                            "example": 1.5,
-                            "description": "The tax amount for the base sale amount of the lead. This will be `0` if no tax is due for the sale."
-                          },
-                          "Sale_Trade_Comm_Amount": {
-                            "type": "number",
-                            "example": 3,
-                            "description": "The trade commission amount for the lead."
-                          },
-                          "Sale_Trade_Comm_Amount_Tax": {
-                            "type": "number",
-                            "example": 0.3,
-                            "description": "The tax amount for the trade comission on the lead. This will be `0` if no tax is due for the sale."
-                          },
-                          "Sale_Net_Amount": {
-                            "type": "number",
-                            "example": 22.25,
-                            "description": "**Sellers:** The base sale amount less the trade comission.\n**Buyers:** The base sale amount plus the trade comission.\nAll amounts are tax-inclusive."
-                          },
-                          "Sale_Currency": {
-                            "type": "string",
-                            "enum": [
-                              "AUD",
-                              "CAD",
-                              "GBP",
-                              "NZD"
-                            ],
-                            "description": "Denotes the [currency](https://www.iban.com/currency-codes) that lead sale amounts are expressed in."
-                          }
-                        },
-                        "required": [
-                          "Status",
-                          "LM_SaleDT",
-                          "Lead_Price",
-                          "Lead_ID",
-                          "CS_App_ID",
-                          "Sale_Base_Amount",
-                          "Sale_Base_Amount_Tax",
-                          "Sale_Trade_Comm_Amount",
-                          "Sale_Trade_Comm_Amount_Tax",
-                          "Sale_Net_Amount",
-                          "Sale_Currency"
-                        ]
-                      }
-                    }
-                  }
-                },
-                "responses": {
-                  "200": {
-                    "description": "OK"
-                  }
-                }
-              }
-            }
-          },
-          "Seller unsold webhook": {
-            "https://your-webhook-endpoint.com": {
-              "post": {
-                "summary": "Lead Market unsold lead webhook",
-                "description": "A callback is triggered every time a lead fails to sell.",
-                "externalDocs": {
-                  "description": "Check out our help docs.",
-                  "url": "https://docs.creditsense.com.au/display/CSI/Fully+integrated+webhook"
-                },
-                "requestBody": {
-                  "content": {
-                    "application/x-www-form-urlencoded": {
-                      "schema": {
-                        "type": "object",
-                        "properties": {
-                          "Status": {
-                            "type": "object",
-                            "description": "An object containing status information about the lead.",
-                            "required": [
-                              "Status_Type_Code",
-                              "Status_Type_Description",
-                              "Status_Code",
-                              "Status_Description",
-                              "Sale_Data"
-                            ],
-                            "properties": {
-                              "Status_Type_Code": {
-                                "type": "integer",
-                                "enum": [
-                                  1,
-                                  2,
-                                  3,
-                                  4,
-                                  5
-                                ],
-                                "description": "The code that identifies the status type."
-                              },
-                              "Status_Type_Description": {
-                                "type": "string",
-                                "enum": [
-                                  "Bought",
-                                  "On Market",
-                                  "Sold",
-                                  "Recalled",
-                                  "Preparing to Sell"
-                                ],
-                                "description": "Describes the status type."
-                              },
-                              "Status_Code": {
-                                "type": "integer",
-                                "enum": [
-                                  1,
-                                  2,
-                                  3,
-                                  4,
-                                  5,
-                                  10,
-                                  11,
-                                  12,
-                                  13,
-                                  14,
-                                  15,
-                                  16,
-                                  20,
-                                  21,
-                                  22
-                                ],
-                                "description": "The code that identifies the status."
-                              },
-                              "Status_Description": {
-                                "type": "string",
-                                "enum": [
-                                  "Bought",
-                                  "Bought - Cust Notified",
-                                  "Resell Pending",
-                                  "Pending CS App",
-                                  "Analysing Data",
-                                  "On Market",
-                                  "Waiting Sale",
-                                  "Sold",
-                                  "Sold - Cust Notified",
-                                  "Recalled",
-                                  "Recalled - Lead already on market",
-                                  "Recalled - No Buyer",
-                                  "Recalled - Lead already on market by same seller",
-                                  "Pending Client",
-                                  "Error - no active bid on client"
-                                ],
-                                "description": "Describes the status."
-                              }
-                            }
-                          },
-                          "Lead_ID": {
-                            "type": "integer",
-                            "example": 6605347,
-                            "description": "Uniquely identifies the lead across Lead Market."
-                          },
-                          "CS_App_ID": {
-                            "type": "integer",
-                            "example": 1234567,
-                            "description": "Our unique identifier for the Credit Sense application."
-                          }
-                        },
-                        "required": [
-                          "Status",
-                          "Lead_ID",
-                          "CS_App_ID"
-                        ]
-                      }
-                    }
-                  }
-                },
-                "responses": {
-                  "200": {
-                    "description": "OK"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "description": "### Overview\nSubscribe to webhook notifications to know when you've sold a lead.\n\n### Configuring your endpoint\nYou'll need to create a webhook endpoint in your system and make it publicly available. Once it's ready, you can add it on the [Notification Profiles page](https://admin.leadmarketonline.com/NotificationProfiles) in the Lead Market dashboard, or [let us know](mailto:support@creditsense.com.au) and we can update it for you.\n\n### Retry logic\nWhen we post the payload to your callback URL, we expect a `200` response indicating the webhook has been received successfully. If we do not receive a `200` response, we will retry your callback URL for a couple of minutes.\n\nThe delay between attempts is increased exponentially following every failed attempt until three retries are exhausted.\n\n| Retry | Delay                       | Total time since first delivery attempt |\n|-------|-----------------------------|-----------------------------------------|\n| 1     | 3 seconds                   | 3 seconds                               |\n| 2     | 15 seconds                  | 18 seconds                              |\n| 3     | 75 seconds                  | 93 seconds                              |",
-        "servers": [
-          {
-            "url": "https://your-webhook-endpoint.com",
-            "description": "Your webhook endpoint"
-          }
-        ],
-        "tags": [
-          "Seller"
-        ]
-      },
-      "parameters": []
-    },
     "/set-application-details/{api-key}": {
       "parameters": [
         {
@@ -1759,73 +1446,6 @@
         },
         "tags": [
           "Seller"
-        ]
-      }
-    },
-    "/webhook-buyer": {
-      "post": {
-        "summary": "Buyer webhook",
-        "operationId": "post-buyer-webhook",
-        "responses": {},
-        "callbacks": {
-          "Buyer notify webhook": {
-            "https://your-webhook-endpoint.com": {
-              "post": {
-                "summary": "Lead Market bought lead webhook",
-                "description": "A callback is triggered every time a lead is purchased.",
-                "externalDocs": {
-                  "description": "Check out our help docs.",
-                  "url": "https://docs.creditsense.com.au/display/LMA/Webhook+Implementation"
-                },
-                "requestBody": {
-                  "content": {
-                    "application/x-www-form-urlencoded": {
-                      "schema": {
-                        "type": "object",
-                        "properties": {
-                          "Lead": {
-                            "type": "object",
-                            "properties": {
-                              "Applicant": {
-                                "$ref": "#/components/schemas/Applicant-schema"
-                              },
-                              "Application": {
-                                "$ref": "#/components/schemas/Application-schema"
-                              },
-                              "Buyer_Data": {
-                                "$ref": "#/components/schemas/Buyer_Data-schema"
-                              },
-                              "Custom_Data": {
-                                "$ref": "#/components/schemas/Custom_Data-schema"
-                              },
-                              "Decision_Points": {
-                                "$ref": "#/components/schemas/Decision_Points-schema"
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                },
-                "responses": {
-                  "200": {
-                    "description": "OK"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "description": "### Overview\nSubscribe to webhook notifications to know when you've bought a lead.\n\n### Seller data validation\nWe take what may be thought of as a _laissez faire_ approach to validation on lead data passed in by Sellers. This is not done to intentionally make Buyer integrations difficult. Rather, when a Seller is passing in details via the API it’s generally due to the lead not being engaged at the time. The stance we take on this is _it’s better to have some data that **may** be invalid, than no data_. A good example is when a lead provides a valid mobile number, but they enter it in the email address field of a Seller’s website. If the Seller's form doesn't validate the data and passes it through to Lead Market, we'll accept it. We’ll provide the raw values to the Buyer, and we’ll also provided validated contact details in the `$..V_Contact_Type` and `$..V_Contact_Value` fields. We've found this approach provides the best outcome and richer lead data sets for Buyers.\n\n### Configuring your endpoint\nYou'll need to create a webhook endpoint in your system and make it publicly available. Once it's ready, you can add it on the [Notification Profiles page](https://admin.leadmarketonline.com/NotificationProfiles) in the Lead Market dashboard, or [let us know](mailto:support@creditsense.com.au) and we can update it for you.\n\n### Retry logic\nWhen we post the payload to your callback URL, we expect a `200` response indicating the webhook has been received successfully. If we do not receive a `200` response, we will retry your callback URL for a couple of minutes.\n\nThe delay between attempts is increased exponentially following every failed attempt until three retries are exhausted.\n\n| Retry | Delay                       | Total time since first delivery attempt |\n|-------|-----------------------------|-----------------------------------------|\n| 1     | 3 seconds                   | 3 seconds                               |\n| 2     | 15 seconds                  | 18 seconds                              |\n| 3     | 75 seconds                  | 93 seconds                              |",
-        "servers": [
-          {
-            "url": "https://your-webhook-endpoint.com",
-            "description": "Your webhook endpoint"
-          }
-        ],
-        "tags": [
-          "Buyer"
         ]
       }
     },
@@ -7123,67 +6743,327 @@
      "webhook-bought-lead": {
         "post": {
           "requestBody": {
-              "description": "Information about a new pet in the system",
-              "content": {
-                "application/json": {
-                    "schema": {
-                      "$ref": "#/components/schemas/Application-schema"
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "Lead": {
+                            "type": "object",
+                            "properties": {
+                              "Applicant": {
+                                "$ref": "#/components/schemas/Applicant-schema"
+                              },
+                              "Application": {
+                                "$ref": "#/components/schemas/Application-schema"
+                              },
+                              "Buyer_Data": {
+                                "$ref": "#/components/schemas/Buyer_Data-schema"
+                              },
+                              "Custom_Data": {
+                                "$ref": "#/components/schemas/Custom_Data-schema"
+                              },
+                              "Decision_Points": {
+                                "$ref": "#/components/schemas/Decision_Points-schema"
+                              }
+                            }
+                          }
+                        }
+                      }
                     }
-                }
-              }
+                  }
           },
           "responses": {
-              "200": {
-                "description": "Return a `200` status to indicate that the data was received successfully"
-              }
+            "200": {
+              "description": "OK"
+            }
           },
           "tags": [
             "Buyer"
           ],
           "summary": "Bought lead webhook",
-          "description": "test description"
+          "description": "### Overview\nSubscribe to webhook notifications to know when you've bought a lead.\n\n### Seller data validation\nWe take what may be thought of as a _laissez faire_ approach to validation on lead data passed in by Sellers. This is not done to intentionally make Buyer integrations difficult. Rather, when a Seller is passing in details via the API it’s generally due to the lead not being engaged at the time. The stance we take on this is _it’s better to have some data that **may** be invalid, than no data_. A good example is when a lead provides a valid mobile number, but they enter it in the email address field of a Seller’s website. If the Seller's form doesn't validate the data and passes it through to Lead Market, we'll accept it. We’ll provide the raw values to the Buyer, and we’ll also provided validated contact details in the `$..V_Contact_Type` and `$..V_Contact_Value` fields. We've found this approach provides the best outcome and richer lead data sets for Buyers.\n\n### Configuring your endpoint\nYou'll need to create a webhook endpoint in your system and make it publicly available. Once it's ready, you can add it on the [Notification Profiles page](https://admin.leadmarketonline.com/NotificationProfiles) in the Lead Market dashboard, or [let us know](mailto:support@creditsense.com.au) and we can update it for you.\n\n### Retry logic\nWhen we post the payload to your callback URL, we expect a `200` response indicating the webhook has been received successfully. If we do not receive a `200` response, we will retry your callback URL for a couple of minutes.\n\nThe delay between attempts is increased exponentially following every failed attempt until three retries are exhausted.\n\n| Retry | Delay                       | Total time since first delivery attempt |\n|-------|-----------------------------|-----------------------------------------|\n| 1     | 3 seconds                   | 3 seconds                               |\n| 2     | 15 seconds                  | 18 seconds                              |\n| 3     | 75 seconds                  | 93 seconds                              |"
         }
     },
     "webhook-sold-lead": {
         "post": {
           "requestBody": {
-              "description": "Information about a new pet in the system",
-              "content": {
-                "application/json": {
-                    "schema": {
-                      "$ref": "#/components/schemas/Application-schema"
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "Status": {
+                            "type": "object",
+                            "description": "An object containing status information about the lead.",
+                            "required": [
+                              "Status_Type_Code",
+                              "Status_Type_Description",
+                              "Status_Code",
+                              "Status_Description",
+                              "Sale_Data"
+                            ],
+                            "properties": {
+                              "Status_Type_Code": {
+                                "type": "integer",
+                                "enum": [
+                                  1,
+                                  2,
+                                  3,
+                                  4,
+                                  5
+                                ],
+                                "description": "The code that identifies the status type."
+                              },
+                              "Status_Type_Description": {
+                                "type": "string",
+                                "enum": [
+                                  "Bought",
+                                  "On Market",
+                                  "Sold",
+                                  "Recalled",
+                                  "Preparing to Sell"
+                                ],
+                                "description": "Describes the status type."
+                              },
+                              "Status_Code": {
+                                "type": "integer",
+                                "enum": [
+                                  1,
+                                  2,
+                                  3,
+                                  4,
+                                  5,
+                                  10,
+                                  11,
+                                  12,
+                                  13,
+                                  14,
+                                  15,
+                                  16,
+                                  20,
+                                  21,
+                                  22
+                                ],
+                                "description": "The code that identifies the status."
+                              },
+                              "Status_Description": {
+                                "type": "string",
+                                "enum": [
+                                  "Bought",
+                                  "Bought - Cust Notified",
+                                  "Resell Pending",
+                                  "Pending CS App",
+                                  "Analysing Data",
+                                  "On Market",
+                                  "Waiting Sale",
+                                  "Sold",
+                                  "Sold - Cust Notified",
+                                  "Recalled",
+                                  "Recalled - Lead already on market",
+                                  "Recalled - No Buyer",
+                                  "Recalled - Lead already on market by same seller",
+                                  "Pending Client",
+                                  "Error - no active bid on client"
+                                ],
+                                "description": "Describes the status."
+                              }
+                            }
+                          },
+                          "LM_SaleDT": {
+                            "type": "string",
+                            "example": "2020-07-25 14:56:28.9966667",
+                            "description": "The date-time of the sale."
+                          },
+                          "Lead_Price": {
+                            "type": "number",
+                            "example": 15,
+                            "description": "The base sale amount for the lead. This is a duplicate of `$.Data.Sale_Data.Sale_Base_Amount` provided for backwards compatibility."
+                          },
+                          "Lead_ID": {
+                            "type": "integer",
+                            "example": 6605347,
+                            "description": "Uniquely identifies the lead across Lead Market."
+                          },
+                          "CS_App_ID": {
+                            "type": "integer",
+                            "example": 1234567,
+                            "description": "Our unique identifier for the Credit Sense application."
+                          },
+                          "Sale_Base_Amount": {
+                            "type": "number",
+                            "example": 15,
+                            "description": "The base sale amount for the lead."
+                          },
+                          "Sale_Base_Amount_Tax": {
+                            "type": "number",
+                            "example": 1.5,
+                            "description": "The tax amount for the base sale amount of the lead. This will be `0` if no tax is due for the sale."
+                          },
+                          "Sale_Trade_Comm_Amount": {
+                            "type": "number",
+                            "example": 3,
+                            "description": "The trade commission amount for the lead."
+                          },
+                          "Sale_Trade_Comm_Amount_Tax": {
+                            "type": "number",
+                            "example": 0.3,
+                            "description": "The tax amount for the trade comission on the lead. This will be `0` if no tax is due for the sale."
+                          },
+                          "Sale_Net_Amount": {
+                            "type": "number",
+                            "example": 22.25,
+                            "description": "**Sellers:** The base sale amount less the trade comission.\n**Buyers:** The base sale amount plus the trade comission.\nAll amounts are tax-inclusive."
+                          },
+                          "Sale_Currency": {
+                            "type": "string",
+                            "enum": [
+                              "AUD",
+                              "CAD",
+                              "GBP",
+                              "NZD"
+                            ],
+                            "description": "Denotes the [currency](https://www.iban.com/currency-codes) that lead sale amounts are expressed in."
+                          }
+                        },
+                        "required": [
+                          "Status",
+                          "LM_SaleDT",
+                          "Lead_Price",
+                          "Lead_ID",
+                          "CS_App_ID",
+                          "Sale_Base_Amount",
+                          "Sale_Base_Amount_Tax",
+                          "Sale_Trade_Comm_Amount",
+                          "Sale_Trade_Comm_Amount_Tax",
+                          "Sale_Net_Amount",
+                          "Sale_Currency"
+                        ]
+                      }
                     }
-                }
-              }
+                  }
           },
           "responses": {
-              "200": {
-                "description": "Return a `200` status to indicate that the data was received successfully"
-              }
+            "200": {
+              "description": "OK"
+            }
           },
           "tags": [
             "Seller"
           ],
           "summary": "Sold lead webhook",
-          "description": "test description"
+          "description": "### Overview\nSubscribe to webhook notifications to know when you've sold a lead.\n\n### Configuring your endpoint\nYou'll need to create a webhook endpoint in your system and make it publicly available. Once it's ready, you can add it on the [Notification Profiles page](https://admin.leadmarketonline.com/NotificationProfiles) in the Lead Market dashboard, or [let us know](mailto:support@creditsense.com.au) and we can update it for you.\n\n### Retry logic\nWhen we post the payload to your callback URL, we expect a `200` response indicating the webhook has been received successfully. If we do not receive a `200` response, we will retry your callback URL for a couple of minutes.\n\nThe delay between attempts is increased exponentially following every failed attempt until three retries are exhausted.\n\n| Retry | Delay                       | Total time since first delivery attempt |\n|-------|-----------------------------|-----------------------------------------|\n| 1     | 3 seconds                   | 3 seconds                               |\n| 2     | 15 seconds                  | 18 seconds                              |\n| 3     | 75 seconds                  | 93 seconds                              |"
         }
     },
     "webhook-unsold-lead": {
         "post": {
           "requestBody": {
-              "description": "Information about a new pet in the system",
-              "content": {
-                "application/json": {
-                    "schema": {
-                      "$ref": "#/components/schemas/Application-schema"
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "Status": {
+                            "type": "object",
+                            "description": "An object containing status information about the lead.",
+                            "required": [
+                              "Status_Type_Code",
+                              "Status_Type_Description",
+                              "Status_Code",
+                              "Status_Description",
+                              "Sale_Data"
+                            ],
+                            "properties": {
+                              "Status_Type_Code": {
+                                "type": "integer",
+                                "enum": [
+                                  1,
+                                  2,
+                                  3,
+                                  4,
+                                  5
+                                ],
+                                "description": "The code that identifies the status type."
+                              },
+                              "Status_Type_Description": {
+                                "type": "string",
+                                "enum": [
+                                  "Bought",
+                                  "On Market",
+                                  "Sold",
+                                  "Recalled",
+                                  "Preparing to Sell"
+                                ],
+                                "description": "Describes the status type."
+                              },
+                              "Status_Code": {
+                                "type": "integer",
+                                "enum": [
+                                  1,
+                                  2,
+                                  3,
+                                  4,
+                                  5,
+                                  10,
+                                  11,
+                                  12,
+                                  13,
+                                  14,
+                                  15,
+                                  16,
+                                  20,
+                                  21,
+                                  22
+                                ],
+                                "description": "The code that identifies the status."
+                              },
+                              "Status_Description": {
+                                "type": "string",
+                                "enum": [
+                                  "Bought",
+                                  "Bought - Cust Notified",
+                                  "Resell Pending",
+                                  "Pending CS App",
+                                  "Analysing Data",
+                                  "On Market",
+                                  "Waiting Sale",
+                                  "Sold",
+                                  "Sold - Cust Notified",
+                                  "Recalled",
+                                  "Recalled - Lead already on market",
+                                  "Recalled - No Buyer",
+                                  "Recalled - Lead already on market by same seller",
+                                  "Pending Client",
+                                  "Error - no active bid on client"
+                                ],
+                                "description": "Describes the status."
+                              }
+                            }
+                          },
+                          "Lead_ID": {
+                            "type": "integer",
+                            "example": 6605347,
+                            "description": "Uniquely identifies the lead across Lead Market."
+                          },
+                          "CS_App_ID": {
+                            "type": "integer",
+                            "example": 1234567,
+                            "description": "Our unique identifier for the Credit Sense application."
+                          }
+                        },
+                        "required": [
+                          "Status",
+                          "Lead_ID",
+                          "CS_App_ID"
+                        ]
+                      }
                     }
-                }
-              }
+                  }
           },
           "responses": {
-              "200": {
-                "description": "Return a `200` status to indicate that the data was received successfully"
-              }
+            "200": {
+              "description": "OK"
+            }
           },
           "tags": [
             "Seller"
