@@ -6770,7 +6770,60 @@
         },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Response": {
+                      "type": "object",
+                      "properties": {
+                        "App_Reference": {
+                          "type": "string",
+                          "description": "Your reference we should update on the Lead's Credit Sense application.",
+                          "example": "abc123"
+                        },
+                        "StoreID": {
+                          "type": "string",
+                          "description": "Tell us which Credit Sense Store object to assign the lead's Credit Sense application to.",
+                          "example": "501"
+                        },
+                        "ClientID": {
+                          "type": "string",
+                          "description": "Tell us which Credit Sense Client object to assign the lead's Credit Sense application to.",
+                          "example": "236"
+                        },
+                        "Referral_Url": {
+                          "type": "string",
+                          "description": "Your URL we'll provide to the lead in any notifications we send to them.",
+                          "example": "https://picklefinance.com/welcome"
+                        },
+                        "Referral_Contact_Number": {
+                          "type": "string",
+                          "description": "Your contact number we'll provide to the lead in any notifications we send to them.",
+                          "example": "+61731185233"
+                        },
+                        "Referral_Message": {
+                          "type": "string",
+                          "description": "A custom message we'll provide to the lead in any notifications we send to them.",
+                          "example": "Welcome to Pickle Finance. One of our customer support heros will be in touch soon!"
+                        },
+                        "Deliver_CS_Report": {
+                          "type": "integer",
+                          "enum": [
+                            0,
+                            1
+                          ],
+                          "default": 0,
+                          "description": "Denotes whether we should deliver the Credit Sense report to you for this lead."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "tags": [
@@ -6789,7 +6842,7 @@
           }
         ],
         "summary": "Bought lead webhook",
-        "description": "### Overview\nSubscribe to webhook notifications to know when you've bought a lead.\n\n### Configuring your endpoint\nYou'll need to create a webhook endpoint in your system and make it publicly available. Once it's ready, you can add it on the [Notification Profiles page](https://admin.leadmarketonline.com/NotificationProfiles) in the Lead Market dashboard, or [let us know](mailto:support@creditsense.com.au) and we can update it for you.\n\n### Retry logic\nWhen we post the payload to your callback URL, we expect a `200` response indicating the webhook has been received successfully. If we do not receive a `200` response, we will retry your callback URL for a couple of minutes.\n\nThe delay between attempts is increased exponentially following every failed attempt until three retries are exhausted.\n\n| Retry | Delay                       | Total time since first delivery attempt |\n|-------|-----------------------------|-----------------------------------------|\n| 1     | 3 seconds                   | 3 seconds                               |\n| 2     | 15 seconds                  | 18 seconds                              |\n| 3     | 75 seconds                  | 93 seconds                              |"
+        "description": "### Overview\nSubscribe to webhook notifications to know when you've bought a lead.\n\n### Configuring your endpoint\nYou'll need to create a webhook endpoint in your system and make it publicly available. Once it's ready, you can add it on the [Notification Profiles page](https://admin.leadmarketonline.com/NotificationProfiles) in the Lead Market dashboard, or [let us know](mailto:support@creditsense.com.au) and we can update it for you.\n\n### Response updates\nAs part of your response to the webhook call, you can provide us with some information relating to the lead's Credit Sense application and any notifications we send to the lead on your behalf.\n\n### Retry logic\nWhen we post the payload to your callback URL, we expect a `200` response indicating the webhook has been received successfully. If we do not receive a `200` response, we will retry your callback URL for a couple of minutes.\n\nThe delay between attempts is increased exponentially following every failed attempt until three retries are exhausted.\n\n| Retry | Delay                       | Total time since first delivery attempt |\n|-------|-----------------------------|-----------------------------------------|\n| 1     | 3 seconds                   | 3 seconds                               |\n| 2     | 15 seconds                  | 18 seconds                              |\n| 3     | 75 seconds                  | 93 seconds                              |"
       }
     },
     "webhook-sold-lead": {
