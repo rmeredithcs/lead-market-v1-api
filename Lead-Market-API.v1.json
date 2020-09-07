@@ -7215,7 +7215,7 @@
     },
     {
       "name": "Lead schema",
-      "x-displayName": "Schemas",
+      "x-displayName": "Lead schema",
       "description": "### Overview\nThe structure of lead details for Sellers and Buyers. \n\nShared objects between Sellers and Buyers:\n- `$.Lead.Applicant`\n- `$.Lead.Application`\n\nSeller-only object:\n- `$.Lead.Seller_Data`\n\nBuyer-only objects:\n- `$.Lead.Buyer_Data`\n- `$.Lead.Custom_Data`\n- `$.Lead.Decision_Points`\n<SchemaDefinition schemaRef=\"#/components/schemas/Lead-schema\" />"
     }
   ],
