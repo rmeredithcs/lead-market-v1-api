@@ -1895,10 +1895,7 @@
                     },
                     "errors": {
                       "type": "array",
-                      "description": "Details any errors encountered during the import.",
-                      "items": {
-                        "type": "null"
-                      }
+                      "description": "Details any errors encountered during the import."
                     },
                     "data": {
                       "type": "object",
