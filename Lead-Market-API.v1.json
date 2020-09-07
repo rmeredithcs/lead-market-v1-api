@@ -5501,7 +5501,7 @@
         "type": "object",
         "description": "",
         "x-tags": [
-          "SchemaDefinitions"
+          "Lead schema"
         ],
         "properties": {
           "Applicant": {
@@ -7214,9 +7214,9 @@
       "description": "Create and manage lists of locations and lead attributes."
     },
     {
-      "name": "SchemaDefinitions",
+      "name": "Lead schema",
       "x-displayName": "Schemas",
-      "description": "## Lead schema\n### Overview\nThe structure of lead details for Sellers and Buyers. \n\nShared objects between Sellers and Buyers:\n- `$.Lead.Applicant`\n- `$.Lead.Application`\n\nSeller-only object:\n- `$.Lead.Seller_Data`\n\nBuyer-only objects:\n- `$.Lead.Buyer_Data`\n- `$.Lead.Custom_Data`\n- `$.Lead.Decision_Points`\n<SchemaDefinition schemaRef=\"#/components/schemas/Lead-schema\" />"
+      "description": "### Overview\nThe structure of lead details for Sellers and Buyers. \n\nShared objects between Sellers and Buyers:\n- `$.Lead.Applicant`\n- `$.Lead.Application`\n\nSeller-only object:\n- `$.Lead.Seller_Data`\n\nBuyer-only objects:\n- `$.Lead.Buyer_Data`\n- `$.Lead.Custom_Data`\n- `$.Lead.Decision_Points`\n<SchemaDefinition schemaRef=\"#/components/schemas/Lead-schema\" />"
     }
   ],
   "x-tagGroups": [
@@ -7232,7 +7232,7 @@
     {
       "name": "Schemas",
       "tags": [
-        "SchemaDefinitions"
+        "Lead schema"
       ]
     }
   ]
