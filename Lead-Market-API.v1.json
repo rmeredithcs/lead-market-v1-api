@@ -51,20 +51,29 @@
                       "default": "true"
                     },
                     "Data": {
-                      "type": "object",
-                      "description": "The Lead ID as an integer or an object containing the Lead ID and Lead Token.",
-                      "properties": {
-                        "Lead_ID": {
+                      "oneOf": [
+                        {
                           "type": "integer",
                           "example": 6605347,
                           "description": "Uniquely identifies the lead across Lead Market."
                         },
-                        "Lead_Token": {
-                          "type": "string",
-                          "example": "zh9DSv",
-                          "description": "Uniquely identifies the lead across Lead Market for the Seller."
+                        {
+                          "type": "object",
+                          "properties": {
+                            "Lead_ID": {
+                              "type": "integer",
+                              "example": 6605347,
+                              "description": "Uniquely identifies the lead across Lead Market."
+                            },
+                            "Lead_Token": {
+                              "type": "string",
+                              "example": "zh9DSv",
+                              "description": "Uniquely identifies the lead across Lead Market for the Seller."
+                            }
+                          }
                         }
-                      }
+                      ],
+                      "description": "The Lead ID or an object containing the Lead ID and Lead Token."
                     }
                   },
                   "required": [
@@ -72,6 +81,25 @@
                     "Success",
                     "Data"
                   ]
+                },
+                "examples": {
+                  "Disengaged lead example": {
+                    "value": {
+                      "Warnings": [],
+                      "Success": "true",
+                      "Data": 6605347
+                    }
+                  },
+                  "Engaged lead example": {
+                    "value": {
+                      "Warnings": [],
+                      "Success": "true",
+                      "Data": {
+                        "Lead_ID": 6605347,
+                        "Lead_Token": "zh9DSv"
+                      }
+                    }
+                  }
                 }
               }
             }
