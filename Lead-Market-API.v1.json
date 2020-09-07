@@ -179,7 +179,7 @@
                   "Payload": {
                     "type": "string",
                     "example": "<?xml version=\"1.0\" encoding=\"utf-8\"?> <Lead>     <Seller_Data>         <Client_Authority>true</Client_Authority>         <Customer_Authority>true</Customer_Authority>         <Customer_Authority_Type>Explicit</Customer_Authority_Type>         <CS_App_ID>1577794</CS_App_ID>         <Use_MLM_Flow>true</Use_MLM_Flow>         <Lead_Reference>MyExampleRef0001</Lead_Reference>     </Seller_Data>     <Application>         <Application_Date>2016-08-10</Application_Date>         <Amount>200</Amount>         <Reason>Other – Test</Reason>     </Application>     <Applicant>         <Applicant_Type>Primary</Applicant_Type>         <Person_Applicant>             <Title>Mr</Title>             <Date_Of_Birth>1980-01-01</Date_Of_Birth>             <Last_Name>Ward</Last_Name>             <First_Name>Fredrick</First_Name>             <Marital_Status></Marital_Status>             <Contact_Methods>                 <Contact_Method>                     <Contact_Other>                         <Contact_Type>MOB</Contact_Type>                         <Contact_Value>0412341234</Contact_Value>                     </Contact_Other>                 </Contact_Method>             </Contact_Methods>         </Person_Applicant>     </Applicant> </Lead>",
-                    "description": "Contains the details of the lead in XML format in accordance with our [lead schema](#section/Lead-schema)."
+                    "description": "Contains the details of the lead in XML format in accordance with our [lead schema](#tag/Lead-schema)."
                   }
                 },
                 "required": [
