@@ -3839,12 +3839,12 @@
                                 "value": {
                                   "type": "string",
                                   "description": "The value updated in the list.",
-                                  "example": "+61488853631"
+                                  "example": "+61731185233"
                                 },
                                 "create_date": {
                                   "type": "string",
                                   "description": "The date the record was updated in the list in [ISO format](https://en.wikipedia.org/wiki/ISO_8601).",
-                                  "example": "2020-09-02 09:57:15.5030000"
+                                  "example": "2020-09-02 09:57:15.0070000"
                                 },
                                 "expiry": {
                                   "type": "string",
@@ -3863,12 +3863,12 @@
                                 "value": {
                                   "type": "string",
                                   "description": "The value removed from the list.",
-                                  "example": "+61488853631"
+                                  "example": "+61488857140"
                                 },
                                 "create_date": {
                                   "type": "string",
                                   "description": "The date the record was removed from the list in [ISO format](https://en.wikipedia.org/wiki/ISO_8601).",
-                                  "example": "2020-09-02 09:57:15.5030000"
+                                  "example": "2020-09-02 09:57:15.7530000"
                                 },
                                 "expiry": {
                                   "type": "string",
@@ -4409,12 +4409,12 @@
                                 "value": {
                                   "type": "string",
                                   "description": "The value updated in the list.",
-                                  "example": "+61488853631"
+                                  "example": "+61731185233"
                                 },
                                 "create_date": {
                                   "type": "string",
                                   "description": "The date the record was updated in the list in [ISO format](https://en.wikipedia.org/wiki/ISO_8601).",
-                                  "example": "2020-09-02 09:57:15.5030000"
+                                  "example": "2020-09-02 09:57:15.0070000"
                                 },
                                 "expiry": {
                                   "type": "string",
@@ -4433,12 +4433,12 @@
                                 "value": {
                                   "type": "string",
                                   "description": "The value removed from the list.",
-                                  "example": "+61488853631"
+                                  "example": "+61488857140"
                                 },
                                 "create_date": {
                                   "type": "string",
                                   "description": "The date the record was removed from the list in [ISO format](https://en.wikipedia.org/wiki/ISO_8601).",
-                                  "example": "2020-09-02 09:57:15.5030000"
+                                  "example": "2020-09-02 09:57:15.7530000"
                                 },
                                 "expiry": {
                                   "type": "string",
@@ -4457,18 +4457,18 @@
                                 "value": {
                                   "type": "string",
                                   "description": "The value unchanged in the list.",
-                                  "example": "+61488853631"
+                                  "example": "+18774407696"
                                 },
                                 "create_date": {
                                   "type": "string",
                                   "description": "The date the record was checked but unchanged in the list in [ISO format](https://en.wikipedia.org/wiki/ISO_8601).",
-                                  "example": "2020-09-02 09:57:15.5030000"
+                                  "example": "2019-11-13 14:28:33.2270000"
                                 },
                                 "expiry": {
                                   "type": "string",
                                   "description": "The date to expire the record from the list in [ISO format](https://en.wikipedia.org/wiki/ISO_8601).",
                                   "format": "date",
-                                  "example": "2021-09-02"
+                                  "example": "2020-11-13"
                                 }
                               }
                             }
@@ -4871,7 +4871,7 @@
             },
             "in": "query",
             "name": "values",
-            "description": "**Email**, **Mobile**, **Postcode**: a sting or integer value. **First name + last name + date of birth**: a JSON object."
+            "description": "**Email, Mobile, Postcode**: a sting or integer value. **First name + last name + date of birth**: a JSON object."
           }
         ],
         "tags": [
