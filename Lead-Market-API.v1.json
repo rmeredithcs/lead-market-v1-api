@@ -4870,8 +4870,15 @@
               "example": "{\"firstName\":\"Bryan\",\"lastName\":\"Connerty\",\"dob\":\"1968-08-08\"}"
             },
             "in": "query",
-            "name": "values",
-            "description": "**Email, Mobile, Postcode**: a sting or integer value. **First name + last name + date of birth**: a JSON object."
+            "name": "value",
+            "description": "**Email, Mobile, Postcode**: a sting or integer value."
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "values"
           }
         ],
         "tags": [
