@@ -7236,7 +7236,7 @@
     },
     {
       "name": "Lists",
-      "description": "Create and manage lists of locations and lead attributes."
+      "description": "Manage lists of locations and lead attributes. Jump to our [help docs](https://docs.creditsense.com.au/display/LMA/Create+a+bid+criteria+from+postcode+data+in+a+spreadsheet) for steps on creating lists."
     },
     {
       "name": "Lead schema",
