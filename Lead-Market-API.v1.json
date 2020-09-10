@@ -4867,7 +4867,7 @@
           {
             "schema": {
               "type": "string",
-              "example": "{\"firstName\":\"Bryan\",\"lastName\":\"Connerty\",\"dob\":\"1968-08-08\"}"
+              "example": "4001"
             },
             "in": "query",
             "name": "value",
@@ -4875,10 +4875,12 @@
           },
           {
             "schema": {
-              "type": "string"
+              "type": "string",
+              "example": "{\"firstName\":\"Bryan\",\"lastName\":\"Connerty\",\"dob\":\"1968-08-08\"}"
             },
             "in": "query",
-            "name": "values"
+            "name": "values",
+            "description": "**First name + last name + date of birth**: a JSON object."
           }
         ],
         "tags": [
