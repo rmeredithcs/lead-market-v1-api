@@ -4280,61 +4280,117 @@
               "schema": {
                 "type": "array",
                 "items": {
-                  "type": "object",
-                  "properties": {
-                    "value": {
-                      "type": "string",
-                      "description": "The value to add to the list (e.g. an email, a mobile, a postcode) or an object containing first name + last name + date of birth.",
-                      "example": "+61488853631"
+                  "oneOf": [
+                    {
+                      "type": "integer",
+                      "example": 4000,
+                      "description": "The value to add to the list (e.g. a mobile/cell number or a postcode/zip code)."
                     },
-                    "expiry_date": {
+                    {
                       "type": "string",
-                      "description": "The date to expire the record from the list in [ISO format](https://en.wikipedia.org/wiki/ISO_8601).",
-                      "example": "2021-09-02",
-                      "format": "date"
+                      "example": "+61488853631",
+                      "description": "The value to add to the list (e.g. a mobile/cell number, an email address, or a postcode/zip code)."
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "oneOf": [
+                            {
+                              "type": "integer",
+                              "description": "The value to add to the list (e.g. a mobile/cell number or a postcode/zip code).",
+                              "example": 4000
+                            },
+                            {
+                              "type": "string",
+                              "example": "+61488853631",
+                              "description": "The value to add to the list (e.g. a mobile/cell number, an email address, or a postcode/zip code)."
+                            },
+                            {
+                              "type": "object",
+                              "properties": {
+                                "firstName": {
+                                  "type": "string",
+                                  "example": "Kate",
+                                  "description": "The customer's first name."
+                                },
+                                "lastName": {
+                                  "type": "string",
+                                  "example": "Sacker",
+                                  "description": "The customer's last name."
+                                },
+                                "dob": {
+                                  "type": "string",
+                                  "example": "1987-01-30",
+                                  "format": "date",
+                                  "description": "The customer's date of birth."
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        "expiry_date": {
+                          "type": "string",
+                          "description": "The date to expire the record from the list in [ISO format](https://en.wikipedia.org/wiki/ISO_8601).",
+                          "example": "2021-09-02",
+                          "format": "date"
+                        }
+                      }
                     }
-                  }
+                  ]
                 }
               },
               "examples": {
-                "Emails": {
+                "Emails with expiry dates": {
                   "value": [
-                    "support@creditsense.com.au",
-                    "help@creditsense.com.au",
-                    "support@leadmarketonline.com"
-                  ]
-                },
-                "Mobiles": {
-                  "value": [
-                    "0488853631",
-                    "+61488857140",
                     {
-                      "value": "+18774407696",
+                      "value": "support@creditsense.com.au",
+                      "expiry_date": "2021-09-02"
+                    },
+                    {
+                      "value": "support@leadmarketonline.com",
                       "expiry_date": "2021-09-02"
                     }
                   ]
                 },
-                "Postcodes": {
+                "Mobile/cell numbers": {
+                  "value": [
+                    "0488853631",
+                    "+61488857140",
+                    "+18774407696"
+                  ]
+                },
+                "Postcodes/zip codes": {
                   "value": [
                     4000,
                     4001,
                     4006
                   ]
                 },
-                "Name + DOB": {
-                  "value": {
-                    "value": {
-                      "firstName": "Sacker",
-                      "lastName": "Kate",
-                      "dob": "1987-01-30"
+                "Name + DOB with expiry dates": {
+                  "value": [
+                    {
+                      "value": {
+                        "firstName": "Sacker",
+                        "lastName": "Kate",
+                        "dob": "1987-01-30"
+                      },
+                      "expiry_date": "2021-09-02"
                     },
-                    "expiry_date": "2021-09-02"
-                  }
+                    {
+                      "value": {
+                        "firstName": "Gordie",
+                        "lastName": "Axelrod",
+                        "dob": "2002-08-10"
+                      },
+                      "expiry_date": "2021-09-11"
+                    }
+                  ]
                 }
               }
             }
           },
-          "description": "The request body should be formatted as an array of:\n- integers (e.g. a list of postcodes)\n- strings (e.g. a list of emails)\n- objects containing an expiry date and a value (e.g. postcode or email)\n- objects containing an expiry date and a value object, containing first name + last name + date of birth\n\nSee the **request samples** for formatting options."
+          "description": ""
         }
       },
       "put": {
@@ -4871,7 +4927,7 @@
             },
             "in": "query",
             "name": "value",
-            "description": "**Email, Mobile, Postcode**: a sting or integer value."
+            "description": "**Email**: a sting value. **Mobile/cell number** or **postcode/zip code**: a sting or integer value."
           },
           {
             "schema": {
@@ -4890,54 +4946,119 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "type": "string",
-                    "example": "+61488853631",
-                    "description": "The value to update in the list (e.g. an email, a mobile, a postcode) or an object containing first name + last name + date of birth."
-                  },
-                  "expiry_date": {
-                    "type": "string",
-                    "example": "2021-09-02",
-                    "description": "The date to expire the record from the list in [ISO format](https://en.wikipedia.org/wiki/ISO_8601).",
-                    "format": "date"
-                  }
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "integer",
+                      "example": 4000,
+                      "description": "The value to update on the list (e.g. a mobile/cell number or a postcode/zip code)."
+                    },
+                    {
+                      "type": "string",
+                      "example": "+61488853631",
+                      "description": "The value to update on the list (e.g. a mobile/cell number, an email address, or a postcode/zip code)."
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "oneOf": [
+                            {
+                              "type": "integer",
+                              "description": "The value to update on the list (e.g. a mobile/cell number or a postcode/zip code).",
+                              "example": 4000
+                            },
+                            {
+                              "type": "string",
+                              "example": "+61488853631",
+                              "description": "The value to update on the list (e.g. a mobile/cell number, an email address, or a postcode/zip code)."
+                            },
+                            {
+                              "type": "object",
+                              "properties": {
+                                "firstName": {
+                                  "type": "string",
+                                  "example": "Kate",
+                                  "description": "The customer's first name."
+                                },
+                                "lastName": {
+                                  "type": "string",
+                                  "example": "Sacker",
+                                  "description": "The customer's last name."
+                                },
+                                "dob": {
+                                  "type": "string",
+                                  "example": "1987-01-30",
+                                  "format": "date",
+                                  "description": "The customer's date of birth."
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        "expiry_date": {
+                          "type": "string",
+                          "description": "The date to expire the record from the list in [ISO format](https://en.wikipedia.org/wiki/ISO_8601).",
+                          "example": "2021-09-02",
+                          "format": "date"
+                        }
+                      }
+                    }
+                  ]
                 }
               },
               "examples": {
-                "Email": {
-                  "value": {
-                    "value": "support@creditsense.com.au",
-                    "expiry_date": "2021-09-02"
-                  }
-                },
-                "Mobile": {
-                  "value": {
-                    "value": "+61488853631",
-                    "expiry_date": "2021-09-02"
-                  }
-                },
-                "Postcode": {
-                  "value": {
-                    "value": 4000,
-                    "expiry_date": "2021-09-02"
-                  }
-                },
-                "Name + DOB": {
-                  "value": {
-                    "value": {
-                      "firstName": "Grigor",
-                      "lastName": "Andolov",
-                      "dob": "1952-06-02"
+                "Emails with expiry dates": {
+                  "value": [
+                    {
+                      "value": "support@creditsense.com.au",
+                      "expiry_date": "2021-09-02"
                     },
-                    "expiry_date": "2021-09-02"
-                  }
+                    {
+                      "value": "support@leadmarketonline.com",
+                      "expiry_date": "2021-09-02"
+                    }
+                  ]
+                },
+                "Mobile/cell numbers": {
+                  "value": [
+                    "0488853631",
+                    "+61488857140",
+                    "+18774407696"
+                  ]
+                },
+                "Postcodes/zip codes": {
+                  "value": [
+                    4000,
+                    4001,
+                    4006
+                  ]
+                },
+                "Name + DOB with expiry dates": {
+                  "value": [
+                    {
+                      "value": {
+                        "firstName": "Sacker",
+                        "lastName": "Kate",
+                        "dob": "1987-01-30"
+                      },
+                      "expiry_date": "2021-09-02"
+                    },
+                    {
+                      "value": {
+                        "firstName": "Gordie",
+                        "lastName": "Axelrod",
+                        "dob": "2002-08-10"
+                      },
+                      "expiry_date": "2021-09-11"
+                    }
+                  ]
                 }
               }
             }
           },
-          "description": "The request body should be formatted as an object containing:\n- an expiry date and a value (e.g. postcode or email)\n- an expiry date and a value object, containing first name + last name + date of birth\n\nSee the **request samples** for formatting options."
+          "description": ""
         }
       },
       "delete": {
@@ -5499,7 +5620,7 @@
             },
             "in": "query",
             "name": "values",
-            "description": "**Emails**, **Mobiles**, **Postcodes**: comma separated values. **First name + last name + date of birth**: a JSON array of objects."
+            "description": "**Emails**, **mobiles/cell numbers**, **postcodes/zip codes**: comma separated values. **First name + last name + date of birth**: a JSON array of objects."
           },
           {
             "schema": {
