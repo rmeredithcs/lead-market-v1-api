@@ -86,14 +86,14 @@
                   "Disengaged lead example": {
                     "value": {
                       "Warnings": [],
-                      "Success": "true",
+                      "Success": true,
                       "Data": 6605347
                     }
                   },
                   "Engaged lead example": {
                     "value": {
                       "Warnings": [],
-                      "Success": "true",
+                      "Success": true,
                       "Data": {
                         "Lead_ID": 6605347,
                         "Lead_Token": "zh9DSv"
@@ -523,7 +523,7 @@
             "name": "Content-Type",
             "description": "Indicates the type of data being sent.",
             "required": true,
-            "default": "application/json"
+            "example": "application/json"
           }
         ]
       }
@@ -572,165 +572,22 @@
                 "examples": {
                   "Buyer example": {
                     "value": {
-                      "Applicant": {
-                        "Applicant_Type": "Primary",
-                        "References": {
-                          "Reference": [
-                            {
-                              "Relationship_Type": "Previous employer",
-                              "Known_Applicant_Years": "3",
-                              "Person_Other": {
-                                "Title": "Mr",
-                                "Date_Of_Birth": "1975-07-17",
-                                "Last_Name": "Rhoades",
-                                "Middle_Names": "Chuck",
-                                "First_Name": "Charles",
-                                "Gender": "M",
-                                "Contact_Methods": {
-                                  "Contact_Method": [
-                                    {
-                                      "Contact_Other": {
-                                        "Contact_Type": "mobile",
-                                        "Contact_Value": "+61488853631",
-                                        "V_Contact_Value": "+61488853631",
-                                        "V_Contact_Type": "MOB"
-                                      },
-                                      "Address": {
-                                        "Address_Line_1": "Aurora Tower",
-                                        "Address_Line_2": "Level 69, 420 Queen Street",
-                                        "Suburb": "Brisbane",
-                                        "State": "QLD",
-                                        "Postcode": "4000",
-                                        "Is_Current": "true",
-                                        "Residential_Type": "Apartment",
-                                        "Residential_Status": "Renting",
-                                        "Time_At_Address_Months": "36"
-                                      }
-                                    }
-                                  ]
-                                },
-                                "V_Unique_Contact_Methods": {
-                                  "V_Unique_Contact_Method": [
-                                    {
-                                      "V_Unique_Contact_Other": {
-                                        "V_Unique_Contact_Value": "+61488853631",
-                                        "V_Unique_Contact_Type": "MOB"
-                                      }
-                                    }
-                                  ]
-                                }
-                              }
-                            }
-                          ]
-                        },
-                        "Financials": {
-                          "Financial": [
-                            {
-                              "Detailed_Income": {
-                                "Source": "Axe Capital",
-                                "Type": "Full-time",
-                                "Frequency": "weekly",
-                                "Description": "This is the customer's primary income",
-                                "Net_Amount": 2000,
-                                "Gross_Amount": 3000,
-                                "Is_Current": "false",
-                                "Start_Date": "2016-01-01",
-                                "End_Date": "2020-08-26"
-                              },
-                              "Detailed_Liability": {
-                                "Type": "once-off",
-                                "Frequency": "monthly",
-                                "Frequency_Amount": 100,
-                                "Balance": 1000,
-                                "Start_Date": "2019-08-24",
-                                "Estimated_End_Date": "2019-08-24",
-                                "Description": "Personal Loan"
-                              },
-                              "Summary_Income": {
-                                "Net_Amount": "2000",
-                                "Gross_Amount": "3000",
-                                "Frequency": "weekly"
-                              },
-                              "Summary_Liability": {
-                                "Amount": "100",
-                                "Frequency": "monthly"
-                              }
-                            }
-                          ]
-                        },
-                        "Bank_Accounts": {
-                          "Bank_Account": [
-                            {
-                              "Account_Number": "17012016",
-                              "Account_Name": "Super Saver",
-                              "Bank_Name": "Mason Capital Savings and Loan",
-                              "Account_Type": "Savings",
-                              "BSB": "440003",
-                              "Balance": "10000",
-                              "Age_Of_Account": "4"
-                            }
-                          ]
-                        },
-                        "Person_Applicant": {
-                          "Title": "Ms",
-                          "Date_Of_Birth": "1978-02-11",
-                          "Last_Name": "Rhoades",
-                          "Middle_Names": "Chuck",
-                          "First_Name": "Wendy",
-                          "Gender": "F",
-                          "Dependents": "2",
-                          "Marital_Status": "Separated",
-                          "Can_Provide_Guarantor": "true",
-                          "Contact_Methods": {
-                            "Contact_Method": [
+                      "Warnings": [],
+                      "Success": true,
+                      "Data": {
+                        "Applicant": {
+                          "Applicant_Type": "Primary",
+                          "References": {
+                            "Reference": [
                               {
-                                "Contact_Other": {
-                                  "Contact_Type": "mobile",
-                                  "Contact_Value": "+61488853631",
-                                  "V_Contact_Value": "+61488853631",
-                                  "V_Contact_Type": "MOB"
-                                },
-                                "Address": {
-                                  "Address_Line_1": "Aurora Tower",
-                                  "Address_Line_2": "Level 69, 420 Queen Street",
-                                  "Suburb": "Brisbane",
-                                  "State": "QLD",
-                                  "Postcode": "4000",
-                                  "Is_Current": "false",
-                                  "Residential_Type": "Apartment",
-                                  "Residential_Status": "Renting",
-                                  "Time_At_Address_Months": "36"
-                                }
-                              }
-                            ]
-                          },
-                          "V_Unique_Contact_Methods": {
-                            "V_Unique_Contact_Method": [
-                              {
-                                "V_Unique_Contact_Other": {
-                                  "V_Unique_Contact_Value": "+61488853631",
-                                  "V_Unique_Contact_Type": "MOB"
-                                }
-                              }
-                            ]
-                          }
-                        },
-                        "Employment_History": {
-                          "Employment": [
-                            {
-                              "Is_Current": "true",
-                              "Employment_Type": "Contract",
-                              "Occupation": "Performance Coach",
-                              "Working_Hours_Weekly": "40",
-                              "Organisation_Name": "Axe Captial",
-                              "Start_Date": "2015-02-14",
-                              "End_Date": "2020-08-28",
-                              "Employment_Contacts": {
+                                "Relationship_Type": "Previous employer",
+                                "Known_Applicant_Years": "3",
                                 "Person_Other": {
                                   "Title": "Mr",
-                                  "Date_Of_Birth": "1977-04-12",
-                                  "Last_Name": "Axelrod",
-                                  "First_Name": "Bobby",
+                                  "Date_Of_Birth": "1975-07-17",
+                                  "Last_Name": "Rhoades",
+                                  "Middle_Names": "Chuck",
+                                  "First_Name": "Charles",
                                   "Gender": "M",
                                   "Contact_Methods": {
                                     "Contact_Method": [
@@ -742,15 +599,15 @@
                                           "V_Contact_Type": "MOB"
                                         },
                                         "Address": {
-                                          "Address_Line_1": "Casino Towers",
-                                          "Address_Line_2": "Level 33, 151 George Street",
+                                          "Address_Line_1": "Aurora Tower",
+                                          "Address_Line_2": "Level 69, 420 Queen Street",
                                           "Suburb": "Brisbane",
                                           "State": "QLD",
                                           "Postcode": "4000",
                                           "Is_Current": "true",
                                           "Residential_Type": "Apartment",
-                                          "Residential_Status": "Owned",
-                                          "Time_At_Address_Months": "19"
+                                          "Residential_Status": "Renting",
+                                          "Time_At_Address_Months": "36"
                                         }
                                       }
                                     ]
@@ -766,257 +623,261 @@
                                     ]
                                   }
                                 }
-                              },
-                              "Contact_Methods": {
-                                "Contact_Method": [
-                                  {
-                                    "Contact_Other": {
-                                      "Contact_Type": "mobile",
-                                      "Contact_Value": "+61488853631",
-                                      "V_Contact_Value": "+61488853631",
-                                      "V_Contact_Type": "MOB"
-                                    },
-                                    "Address": {
-                                      "Address_Line_1": "Aurora Tower",
-                                      "Address_Line_2": "Level 69, 420 Queen Street",
-                                      "Suburb": "Brisbane",
-                                      "State": "QLD",
-                                      "Postcode": "4000",
-                                      "Is_Current": "false"
-                                    }
-                                  }
-                                ]
-                              },
-                              "V_Unique_Contact_Methods": {
-                                "V_Unique_Contact_Method": [
-                                  {
-                                    "V_Unique_Contact_Other": {
-                                      "V_Unique_Contact_Value": "+61488853631",
-                                      "V_Unique_Contact_Type": "MOB"
-                                    }
-                                  }
-                                ]
                               }
+                            ]
+                          },
+                          "Financials": {
+                            "Financial": [
+                              {
+                                "Detailed_Income": {
+                                  "Source": "Axe Capital",
+                                  "Type": "Full-time",
+                                  "Frequency": "weekly",
+                                  "Description": "This is the customer's primary income",
+                                  "Net_Amount": 2000,
+                                  "Gross_Amount": 3000,
+                                  "Is_Current": "false",
+                                  "Start_Date": "2016-01-01",
+                                  "End_Date": "2020-08-26"
+                                },
+                                "Detailed_Liability": {
+                                  "Type": "once-off",
+                                  "Frequency": "monthly",
+                                  "Frequency_Amount": 100,
+                                  "Balance": 1000,
+                                  "Start_Date": "2019-08-24",
+                                  "Estimated_End_Date": "2019-08-24",
+                                  "Description": "Personal Loan"
+                                },
+                                "Summary_Income": {
+                                  "Net_Amount": "2000",
+                                  "Gross_Amount": "3000",
+                                  "Frequency": "weekly"
+                                },
+                                "Summary_Liability": {
+                                  "Amount": "100",
+                                  "Frequency": "monthly"
+                                }
+                              }
+                            ]
+                          },
+                          "Bank_Accounts": {
+                            "Bank_Account": [
+                              {
+                                "Account_Number": "17012016",
+                                "Account_Name": "Super Saver",
+                                "Bank_Name": "Mason Capital Savings and Loan",
+                                "Account_Type": "Savings",
+                                "BSB": "440003",
+                                "Balance": "10000",
+                                "Age_Of_Account": "4"
+                              }
+                            ]
+                          },
+                          "Person_Applicant": {
+                            "Title": "Ms",
+                            "Date_Of_Birth": "1978-02-11",
+                            "Last_Name": "Rhoades",
+                            "Middle_Names": "Chuck",
+                            "First_Name": "Wendy",
+                            "Gender": "F",
+                            "Dependents": "2",
+                            "Marital_Status": "Separated",
+                            "Can_Provide_Guarantor": "true",
+                            "Contact_Methods": {
+                              "Contact_Method": [
+                                {
+                                  "Contact_Other": {
+                                    "Contact_Type": "mobile",
+                                    "Contact_Value": "+61488853631",
+                                    "V_Contact_Value": "+61488853631",
+                                    "V_Contact_Type": "MOB"
+                                  },
+                                  "Address": {
+                                    "Address_Line_1": "Aurora Tower",
+                                    "Address_Line_2": "Level 69, 420 Queen Street",
+                                    "Suburb": "Brisbane",
+                                    "State": "QLD",
+                                    "Postcode": "4000",
+                                    "Is_Current": "false",
+                                    "Residential_Type": "Apartment",
+                                    "Residential_Status": "Renting",
+                                    "Time_At_Address_Months": "36"
+                                  }
+                                }
+                              ]
+                            },
+                            "V_Unique_Contact_Methods": {
+                              "V_Unique_Contact_Method": [
+                                {
+                                  "V_Unique_Contact_Other": {
+                                    "V_Unique_Contact_Value": "+61488853631",
+                                    "V_Unique_Contact_Type": "MOB"
+                                  }
+                                }
+                              ]
                             }
-                          ]
+                          },
+                          "Employment_History": {
+                            "Employment": [
+                              {
+                                "Is_Current": "true",
+                                "Employment_Type": "Contract",
+                                "Occupation": "Performance Coach",
+                                "Working_Hours_Weekly": "40",
+                                "Organisation_Name": "Axe Captial",
+                                "Start_Date": "2015-02-14",
+                                "End_Date": "2020-08-28",
+                                "Employment_Contacts": {
+                                  "Person_Other": {
+                                    "Title": "Mr",
+                                    "Date_Of_Birth": "1977-04-12",
+                                    "Last_Name": "Axelrod",
+                                    "First_Name": "Bobby",
+                                    "Gender": "M",
+                                    "Contact_Methods": {
+                                      "Contact_Method": [
+                                        {
+                                          "Contact_Other": {
+                                            "Contact_Type": "mobile",
+                                            "Contact_Value": "+61488853631",
+                                            "V_Contact_Value": "+61488853631",
+                                            "V_Contact_Type": "MOB"
+                                          },
+                                          "Address": {
+                                            "Address_Line_1": "Casino Towers",
+                                            "Address_Line_2": "Level 33, 151 George Street",
+                                            "Suburb": "Brisbane",
+                                            "State": "QLD",
+                                            "Postcode": "4000",
+                                            "Is_Current": "true",
+                                            "Residential_Type": "Apartment",
+                                            "Residential_Status": "Owned",
+                                            "Time_At_Address_Months": "19"
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "V_Unique_Contact_Methods": {
+                                      "V_Unique_Contact_Method": [
+                                        {
+                                          "V_Unique_Contact_Other": {
+                                            "V_Unique_Contact_Value": "+61488853631",
+                                            "V_Unique_Contact_Type": "MOB"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
+                                },
+                                "Contact_Methods": {
+                                  "Contact_Method": [
+                                    {
+                                      "Contact_Other": {
+                                        "Contact_Type": "mobile",
+                                        "Contact_Value": "+61488853631",
+                                        "V_Contact_Value": "+61488853631",
+                                        "V_Contact_Type": "MOB"
+                                      },
+                                      "Address": {
+                                        "Address_Line_1": "Aurora Tower",
+                                        "Address_Line_2": "Level 69, 420 Queen Street",
+                                        "Suburb": "Brisbane",
+                                        "State": "QLD",
+                                        "Postcode": "4000",
+                                        "Is_Current": "false"
+                                      }
+                                    }
+                                  ]
+                                },
+                                "V_Unique_Contact_Methods": {
+                                  "V_Unique_Contact_Method": [
+                                    {
+                                      "V_Unique_Contact_Other": {
+                                        "V_Unique_Contact_Value": "+61488853631",
+                                        "V_Unique_Contact_Type": "MOB"
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          },
+                          "Proof_Of_Identity": {
+                            "Identification": [
+                              {
+                                "Type": "driver licence",
+                                "Document_ID": "084859805",
+                                "Issuer": "Queensland Government",
+                                "Date_Expiry": "2029-01-06",
+                                "Date_Issue": "2019-01-06",
+                                "File_Name": "rhoades-driver-licence.pdf",
+                                "Is_Current": "true"
+                              }
+                            ]
+                          }
                         },
-                        "Proof_Of_Identity": {
-                          "Identification": [
+                        "Application": {
+                          "Application_Date": "2016-08-10",
+                          "Interest_Rate": 20,
+                          "Repayment_Amount": 200,
+                          "Fees": 100,
+                          "Type": "Personal Loan",
+                          "Amount": 1000,
+                          "Reason": "Book purchase",
+                          "Repayment_Cycle": "weekly",
+                          "Repayment_Count": "7",
+                          "Description": "Purchase of first-edition 'The Second World War' six-volume series by Winston Churchill"
+                        },
+                        "Buyer_Data": {
+                          "LM_SaleDT": "2017-01-06 17:22:48.4700000",
+                          "Lead_Price": 50,
+                          "CS_AppCompleted_DT": "2017-01-06 17:21:54.2600000",
+                          "Lead_ID": 5824,
+                          "CS_App_ID": 1577797,
+                          "Winning_Bid_ID": 312,
+                          "Sale_Base_Amount": 50,
+                          "Sale_Base_Amount_Tax": 5,
+                          "Sale_Trade_Comm_Amount": 7.5,
+                          "Sale_Trade_Comm_Amount_Tax": 0.75,
+                          "Sale_Net_Amount": 63.25,
+                          "Sale_Currency": "AUD",
+                          "Buyer_Token": "pC81HjJmiTKJ3stwVu7a"
+                        },
+                        "Custom_Data": {
+                          "Your_Question_Here": "An example answer"
+                        },
+                        "Decision_Points": {
+                          "Decision_Point": [
                             {
-                              "Type": "driver licence",
-                              "Document_ID": "084859805",
-                              "Issuer": "Queensland Government",
-                              "Date_Expiry": "2029-01-06",
-                              "Date_Issue": "2019-01-06",
-                              "File_Name": "rhoades-driver-licence.pdf",
-                              "Is_Current": "true"
+                              "ID": 101,
+                              "Name": "customerAge",
+                              "Score_DT": "1980-01-01 00:00:00.0000000",
+                              "Score": 50
                             }
                           ]
                         }
-                      },
-                      "Application": {
-                        "Application_Date": "2016-08-10",
-                        "Interest_Rate": 20,
-                        "Repayment_Amount": 200,
-                        "Fees": 100,
-                        "Type": "Personal Loan",
-                        "Amount": 1000,
-                        "Reason": "Book purchase",
-                        "Repayment_Cycle": "weekly",
-                        "Repayment_Count": "7",
-                        "Description": "Purchase of first-edition 'The Second World War' six-volume series by Winston Churchill"
-                      },
-                      "Buyer_Data": {
-                        "LM_SaleDT": "2017-01-06 17:22:48.4700000",
-                        "Lead_Price": 50,
-                        "CS_AppCompleted_DT": "2017-01-06 17:21:54.2600000",
-                        "Lead_ID": 5824,
-                        "CS_App_ID": 1577797,
-                        "Winning_Bid_ID": 312,
-                        "Sale_Base_Amount": 50,
-                        "Sale_Base_Amount_Tax": 5,
-                        "Sale_Trade_Comm_Amount": 7.5,
-                        "Sale_Trade_Comm_Amount_Tax": 0.75,
-                        "Sale_Net_Amount": 63.25,
-                        "Sale_Currency": "AUD",
-                        "Buyer_Token": "pC81HjJmiTKJ3stwVu7a"
-                      },
-                      "Custom_Data": {
-                        "Your_Question_Here": "An example answer"
-                      },
-                      "Decision_Points": {
-                        "Decision_Point": [
-                          {
-                            "ID": 101,
-                            "Name": "customerAge",
-                            "Score_DT": "1980-01-01 00:00:00.0000000",
-                            "Score": 50
-                          }
-                        ]
                       }
                     }
                   },
                   "Seller example": {
                     "value": {
-                      "Applicant": {
-                        "Applicant_Type": "Primary",
-                        "References": {
-                          "Reference": [
-                            {
-                              "Relationship_Type": "Previous employer",
-                              "Known_Applicant_Years": "3",
-                              "Person_Other": {
-                                "Title": "Mr",
-                                "Date_Of_Birth": "1975-07-17",
-                                "Last_Name": "Rhoades",
-                                "Middle_Names": "Chuck",
-                                "First_Name": "Charles",
-                                "Gender": "M",
-                                "Contact_Methods": {
-                                  "Contact_Method": [
-                                    {
-                                      "Contact_Other": {
-                                        "Contact_Type": "mobile",
-                                        "Contact_Value": "+61488853631",
-                                        "V_Contact_Value": "+61488853631",
-                                        "V_Contact_Type": "MOB"
-                                      },
-                                      "Address": {
-                                        "Address_Line_1": "Aurora Tower",
-                                        "Address_Line_2": "Level 69, 420 Queen Street",
-                                        "Suburb": "Brisbane",
-                                        "State": "QLD",
-                                        "Postcode": "4000",
-                                        "Is_Current": "true",
-                                        "Residential_Type": "Apartment",
-                                        "Residential_Status": "Renting",
-                                        "Time_At_Address_Months": "36"
-                                      }
-                                    }
-                                  ]
-                                },
-                                "V_Unique_Contact_Methods": {
-                                  "V_Unique_Contact_Method": [
-                                    {
-                                      "V_Unique_Contact_Other": {
-                                        "V_Unique_Contact_Value": "+61488853631",
-                                        "V_Unique_Contact_Type": "MOB"
-                                      }
-                                    }
-                                  ]
-                                }
-                              }
-                            }
-                          ]
-                        },
-                        "Financials": {
-                          "Financial": [
-                            {
-                              "Detailed_Income": {
-                                "Source": "Axe Capital",
-                                "Type": "Full-time",
-                                "Frequency": "weekly",
-                                "Description": "This is the customer's primary income",
-                                "Net_Amount": 2000,
-                                "Gross_Amount": 3000,
-                                "Is_Current": "false",
-                                "Start_Date": "2016-01-01",
-                                "End_Date": "2020-08-26"
-                              },
-                              "Detailed_Liability": {
-                                "Type": "once-off",
-                                "Frequency": "monthly",
-                                "Frequency_Amount": 100,
-                                "Balance": 1000,
-                                "Start_Date": "2019-08-24",
-                                "Estimated_End_Date": "2019-08-24",
-                                "Description": "Personal Loan"
-                              },
-                              "Summary_Income": {
-                                "Net_Amount": "2000",
-                                "Gross_Amount": "3000",
-                                "Frequency": "weekly"
-                              },
-                              "Summary_Liability": {
-                                "Amount": "100",
-                                "Frequency": "monthly"
-                              }
-                            }
-                          ]
-                        },
-                        "Bank_Accounts": {
-                          "Bank_Account": [
-                            {
-                              "Account_Number": "17012016",
-                              "Account_Name": "Super Saver",
-                              "Bank_Name": "Mason Capital Savings and Loan",
-                              "Account_Type": "Savings",
-                              "BSB": "440003",
-                              "Balance": "10000",
-                              "Age_Of_Account": "4"
-                            }
-                          ]
-                        },
-                        "Person_Applicant": {
-                          "Title": "Ms",
-                          "Date_Of_Birth": "1978-02-11",
-                          "Last_Name": "Rhoades",
-                          "Middle_Names": "Chuck",
-                          "First_Name": "Wendy",
-                          "Gender": "F",
-                          "Dependents": "2",
-                          "Marital_Status": "Separated",
-                          "Can_Provide_Guarantor": "true",
-                          "Contact_Methods": {
-                            "Contact_Method": [
+                      "Warnings": [],
+                      "Success": true,
+                      "Data": {
+                        "Applicant": {
+                          "Applicant_Type": "Primary",
+                          "References": {
+                            "Reference": [
                               {
-                                "Contact_Other": {
-                                  "Contact_Type": "mobile",
-                                  "Contact_Value": "+61488853631",
-                                  "V_Contact_Value": "+61488853631",
-                                  "V_Contact_Type": "MOB"
-                                },
-                                "Address": {
-                                  "Address_Line_1": "Aurora Tower",
-                                  "Address_Line_2": "Level 69, 420 Queen Street",
-                                  "Suburb": "Brisbane",
-                                  "State": "QLD",
-                                  "Postcode": "4000",
-                                  "Is_Current": "false",
-                                  "Residential_Type": "Apartment",
-                                  "Residential_Status": "Renting",
-                                  "Time_At_Address_Months": "36"
-                                }
-                              }
-                            ]
-                          },
-                          "V_Unique_Contact_Methods": {
-                            "V_Unique_Contact_Method": [
-                              {
-                                "V_Unique_Contact_Other": {
-                                  "V_Unique_Contact_Value": "+61488853631",
-                                  "V_Unique_Contact_Type": "MOB"
-                                }
-                              }
-                            ]
-                          }
-                        },
-                        "Employment_History": {
-                          "Employment": [
-                            {
-                              "Is_Current": "true",
-                              "Employment_Type": "Contract",
-                              "Occupation": "Performance Coach",
-                              "Working_Hours_Weekly": "40",
-                              "Organisation_Name": "Axe Captial",
-                              "Start_Date": "2015-02-14",
-                              "End_Date": "2020-08-28",
-                              "Employment_Contacts": {
+                                "Relationship_Type": "Previous employer",
+                                "Known_Applicant_Years": "3",
                                 "Person_Other": {
                                   "Title": "Mr",
-                                  "Date_Of_Birth": "1977-04-12",
-                                  "Last_Name": "Axelrod",
-                                  "First_Name": "Bobby",
+                                  "Date_Of_Birth": "1975-07-17",
+                                  "Last_Name": "Rhoades",
+                                  "Middle_Names": "Chuck",
+                                  "First_Name": "Charles",
                                   "Gender": "M",
                                   "Contact_Methods": {
                                     "Contact_Method": [
@@ -1028,15 +889,15 @@
                                           "V_Contact_Type": "MOB"
                                         },
                                         "Address": {
-                                          "Address_Line_1": "Casino Towers",
-                                          "Address_Line_2": "Level 33, 151 George Street",
+                                          "Address_Line_1": "Aurora Tower",
+                                          "Address_Line_2": "Level 69, 420 Queen Street",
                                           "Suburb": "Brisbane",
                                           "State": "QLD",
                                           "Postcode": "4000",
                                           "Is_Current": "true",
                                           "Residential_Type": "Apartment",
-                                          "Residential_Status": "Owned",
-                                          "Time_At_Address_Months": "19"
+                                          "Residential_Status": "Renting",
+                                          "Time_At_Address_Months": "36"
                                         }
                                       }
                                     ]
@@ -1052,76 +913,223 @@
                                     ]
                                   }
                                 }
-                              },
-                              "Contact_Methods": {
-                                "Contact_Method": [
-                                  {
-                                    "Contact_Other": {
-                                      "Contact_Type": "mobile",
-                                      "Contact_Value": "+61488853631",
-                                      "V_Contact_Value": "+61488853631",
-                                      "V_Contact_Type": "MOB"
-                                    },
-                                    "Address": {
-                                      "Address_Line_1": "Aurora Tower",
-                                      "Address_Line_2": "Level 69, 420 Queen Street",
-                                      "Suburb": "Brisbane",
-                                      "State": "QLD",
-                                      "Postcode": "4000",
-                                      "Is_Current": "false"
-                                    }
-                                  }
-                                ]
-                              },
-                              "V_Unique_Contact_Methods": {
-                                "V_Unique_Contact_Method": [
-                                  {
-                                    "V_Unique_Contact_Other": {
-                                      "V_Unique_Contact_Value": "+61488853631",
-                                      "V_Unique_Contact_Type": "MOB"
-                                    }
-                                  }
-                                ]
                               }
+                            ]
+                          },
+                          "Financials": {
+                            "Financial": [
+                              {
+                                "Detailed_Income": {
+                                  "Source": "Axe Capital",
+                                  "Type": "Full-time",
+                                  "Frequency": "weekly",
+                                  "Description": "This is the customer's primary income",
+                                  "Net_Amount": 2000,
+                                  "Gross_Amount": 3000,
+                                  "Is_Current": "false",
+                                  "Start_Date": "2016-01-01",
+                                  "End_Date": "2020-08-26"
+                                },
+                                "Detailed_Liability": {
+                                  "Type": "once-off",
+                                  "Frequency": "monthly",
+                                  "Frequency_Amount": 100,
+                                  "Balance": 1000,
+                                  "Start_Date": "2019-08-24",
+                                  "Estimated_End_Date": "2019-08-24",
+                                  "Description": "Personal Loan"
+                                },
+                                "Summary_Income": {
+                                  "Net_Amount": "2000",
+                                  "Gross_Amount": "3000",
+                                  "Frequency": "weekly"
+                                },
+                                "Summary_Liability": {
+                                  "Amount": "100",
+                                  "Frequency": "monthly"
+                                }
+                              }
+                            ]
+                          },
+                          "Bank_Accounts": {
+                            "Bank_Account": [
+                              {
+                                "Account_Number": "17012016",
+                                "Account_Name": "Super Saver",
+                                "Bank_Name": "Mason Capital Savings and Loan",
+                                "Account_Type": "Savings",
+                                "BSB": "440003",
+                                "Balance": "10000",
+                                "Age_Of_Account": "4"
+                              }
+                            ]
+                          },
+                          "Person_Applicant": {
+                            "Title": "Ms",
+                            "Date_Of_Birth": "1978-02-11",
+                            "Last_Name": "Rhoades",
+                            "Middle_Names": "Chuck",
+                            "First_Name": "Wendy",
+                            "Gender": "F",
+                            "Dependents": "2",
+                            "Marital_Status": "Separated",
+                            "Can_Provide_Guarantor": "true",
+                            "Contact_Methods": {
+                              "Contact_Method": [
+                                {
+                                  "Contact_Other": {
+                                    "Contact_Type": "mobile",
+                                    "Contact_Value": "+61488853631",
+                                    "V_Contact_Value": "+61488853631",
+                                    "V_Contact_Type": "MOB"
+                                  },
+                                  "Address": {
+                                    "Address_Line_1": "Aurora Tower",
+                                    "Address_Line_2": "Level 69, 420 Queen Street",
+                                    "Suburb": "Brisbane",
+                                    "State": "QLD",
+                                    "Postcode": "4000",
+                                    "Is_Current": "false",
+                                    "Residential_Type": "Apartment",
+                                    "Residential_Status": "Renting",
+                                    "Time_At_Address_Months": "36"
+                                  }
+                                }
+                              ]
+                            },
+                            "V_Unique_Contact_Methods": {
+                              "V_Unique_Contact_Method": [
+                                {
+                                  "V_Unique_Contact_Other": {
+                                    "V_Unique_Contact_Value": "+61488853631",
+                                    "V_Unique_Contact_Type": "MOB"
+                                  }
+                                }
+                              ]
                             }
-                          ]
+                          },
+                          "Employment_History": {
+                            "Employment": [
+                              {
+                                "Is_Current": "true",
+                                "Employment_Type": "Contract",
+                                "Occupation": "Performance Coach",
+                                "Working_Hours_Weekly": "40",
+                                "Organisation_Name": "Axe Captial",
+                                "Start_Date": "2015-02-14",
+                                "End_Date": "2020-08-28",
+                                "Employment_Contacts": {
+                                  "Person_Other": {
+                                    "Title": "Mr",
+                                    "Date_Of_Birth": "1977-04-12",
+                                    "Last_Name": "Axelrod",
+                                    "First_Name": "Bobby",
+                                    "Gender": "M",
+                                    "Contact_Methods": {
+                                      "Contact_Method": [
+                                        {
+                                          "Contact_Other": {
+                                            "Contact_Type": "mobile",
+                                            "Contact_Value": "+61488853631",
+                                            "V_Contact_Value": "+61488853631",
+                                            "V_Contact_Type": "MOB"
+                                          },
+                                          "Address": {
+                                            "Address_Line_1": "Casino Towers",
+                                            "Address_Line_2": "Level 33, 151 George Street",
+                                            "Suburb": "Brisbane",
+                                            "State": "QLD",
+                                            "Postcode": "4000",
+                                            "Is_Current": "true",
+                                            "Residential_Type": "Apartment",
+                                            "Residential_Status": "Owned",
+                                            "Time_At_Address_Months": "19"
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "V_Unique_Contact_Methods": {
+                                      "V_Unique_Contact_Method": [
+                                        {
+                                          "V_Unique_Contact_Other": {
+                                            "V_Unique_Contact_Value": "+61488853631",
+                                            "V_Unique_Contact_Type": "MOB"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
+                                },
+                                "Contact_Methods": {
+                                  "Contact_Method": [
+                                    {
+                                      "Contact_Other": {
+                                        "Contact_Type": "mobile",
+                                        "Contact_Value": "+61488853631",
+                                        "V_Contact_Value": "+61488853631",
+                                        "V_Contact_Type": "MOB"
+                                      },
+                                      "Address": {
+                                        "Address_Line_1": "Aurora Tower",
+                                        "Address_Line_2": "Level 69, 420 Queen Street",
+                                        "Suburb": "Brisbane",
+                                        "State": "QLD",
+                                        "Postcode": "4000",
+                                        "Is_Current": "false"
+                                      }
+                                    }
+                                  ]
+                                },
+                                "V_Unique_Contact_Methods": {
+                                  "V_Unique_Contact_Method": [
+                                    {
+                                      "V_Unique_Contact_Other": {
+                                        "V_Unique_Contact_Value": "+61488853631",
+                                        "V_Unique_Contact_Type": "MOB"
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          },
+                          "Proof_Of_Identity": {
+                            "Identification": [
+                              {
+                                "Type": "driver licence",
+                                "Document_ID": "084859805",
+                                "Issuer": "Queensland Government",
+                                "Date_Expiry": "2029-01-06",
+                                "Date_Issue": "2019-01-06",
+                                "File_Name": "rhoades-driver-licence.pdf",
+                                "Is_Current": "true"
+                              }
+                            ]
+                          }
                         },
-                        "Proof_Of_Identity": {
-                          "Identification": [
-                            {
-                              "Type": "driver licence",
-                              "Document_ID": "084859805",
-                              "Issuer": "Queensland Government",
-                              "Date_Expiry": "2029-01-06",
-                              "Date_Issue": "2019-01-06",
-                              "File_Name": "rhoades-driver-licence.pdf",
-                              "Is_Current": "true"
-                            }
-                          ]
+                        "Application": {
+                          "Application_Date": "2016-08-10",
+                          "Interest_Rate": 20,
+                          "Repayment_Amount": 200,
+                          "Fees": 100,
+                          "Type": "Personal Loan",
+                          "Amount": 1000,
+                          "Reason": "Book purchase",
+                          "Repayment_Cycle": "weekly",
+                          "Repayment_Count": "7",
+                          "Description": "Purchase of first-edition 'The Second World War' six-volume series by Winston Churchill"
+                        },
+                        "Seller_Data": {
+                          "Client_Authority": true,
+                          "Customer_Authority": true,
+                          "Customer_Authority_Type": "Implicit",
+                          "CS_App_ID": 18200557,
+                          "Use_MLM_Flow": true,
+                          "Lead_ID": 5824,
+                          "Lead_Token": "F16WeC",
+                          "Lead_Reference": "NYCAG2018",
+                          "Credit_Authority_Enquiry_Number": 7671338561
                         }
-                      },
-                      "Application": {
-                        "Application_Date": "2016-08-10",
-                        "Interest_Rate": 20,
-                        "Repayment_Amount": 200,
-                        "Fees": 100,
-                        "Type": "Personal Loan",
-                        "Amount": 1000,
-                        "Reason": "Book purchase",
-                        "Repayment_Cycle": "weekly",
-                        "Repayment_Count": "7",
-                        "Description": "Purchase of first-edition 'The Second World War' six-volume series by Winston Churchill"
-                      },
-                      "Seller_Data": {
-                        "Client_Authority": true,
-                        "Customer_Authority": true,
-                        "Customer_Authority_Type": "Implicit",
-                        "CS_App_ID": 18200557,
-                        "Use_MLM_Flow": true,
-                        "Lead_ID": 5824,
-                        "Lead_Token": "F16WeC",
-                        "Lead_Reference": "NYCAG2018",
-                        "Credit_Authority_Enquiry_Number": 7671338561
                       }
                     }
                   }
@@ -1225,8 +1233,7 @@
             "in": "header",
             "name": "Content-Type",
             "description": "Indicates the type of data being sent.",
-            "required": true,
-            "default": "application/json"
+            "required": true
           }
         ]
       }
@@ -1241,7 +1248,7 @@
           "in": "path",
           "required": true,
           "description": "The unique key that identifies your account.",
-          "default": "your-api-key-goes-here"
+          "example": "your-api-key-goes-here"
         }
       ],
       "post": {
@@ -1399,8 +1406,7 @@
             "in": "header",
             "name": "Content-Type",
             "description": "Indicates the type of data being sent.",
-            "required": true,
-            "default": "application/json"
+            "required": true
           }
         ],
         "description": "**This endpoint is deprecated. Use [`/application/single`](#operation/post-application-single) instead.**\n\n### Overview\nAdd a lead to Lead Market.\n\nReasons to use this endpoint:\n- Create a disengaged lead and push it into the market for sale.\n- Pass in lead details for an engaged lead that will be retrieved when the lead is pushed into the market.\n\n### Error codes\n\n| Error code | Type                 | Description                                                         |\n|------------|----------------------|---------------------------------------------------------------------|\n| 2          | Input Error          | Either required fields were missing or invalid fields were provided |\n| 3          | Data Error           | There was an error caused by the value provided for a field         |\n| 4          | Authentication Error | The provided Lead Market API Key and Token are incorrect            |",
@@ -1612,8 +1618,7 @@
             "in": "header",
             "name": "Content-Type",
             "description": "Indicates the type of data being sent.",
-            "required": true,
-            "default": "application/json"
+            "required": true
           }
         ],
         "requestBody": {
@@ -1674,7 +1679,7 @@
           "in": "path",
           "required": true,
           "description": "The unique key that identifies your account.",
-          "default": "your-api-key-goes-here"
+          "example": "your-api-key-goes-here"
         }
       ],
       "post": {
@@ -1696,10 +1701,11 @@
                     "success": {
                       "type": "boolean",
                       "description": "Denotes whether the lead was successfully changed to the requested status.",
-                      "default": "true"
+                      "default": true
                     },
                     "data": {
-                      "type": "null"
+                      "type": "object",
+                      "nullable": true
                     }
                   },
                   "required": [
@@ -1750,8 +1756,7 @@
                     "success",
                     "data"
                   ]
-                },
-                "examples": {}
+                }
               }
             }
           },
@@ -1808,8 +1813,7 @@
             "in": "header",
             "name": "Content-Type",
             "description": "Indicates the type of data being sent.",
-            "required": true,
-            "default": "application/json"
+            "required": true
           }
         ],
         "description": "### Overview\nProvide status updates for leads you've bought.\n\nReasons to use this endpoint:\n- Tell us when a lead has completed your application and whether they were funded or declined to benefit from rich reporting in the [Lead Market dashboard](https://admin.leadmarketonline.com/Reports).\n\n### Error codes\n\n| Error code | Type                 | Description                                                         |\n|------------|----------------------|---------------------------------------------------------------------|\n| 2          | Input Error          | Either required fields were missing or invalid fields were provided |\n| 3          | Data Error           | There was an error caused by the value provided for a field         |\n| 4          | Authentication Error | The provided Lead Market API Key and Token are incorrect            |",
@@ -2270,8 +2274,7 @@
             "in": "header",
             "name": "Content-Type",
             "description": "Indicates the type of data being sent.",
-            "required": true,
-            "default": "application/json"
+            "required": true
           },
           {
             "schema": {
@@ -2376,8 +2379,12 @@
                       "example": "5"
                     },
                     "errors": {
-                      "type": "null",
-                      "description": ""
+                      "description": "",
+                      "type": "array",
+                      "nullable": true,
+                      "items": {
+                        "type": "object"
+                      }
                     },
                     "data": {
                       "type": "array",
@@ -2498,7 +2505,11 @@
                       }
                     },
                     "data": {
-                      "type": "null"
+                      "type": "array",
+                      "nullable": true,
+                      "items": {
+                        "type": "object"
+                      }
                     }
                   },
                   "required": [
@@ -2787,8 +2798,7 @@
             "in": "header",
             "name": "Content-Type",
             "description": "Indicates the type of data being sent.",
-            "required": true,
-            "default": "application/json"
+            "required": true
           },
           {
             "schema": {
@@ -2853,8 +2863,12 @@
                       "example": "5"
                     },
                     "errors": {
-                      "type": "null",
-                      "description": ""
+                      "description": "",
+                      "type": "array",
+                      "nullable": true,
+                      "items": {
+                        "type": "object"
+                      }
                     },
                     "data": {
                       "type": "object",
@@ -2967,7 +2981,11 @@
                       }
                     },
                     "data": {
-                      "type": "null"
+                      "type": "array",
+                      "nullable": true,
+                      "items": {
+                        "type": "object"
+                      }
                     }
                   },
                   "required": [
@@ -3257,8 +3275,7 @@
             "in": "header",
             "name": "Content-Type",
             "description": "Indicates the type of data being sent.",
-            "required": true,
-            "default": "application/json"
+            "required": true
           },
           {
             "schema": {
@@ -3321,7 +3338,11 @@
                     },
                     "errors": {
                       "description": "",
-                      "type": "null"
+                      "type": "array",
+                      "nullable": true,
+                      "items": {
+                        "type": "object"
+                      }
                     },
                     "data": {
                       "type": "array",
@@ -3433,7 +3454,11 @@
                       }
                     },
                     "data": {
-                      "type": "null"
+                      "type": "array",
+                      "nullable": true,
+                      "items": {
+                        "type": "object"
+                      }
                     }
                   },
                   "required": [
@@ -3723,8 +3748,7 @@
             "in": "header",
             "name": "Content-Type",
             "description": "Indicates the type of data being sent.",
-            "required": true,
-            "default": "application/json"
+            "required": true
           },
           {
             "schema": {
@@ -3799,8 +3823,12 @@
                       "example": "5"
                     },
                     "errors": {
-                      "type": "null",
-                      "description": ""
+                      "description": "",
+                      "type": "array",
+                      "nullable": true,
+                      "items": {
+                        "type": "object"
+                      }
                     },
                     "data": {
                       "type": "array",
@@ -3968,7 +3996,11 @@
                       }
                     },
                     "data": {
-                      "type": "null"
+                      "type": "array",
+                      "nullable": true,
+                      "items": {
+                        "type": "object"
+                      }
                     }
                   },
                   "required": [
@@ -4257,8 +4289,7 @@
             "in": "header",
             "name": "Content-Type",
             "description": "Indicates the type of data being sent.",
-            "required": true,
-            "default": "application/json"
+            "required": true
           },
           {
             "schema": {
@@ -4425,8 +4456,12 @@
                       "example": "5"
                     },
                     "errors": {
-                      "type": "null",
-                      "description": ""
+                      "description": "",
+                      "type": "array",
+                      "nullable": true,
+                      "items": {
+                        "type": "object"
+                      }
                     },
                     "data": {
                       "type": "array",
@@ -4618,7 +4653,11 @@
                       }
                     },
                     "data": {
-                      "type": "null"
+                      "type": "array",
+                      "nullable": true,
+                      "items": {
+                        "type": "object"
+                      }
                     }
                   },
                   "required": [
@@ -4907,8 +4946,7 @@
             "in": "header",
             "name": "Content-Type",
             "description": "Indicates the type of data being sent.",
-            "required": true,
-            "default": "application/json"
+            "required": true
           },
           {
             "schema": {
@@ -5093,8 +5131,12 @@
                       "example": "5"
                     },
                     "errors": {
-                      "type": "null",
-                      "description": ""
+                      "description": "",
+                      "type": "array",
+                      "nullable": true,
+                      "items": {
+                        "type": "object"
+                      }
                     },
                     "data": {
                       "type": "array",
@@ -5134,7 +5176,7 @@
             }
           },
           "207": {
-            "description": "Multi-Status (WebDAV)",
+            "description": "Multi-Status",
             "content": {
               "application/json": {
                 "schema": {
@@ -5311,7 +5353,11 @@
                       }
                     },
                     "data": {
-                      "type": "null"
+                      "type": "array",
+                      "nullable": true,
+                      "items": {
+                        "type": "object"
+                      }
                     }
                   },
                   "required": [
@@ -5600,8 +5646,7 @@
             "in": "header",
             "name": "Content-Type",
             "description": "Indicates the type of data being sent.",
-            "required": true,
-            "default": "application/json"
+            "required": true
           },
           {
             "schema": {
