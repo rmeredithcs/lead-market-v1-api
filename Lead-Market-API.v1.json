@@ -3763,11 +3763,11 @@
           {
             "schema": {
               "type": "string",
-              "example": "[{\"firstName\":\"Bryan\",\"lastName\":\"Connerty\",\"dob\":\"1968-08-08\"}]"
+              "example": "4000"
             },
             "in": "query",
             "name": "values",
-            "description": "**Emails**, **Mobiles**, **Postcodes**: comma separated values. **First name + last name + date of birth**: a JSON array of objects."
+            "description": "**Emails**, **Mobiles**, **Postcodes**: comma separated values. **First name + last name + date of birth**: a JSON array of objects (e.g. `values=[{\"firstName\":\"Bryan\",\"lastName\":\"Connerty\",\"dob\":\"1968-08-08\"}]`)."
           },
           {
             "schema": {
@@ -4313,11 +4313,6 @@
                 "items": {
                   "oneOf": [
                     {
-                      "type": "integer",
-                      "example": 4000,
-                      "description": "The value to add to the list (e.g. a mobile/cell number or a postcode/zip code)."
-                    },
-                    {
                       "type": "string",
                       "example": "+61488853631",
                       "description": "The value to add to the list (e.g. a mobile/cell number, an email address, or a postcode/zip code)."
@@ -4327,11 +4322,6 @@
                       "properties": {
                         "value": {
                           "oneOf": [
-                            {
-                              "type": "integer",
-                              "description": "The value to add to the list (e.g. a mobile/cell number or a postcode/zip code).",
-                              "example": 4000
-                            },
                             {
                               "type": "string",
                               "example": "+61488853631",
@@ -4393,9 +4383,9 @@
                 },
                 "Postcodes/zip codes": {
                   "value": [
-                    4000,
-                    4001,
-                    4006
+                    "4000",
+                    "4001",
+                    "4006"
                   ]
                 },
                 "Name + DOB with expiry dates": {
@@ -4965,16 +4955,7 @@
             },
             "in": "query",
             "name": "value",
-            "description": "**Email**: a sting value. **Mobile/cell number** or **postcode/zip code**: a sting or integer value."
-          },
-          {
-            "schema": {
-              "type": "string",
-              "example": "{\"firstName\":\"Bryan\",\"lastName\":\"Connerty\",\"dob\":\"1968-08-08\"}"
-            },
-            "in": "query",
-            "name": "values",
-            "description": "**First name + last name + date of birth**: a JSON object."
+            "description": "**Email**, **mobile/cell number** or **postcode/zip code**: a sting value. **First name + last name + date of birth**: a JSON object (e.g. `value={\"firstName\":\"Chuck\",\"lastName\":\"Rhoades\",\"dob\":\"1952-11-22\"}`)."
           }
         ],
         "tags": [
@@ -4988,11 +4969,6 @@
                 "items": {
                   "oneOf": [
                     {
-                      "type": "integer",
-                      "example": 4000,
-                      "description": "The value to update on the list (e.g. a mobile/cell number or a postcode/zip code)."
-                    },
-                    {
                       "type": "string",
                       "example": "+61488853631",
                       "description": "The value to update on the list (e.g. a mobile/cell number, an email address, or a postcode/zip code)."
@@ -5002,11 +4978,6 @@
                       "properties": {
                         "value": {
                           "oneOf": [
-                            {
-                              "type": "integer",
-                              "description": "The value to update on the list (e.g. a mobile/cell number or a postcode/zip code).",
-                              "example": 4000
-                            },
                             {
                               "type": "string",
                               "example": "+61488853631",
@@ -5068,9 +5039,9 @@
                 },
                 "Postcodes/zip codes": {
                   "value": [
-                    4000,
-                    4001,
-                    4006
+                    "4000",
+                    "4001",
+                    "4006"
                   ]
                 },
                 "Name + DOB with expiry dates": {
@@ -5661,11 +5632,11 @@
           {
             "schema": {
               "type": "string",
-              "example": "[{\"firstName\":\"Ira\",\"lastName\":\"Schirmer\",\"dob\":\"1973-12-27\"}]"
+              "example": "4000,4001"
             },
             "in": "query",
             "name": "values",
-            "description": "**Emails**, **mobiles/cell numbers**, **postcodes/zip codes**: comma separated values. **First name + last name + date of birth**: a JSON array of objects."
+            "description": "**Emails**, **mobiles/cell numbers**, **postcodes/zip codes**: comma separated values. **First name + last name + date of birth**: a JSON array of objects (e.g. `values=[{\"firstName\":\"Ira\",\"lastName\":\"Schirmer\",\"dob\":\"1973-12-27\"}]`)."
           },
           {
             "schema": {
